@@ -15,103 +15,12 @@ html,body {
 </head>
 <body>
 
+hodehode
+
 <!-- Scripts Start -->
 <script type="text/javascript" src="./common/js/lib/pixi.min.js"></script>
 <script type="text/javascript">
 
-function onLoad(){
-
-    var pts = [];
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight,{antialias:true,backgroundColor : 0x000000});
-    document.body.appendChild(renderer.view);
-    var stage = new PIXI.Container();
-    var top = 0;
-    var right = window.innerWidth;
-    var bottom = window.innerHeight;
-    var left = 0;
-    var radius = 5;
-    var points = 3000;
-    var g = new PIXI.Graphics();
-
-    function init() {
-
-        for (var i = 0; i < points; i++) {
-
-            var pt = {};
-
-            pt.x = Math.random() * 500;
-            pt.y = Math.random() * 500;
-            pt.vx = 10 * Math.random();
-            pt.vy = 10 * Math.random();
-
-            g.beginFill(0xff0022);
-            g.drawCircle(pt.x,pt.y,radius);
-            g.endFill();
-
-            pts.push(pt);
-            
-        }
-
-        stage.addChild(g);
-
-    }
-
-    function update() {
-
-        g.clear();
-        
-
-        for (var i = 0; i < points; i++) {
-
-            var pt = pts[i];
-            
-            pt.x += pt.vx;
-            pt.y += pt.vy;
-
-            if(pt.x + radius > right) {
-                pt.x = right - radius;
-                pt.vx *= -1;
-            } else if(pt.x - radius < left) {
-                pt.x = left + radius;
-                pt.vx *= -1;
-            }
-
-            if(pt.y + radius > bottom ){
-                pt.y = bottom - radius;
-                pt.vy *= -1;
-            } else if(pt.y - radius < top) {
-                pt.y = top + radius;
-                pt.vy *= -1;
-            }
-        
-            g.beginFill(0xff0022);    
-            g.drawCircle(pt.x,pt.y,radius);
-            g.endFill();
-
-        }  
-
-    }
-
-    function animate() {
-
-        update();
-        renderer.render(stage);
-
-        requestAnimationFrame(animate);
-    }
-
-    function main() {
-
-        init();
-        animate();
-
-    }
-
-    main();
-
-}
-
-window.addEventListener('load',onLoad,false);
 
 </script>
 </body>
