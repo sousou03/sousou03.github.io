@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +10,9 @@
 //  meta
 //
 // ************************************************************ -->
-<title>top</title>
-<meta name="description" content="topdescription">
-<meta name="keywords" content="topkeyword">
+<title>controller</title>
+<meta name="description" content="controllerdescription">
+<meta name="keywords" content="controllerkeyword">
 <meta name="author" content="">
 
 <!-- fb ogp -->    
@@ -95,7 +96,7 @@
 //  style sheet
 //
 // ************************************************************ -->
-<link href="./assets/css/top.css" rel="stylesheet">
+<link href="/assets/css/controller.css" rel="stylesheet">
 <!-- ************************************************************
 //
 //  script
@@ -105,7 +106,7 @@
 <script type='text/javascript' src='/assets/js/common/bundle.js'></script>
 
 
-<script type='text/javascript' src='./assets/js/top.js'></script>
+<!-- <script type='text/javascript' src='./assets/js/top.js'></script> -->
 <!-- ************************************************************
 //
 //  log
@@ -123,69 +124,103 @@
   })();
 </script> -->
 </head>
-<body>
-  <!-- ************************************************************
-//
-//  header
-//
-// ************************************************************ -->
-
-
-<header id="header">
-  <h1 class="logo"><a href="/"><img src="/assets/img/common/logo.png" height="23" width="184" alt=""></a></h1>
-  <div class="barL"></div>
-  <p class="page"></p>
-
-  <div class="ui__menu_btn">
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-</header>
+<body id="controller">
 
   <!-- ************************************************************
   //
-  //  contents
+  //  menu area
   //
   // ************************************************************ -->
-  <div id="contents">
+  <div class="menuArea">
 
-    <div class="ui__menu_btn adjust">
-      <div class="bar"></div>
+    <h1 class="tit">Draw Menu</h1>
+    <div class="exitWrap">
+      <p class="exit">Exit</p>
       <div class="bar"></div>
     </div>
 
-    <div id="topVisual" class="adjust">
-      <p class="tit justify">CHALLENGE THE</p>
-      <p class="tit justify">TECHNOLOGY,</p>
-      <p class="tit justify">AIM TO NEW</p>
-      <p class="tit justify">EXPERIENCE</p>
-      <p class="text">技術に挑み、新しい体験を目指して</p>
-    </div>
+    <ui class="fList">
+      <li><img src="/assets/img/controller/menu01.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu02.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu03.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu04.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu05.png" height="201" width="150" alt=""></li>
+    </ui>
 
-  </div>
+  </div>  
 
   <!-- ************************************************************
-//
-//  menu
-//
-// ************************************************************ -->
-<div class="ui__menu">
-  <ul class="itemWrap adjustH">
-    <li class="item"><a href="/">TOP</a></li>
-    <li class="item"><a href="/about">ABOUT</a></li>
-    <li class="item"><a href="/project">PROJECT</a></li>
-    <li class="item"><a href="/technology">TECHNOLOGY</a></li>
-    <li class="item"><a href="/contact">CONTACT</a></li>
-  </ul>
+  //
+  //  canvas area
+  //
+  // ************************************************************ -->
+  <div class="canvasAreaWrap">
 
-  <div class="ui__menu_btn_c adjustW">
-    <div class="bar"></div>
-    <div class="bar"></div>
+    <div class="canvasArea">
+        <img src="/assets/img/controller/dot.png" height="626" width="626" alt="" class="dot">
+        <img src="/assets/img/controller/scrollArea.png" height="301" width="305" alt="" class="scrollArea">
+    </div>
+
   </div>
-</div>
+
+  <!-- sample -->
+  <img src="../assets/img/controller/touchArea.png" height="626" width="626" alt="" class="touchArea">
 
 <script>
   
+  //--------------------------------------------------
+  //
+  //  template
+  //
+  //--------------------------------------------------
+  $(window).on('load', function(event) {
+  
+    var $target = $('#topVisual');
+    var $targetH = $('');
+    var $targetW = $('.topVisualWrap .barL, .linkBox .bar');
+
+    $('#topVisualWrap').height($(window).height());
+
+  
+    $target.each(function(index, el) {
+      $(this).adjust();
+    });
+    $targetH.each(function(index, el) {
+      $(this).adjustH();
+    });
+    $targetW.each(function(index, el) {
+      $(this).adjustW();
+    });
+
+    function onResize() {
+
+      $target.each(function(index, el) {
+        $(this).adjust();
+      });
+      $targetH.each(function(index, el) {
+        $(this).adjustH();
+      });
+      $targetW.each(function(index, el) {
+        $(this).adjustW();
+      });
+
+    }
+  
+    function setEvents() {
+  
+      $(window).on('resize', onResize);
+      
+    }
+  
+    function main() {
+  
+      setEvents();
+  
+    }
+  
+    main();
+  
+  })
 </script>
 </body>
 </html>

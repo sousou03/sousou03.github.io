@@ -1,0 +1,52 @@
+<% 
+  // variable
+  var ejsRoot = '../inc/'; 
+  var page = 'top'; 
+
+  // get data
+  include(ejsRoot + '_metaData'); var data = getData();
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
+<%- include(ejsRoot + '_style'); %>
+<link href="./assets/css/top.css" rel="stylesheet">
+<%- include(ejsRoot + '_script'); %>
+<script type='text/javascript' src='./assets/js/top.js'></script>
+<%- include(ejsRoot + '_log'); %>
+</head>
+<body>
+  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+
+  <!-- ************************************************************
+  //
+  //  contents
+  //
+  // ************************************************************ -->
+  <div id="contents">
+
+    <div class="ui__menu_btn adjust">
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <div id="topVisual" class="adjust">
+      <p class="tit justify">CHALLENGE THE</p>
+      <p class="tit justify">TECHNOLOGY,</p>
+      <p class="tit justify">AIM TO NEW</p>
+      <p class="tit justify">EXPERIENCE</p>
+      <p class="text">技術に挑み、新しい体験を目指して</p>
+    </div>
+
+  </div>
+
+  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<script>
+  
+</script>
+</body>
+</html>

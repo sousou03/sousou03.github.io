@@ -1,0 +1,39 @@
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
+<%
+var src,pgaeName;
+var p = page || null;
+
+// logo src
+if(p == 'about' || p == 'technology' || p == 'project' || p == 'detail'){
+    src = '/assets/img/common/logo_w.png';
+}else{
+    src = '/assets/img/common/logo.png';
+}
+
+// page name
+if(p == 'about'){
+    pgaeName = 'ABOUT US';
+}else if(p == 'technology'){
+    pgaeName = 'TECHNOLOGY';
+}else if(p == 'project' || p == 'detail'){
+    pgaeName = 'PROJECT';
+}else if(p == 'contact'){
+    pgaeName = 'CONTACT';
+}
+
+%>
+
+<header id="header">
+  <h1 class="logo"><a href="/"><img src="<%= src %>" height="23" width="184" alt=""></a></h1>
+  <div class="barL"></div>
+  <p class="page"><%= pgaeName %></p>
+
+  <div class="ui__menu_btn">
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</header>

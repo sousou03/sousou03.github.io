@@ -1,0 +1,274 @@
+@charset "utf-4";
+
+@import "init/import";
+@import "init/reset"; // リセットCSS、フォントサイズ
+
+@import "base/import"; // 共通css
+
+/* --------------------------------------------------------------------------------
+*
+*   contents
+*
+-------------------------------------------------------------------------------- */
+
+html,body {
+  height: 100%;
+  // background: rgba(63,63,63,.8);
+}
+
+#header {
+  z-index: 1;
+  color: #fff;
+  mix-blend-mode: exclusion;
+  
+  .barL, .bar {background-color: #fff !important;}
+}
+
+#contents {
+  
+  /*
+  *
+  *   top visual
+  *
+  */
+  #topVisualWrap {
+
+    .bg {
+      background: url(/assets/img/about/bg.png) no-repeat;
+      height: 100%;
+      width: 100%;
+      
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    
+    #topVisual {
+      padding: 0 40px;
+      color: #fff;
+      mix-blend-mode: exclusion;
+      
+      width: 100%;
+      box-sizing: border-box;
+      
+      z-index: 2;
+      
+      .tit {
+        @include fz(36);
+        font-weight: 100;
+        @extend %alegsc;
+        
+        letter-spacing: 0.10em;
+        margin-bottom: 25px;
+        
+        text-transform: uppercase;
+
+        // text-align: justify;
+        // text-justify: inter-ideograph;
+      }
+      .tit:nth-of-type(2) {letter-spacing: 0.01em;}
+      .tit:nth-of-type(3) {letter-spacing: 0em;}
+      .tit:nth-of-type(4) {letter-spacing: 0.03em;}
+      .tit:nth-of-type(5) {letter-spacing: 0.05em;}
+
+      .text {
+       @include fz(9);
+       font-weight: 400;
+       @extend %noto;
+       
+       // position: absolute;
+       // bottom: -35px;
+       // left: 44px;
+       letter-spacing: .04em;
+
+      }
+
+    }
+
+    .barL {
+      width: 1px;
+      height: 32px;
+      background-color: #fff;
+      bottom: 115px;
+      position: absolute;
+      left: 50%;
+    }
+
+  }
+
+  /*
+  *
+  *   block
+  *
+  */
+  .block {
+    
+    background: rgba(63,63,63,.8);
+    
+    .tit {
+      padding-top: 45px;
+      padding-left: 25px;
+      margin-bottom: 30px;
+      
+      @include fz(18);
+      font-weight: 300;
+      @extend %aleg;
+      letter-spacing: 0.06em;
+    }
+    
+  }
+
+  /*
+  *
+  *   concept
+  *
+  */
+  #concept {
+
+    color: #fff;
+  
+    .text {
+      padding: 0 40px 30px;
+      
+      @include fz(10);
+      font-weight: 100;
+      @extend %noto;
+      letter-spacing: 0.04em;
+      line-height: 2;
+      
+      text-align: justify;
+      text-justify: inter-ideograph;
+    }
+    .text:last-child {
+      padding-bottom: 45px;
+    }
+    
+  }
+
+  /*
+  *
+  *   member
+  *
+  */
+  #member {
+
+    background: rgba(255,255,255,.8);
+  
+    .box {
+      padding: 0 40px 30px;
+      
+      .photo {
+        float: left;
+      }
+      .detail {
+        padding-left: 160px;
+      }
+
+      .detail .subTit {
+        @include fz(13);
+        font-weight: 500;
+        @extend %noto;
+        letter-spacing: 0em;
+        margin-bottom: 15px;
+      }
+
+      .detail .text {
+        
+        @include fz(9);
+        font-weight: 100;
+        @extend %noto;
+        letter-spacing: 0.04em;
+        line-height: 1.55;
+        
+        text-align: justify;
+        text-justify: inter-ideograph;
+          
+      }
+      
+      .detail .text:nth-of-type(1){
+        
+        margin-bottom: 15px;
+          
+      }
+      
+    }
+    .block:last-child {
+      // padding-bottom: 45px;
+    }
+    
+  }
+
+  /*
+  *
+  *   company
+  *
+  */
+  #company {
+
+    color: #fff;
+  
+    .text {
+      padding: 0 40px 0;
+      
+      @include fz(10);
+      font-weight: 100;
+      @extend %noto;
+      letter-spacing: 0.04em;
+      line-height: 2;
+      
+      text-align: justify;
+      text-justify: inter-ideograph;
+    }
+    
+  }
+
+  /*
+  *
+  *   access
+  *
+  */
+  #access {
+
+    color: #fff;
+    padding-bottom: 60px;
+    
+    .tit {
+      padding-top: 30px;
+    }
+  
+    .text {
+      padding: 0 40px 20px;
+      
+      @include fz(10);
+      font-weight: 100;
+      @extend %noto;
+      letter-spacing: 0.04em;
+      line-height: 2;
+      
+      text-align: justify;
+      text-justify: inter-ideograph;
+    }
+
+    .map {
+      margin-bottom: 30px;
+    }
+
+    .barL {
+      width: 1px;
+      height: 32px;
+      background-color: #fff;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+
+    .linkBox {
+      @include fz(18);
+      
+      .bar {
+        bottom: 33px;        
+      }
+    }
+
+  }
+
+}

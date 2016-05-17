@@ -1,0 +1,163 @@
+<% 
+  // variable
+  var ejsRoot = '../../inc/'; 
+  var page = 'about'; 
+
+  // get data
+  include(ejsRoot + '_metaData'); var data = getData();
+%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
+<%- include(ejsRoot + '_style'); %>
+<link href="/assets/css/about.css" rel="stylesheet">
+<%- include(ejsRoot + '_script'); %>
+<script type='text/javascript' src='/assets/js/about.js'></script>
+<%- include(ejsRoot + '_log'); %>
+</head>
+<body id="about">
+
+  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+
+  <!-- ************************************************************
+  //
+  //  contents
+  //
+  // ************************************************************ -->
+  <div id="contents">
+
+    <!-- ************************************************************
+    //  top visual
+    // ************************************************************ -->
+    <div id="topVisualWrap">
+      <div class="bg">
+        <div id="topVisual" class="adjust">
+          <p class="tit justify">create a new</p>
+          <p class="tit justify">experience in the</p>
+          <p class="tit justify">design and techn</p>
+          <p class="tit justify">−ology of small</p>
+          <p class="tit justify">innovesion</p>
+          <p class="text">デザインとテクノロジーのイノベーションであらたな体験を</p>
+        </div>
+        <div class="barL adjustW"></div>
+      </div>
+    </div>
+
+    <!-- ************************************************************
+    //  concept
+    // ************************************************************ -->
+    <div id="concept" class="block">
+      <h2 class="tit">CONCEPT</h2>
+      <p class="text">
+        世界を変えるようなすごいものじゃなくても、「おもしろい」や「へー」や「くすくす」のためのちょっとした小さなINNOVATIONが沢山あればきっともっと世界は楽しくなる。SONICJAMはそんな小さなINNOVATIONのアイデアをデザインとデジタルの技術で形にするクリエイティブ・ファクトリーです。世界を変えるようなすごいものじゃなくても、「おもしろい」や「へー」や「くすくす」のためのちょっとした小さなINNOVATIONが沢山あればきっともっと世界は楽しくなる。SONICJAMはそんな小さなINNOVATIONのアイデアをデザインとデジタルの技術で形にするクリエイティブ・ファクトリーです。
+      </p>
+      <p class="text">
+        Although they may not drastically change the world in any big way, their small innovations for inspiring "fun", "wow"s, and "giggles" can still make the world a more enjoyable place.SONICJAM is a creative factory for those who possess such innovative ideas via design and technology.Although they may not drastically change the world in any big way, their small innovations for inspiring "fun", "wow"s, and "giggles" can still make the world a more enjoyable place.
+        SONICJAM is a creative factory for those who possess such innovative ideas via design and technology.
+      </p>
+    </div>
+
+    <!-- ************************************************************
+    //  member
+    // ************************************************************ -->
+    <div id="member" class="block">
+      <h2 class="tit">MEMBER</h2>
+      <div class="box cf">
+        <div class="photo"><img src="/assets/img/about/img01.png" height="256" width="256" alt=""></div>
+        <div class="detail">
+          <h3 class="subTit">村田 健</h3>
+          <p class="text">
+            世界を変えるようなすごいものじゃなくても、「おもしろい」や「へー」や「くすくす」のためのちょっとした小さなINNOVATIONが沢山あればきっともっと世界は楽しくなる。SONICJAMはそんな小さなINNOVATIONのアイデアをデザインとデジタルの技術で形にするクリエイティブ・ファクトリーです。
+          </p>
+          <p class="text">
+            It is SONICJA development team to create draw a still not user experience with these hands.
+          </p>
+        </div>
+      </div>
+      <div class="box cf">
+        <div class="photo"><img src="/assets/img/about/img02.png" height="256" width="256" alt=""></div>
+        <div class="detail">
+          <h3 class="subTit">奈良 優斗</h3>
+          <p class="text">
+            世界を変えるようなすごいものじゃなくても、「おもしろい」や「へー」や「くすくす」のためのちょっとした小さなINNOVATIONが沢山あればきっともっと世界は楽しくなる。SONICJAMはそんな小さなINNOVATIONのアイデアをデザインとデジタルの技術で形にするクリエイティブ・ファクトリーです。
+          </p>
+          <p class="text">
+            It is SONICJA development team to create draw a still not user experience with these hands.
+          </p>
+        </div>
+      </div>
+      <div class="box cf">
+        <div class="photo"><img src="/assets/img/about/img03.png" height="256" width="256" alt=""></div>
+        <div class="detail">
+          <h3 class="subTit">金 正運</h3>
+          <p class="text">
+            世界を変えるようなすごいものじゃなくても、「おもしろい」や「へー」や「くすくす」のためのちょっとした小さなINNOVATIONが沢山あればきっともっと世界は楽しくなる。SONICJAMはそんな小さなINNOVATIONのアイデアをデザインとデジタルの技術で形にするクリエイティブ・ファクトリーです。
+          </p>
+          <p class="text">
+            It is SONICJA development team to create draw a still not user experience with these hands.
+          </p>
+        </div>
+      </div>
+      <div class="box cf">
+        <div class="photo"><img src="/assets/img/about/img04.png" height="256" width="256" alt=""></div>
+        <div class="detail">
+          <h3 class="subTit">小野寺 啓</h3>
+          <p class="text">
+            世界を変えるようなすごいものじゃなくても、「おもしろい」や「へー」や「くすくす」のためのちょっとした小さなINNOVATIONが沢山あればきっともっと世界は楽しくなる。SONICJAMはそんな小さなINNOVATIONのアイデアをデザインとデジタルの技術で形にするクリエイティブ・ファクトリーです。
+          </p>
+          <p class="text">
+            It is SONICJA development team to create draw a still not user experience with these hands.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ************************************************************
+    //  company
+    // ************************************************************ -->
+    <div id="company" class="block">
+      <h2 class="tit">COMPANY</h2>
+      <ul class="text">
+        <li>商号：株式会社ソニックジャム</li>
+        <li>本社：〒107-0062 東京都港区南青山2-20-4</li>
+        <li>設立：2001年9月3日</li>
+        <li>代表者：代表取締役 村田 健 </li>
+        <li>資本金：20,000,000円</li>
+        <li>電話：03-5414-6141</li>
+        <li>FAX：03-5414-6142</li>
+      </ul>
+
+    </div>
+
+    <!-- ************************************************************
+    //  access
+    // ************************************************************ -->
+    <div id="access" class="block">
+      <h2 class="tit">ACCESS</h2>
+      <p class="text">SAT-1 Building, 2-20-4 Minami Aoyama, Minato,Tokyo Japan 107-0062</p>
+      <div class="map"></div>
+
+      <div class="barL"></div>
+
+      <a href="/contact">
+      <div class="linkBox">
+        <span>CONTACT</span>
+        <div class="bar adjustW"></div>
+      </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<script>
+  
+</script>
+</body>
+</html>

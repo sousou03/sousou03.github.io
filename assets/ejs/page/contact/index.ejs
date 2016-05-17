@@ -1,0 +1,62 @@
+<% 
+  // variable
+  var ejsRoot = '../../inc/'; 
+  var page = 'contact'; 
+
+  // get data
+  include(ejsRoot + '_metaData'); var data = getData();
+%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
+<%- include(ejsRoot + '_style'); %>
+<link href="/assets/css/contact.css" rel="stylesheet">
+<%- include(ejsRoot + '_script'); %>
+<script type='text/javascript' src='/assets/js/contact.js'></script>
+<%- include(ejsRoot + '_log'); %>
+</head>
+<body>
+  
+  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+
+  <!-- ************************************************************
+  //
+  //  contents
+  //
+  // ************************************************************ -->
+  <div id="contents" class="adjust">
+
+    <form action="">
+      <input type="text" placeholder="NAME">
+      <input type="text" placeholder="COMPANY NAME">
+      <input type="text" placeholder="E-mail address">
+      <input type="text" placeholder="Details of Inquiry">
+    
+      <ul class="fList attention">
+        <li class="item"><span>CHECK</span></li>
+        <li class="item">
+          I agree with the collection of personal information.<br>
+          個人情報収集時の告知に同意します。 
+        </li>
+      </ul>
+
+      <div class="linkBox">
+        <span>SEND</span>
+        <div class="bar adjustW"></div>
+      </div>
+
+    </form>
+
+  </div>
+
+  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<script>
+  
+</script>
+</body>
+</html>

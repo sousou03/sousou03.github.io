@@ -1,0 +1,64 @@
+@charset "utf-4";
+
+@import "init/import";
+@import "init/reset"; // リセットCSS、フォントサイズ
+
+@import "base/import"; // 共通css
+
+/* --------------------------------------------------------------------------------
+*
+*   contents
+*
+-------------------------------------------------------------------------------- */
+
+/*
+*
+*   menu area
+*
+*/
+.menuArea {
+  padding-top: 85px;
+  background: url(/assets/img/controller/bg_menu.png) no-repeat;
+  color: #fff;
+  
+  .tit {
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    
+    @include fz(36);
+    font-weight: 100;
+    @extend %robot;
+    letter-spacing: 0em;
+  }
+  .exitWrap {
+    position: absolute;
+    right: 20px;
+    top: 32px;
+    
+    .exit {
+      @include fz(30);
+      font-weight: 100;
+      @extend %robot;
+      letter-spacing: 0em;
+    }
+    .bar {
+      width: 48px;
+      height: 1px;
+      background-color: #fff;
+      position: absolute;
+      bottom: -5px;
+      left: 2px;
+    }
+  }
+}
+
+/*
+*
+*   canvas area
+*
+*/
+.canvasAreaWrap {
+  background: url(/assets/img/controller/bg.png);
+
+}

@@ -1,0 +1,184 @@
+/* --------------------------------------------------------------------------------
+*
+*   header
+*
+-------------------------------------------------------------------------------- */
+
+#header {
+  position: fixed;
+  width: 100%;
+  
+  .logo {
+    padding: 15px;
+  }
+  .barL {
+    width: 15px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    left: 122px;
+    top: 23px;
+  }
+  .page {
+    @include fz(13);
+    font-weight: 500;
+    @extend %alegsc;
+    
+    position: absolute;
+    top: 19px;
+    left: 150px;
+    letter-spacing: 0.02em;
+  }
+
+  .ui__menu_btn {
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    width: 30px;
+    height: 30px;
+    
+    .bar {
+      width: 16px;
+      height: 1px;
+      background-color: #000;
+      
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+    }
+    .bar:nth-child(1){
+      margin-top: -4px;
+    }
+    .bar:nth-child(2){
+      margin-top: 4px;
+    }
+  }
+}
+
+
+@media only screen and (min-width: minBpSP) {
+
+}
+
+@media only screen and (max-width: maxBpSP) {
+
+
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   nav
+*
+-------------------------------------------------------------------------------- */
+
+#nav {
+
+
+}
+
+/*
+*
+*   media query   
+*
+*/
+@media only screen and (min-width: minBpSP) {
+  
+
+}
+
+
+@media only screen and (max-width: maxBpSP) {
+
+
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   contents
+*
+-------------------------------------------------------------------------------- */
+
+#contents {
+    
+}
+
+/*
+*
+*   media query   
+*
+*/
+@media only screen and (min-width: minBpSP) {
+  
+
+}
+
+
+@media only screen and (max-width: maxBpSP) {
+
+
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   footer
+*
+-------------------------------------------------------------------------------- */
+
+#footer {
+
+
+}
+
+.linkBox {
+  width: 65px;
+  height: 65px;
+  
+  color: #fff;
+  @include fz(15);
+  font-weight: 300;
+  @extend %aleg;
+  display: table;
+  text-align: center;
+  letter-spacing: 0.06em;
+  background-color: #000;
+  margin: 0 auto;
+  
+  position: relative;
+  
+  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .bar {
+    width: 35px;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    bottom: 19px;
+  }
+  
+}
+#about .linkBox, 
+#project .linkBox, {
+  width: 95px;
+  height: 95px;
+}
+
+/*
+*
+*   media query   
+*
+*/
+@media only screen and (min-width: minBpSP) {
+  
+
+}
+
+
+@media only screen and (max-width: maxBpSP) {
+
+
+}

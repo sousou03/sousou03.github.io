@@ -1,0 +1,205 @@
+@charset "utf-4";
+
+@import "init/import";
+@import "init/reset"; // リセットCSS、フォントサイズ
+
+@import "base/import"; // 共通css
+
+/* --------------------------------------------------------------------------------
+*
+*   contents
+*
+-------------------------------------------------------------------------------- */
+
+html,body {
+  height: 100%;
+  // background: rgba(63,63,63,.8);
+}
+
+#header {
+  z-index: 1;
+  color: #fff;
+  mix-blend-mode: exclusion;
+  
+  .logo {
+    mix-blend-mode: normal;
+  }
+  .barL, .bar {background-color: #fff !important;}
+}
+
+#contents {
+  background-color: #eee;
+  
+  /*
+  *
+  *   top visual
+  *
+  */
+  #topVisualWrap {
+
+    .bg {
+      height: 100%;
+      width: 100%;
+      
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    
+    #topVisual {
+      padding: 0 40px;
+      color: #000;
+      mix-blend-mode: exclusion;
+      
+      width: 100%;
+      box-sizing: border-box;
+      
+      z-index: 2;
+      
+      .tit {
+        @include fz(36);
+        font-weight: 100;
+        @extend %alegsc;
+        
+        letter-spacing: 0.10em;
+        margin-bottom: 25px;
+        
+        text-transform: uppercase;
+
+        // text-align: justify;
+        // text-justify: inter-ideograph;
+      }
+      .tit:nth-of-type(2) {letter-spacing: 0.01em;}
+      .tit:nth-of-type(3) {letter-spacing: 0em;}
+      .tit:nth-of-type(4) {letter-spacing: 0.03em;}
+      .tit:nth-of-type(5) {letter-spacing: 0.05em;}
+
+      .text {
+       @include fz(9);
+       font-weight: 400;
+       @extend %noto;
+       
+       // position: absolute;
+       // bottom: -35px;
+       // left: 44px;
+       letter-spacing: .04em;
+
+      }
+
+    }
+
+    .barL {
+      width: 1px;
+      height: 32px;
+      background-color: #000;
+      bottom: 115px;
+      position: absolute;
+      left: 50%;
+    }
+
+  }
+
+  /*
+  *
+  *   projects
+  *
+  */
+  #projects {
+
+    background: rgba(255,255,255,.8);
+    color: #000;
+    padding-top: 45px;
+    padding-bottom: 60px;
+    
+    .block {padding-bottom: 30px;}
+  
+    .tit {
+      padding-bottom: 15px;
+      
+      @include fz(32);
+      font-weight: 100;
+      @extend %alegsc;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+    .subTit {
+      padding-bottom: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      
+      @include fz(9);
+      font-weight: 300;
+      @extend %noto;
+    }
+    .imgWrap {
+      padding-left: 25px;
+      margin-bottom: 22px;
+      box-sizing: border-box;
+    }
+    .details, .tag {
+      @include fz(9);
+      font-weight: 300;
+      @extend %robot;
+      text-align: center;
+      letter-spacing: 0.06em;
+      padding-bottom: 18px;
+    }
+
+    .barL {
+      width: 1px;
+      height: 32px;
+      background-color: #000;
+      margin: 0 auto;
+    }
+    
+    /*
+    *
+    *   detail box
+    *
+    */
+    .detailBox {
+      width: 65px;
+      height: 65px;
+      background-color: #181818;
+      
+      color: #fff;
+      @include fz(9);
+      font-weight: 300;
+      @extend %robot;
+      display: table;
+      text-align: center;
+      letter-spacing: 0.06em;
+      position: relative;
+      
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      
+      .bar {
+        width: 35px;
+        height: 1px;
+        background-color: #fff;
+        position: absolute;
+        margin: 0 auto;
+        bottom: 19px;
+      }
+      
+    }
+
+    /*
+    *
+    *   linkbox
+    *
+    */
+    .linkBox {
+      @include fz(18);
+      
+      .bar {
+        bottom: 33px;        
+      }
+    }
+    
+  }
+
+}

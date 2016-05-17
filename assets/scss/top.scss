@@ -1,0 +1,102 @@
+@charset "utf-4";
+
+@import "init/import";
+@import "init/reset"; // リセットCSS、フォントサイズ
+
+@import "base/import"; // 共通css
+
+/* --------------------------------------------------------------------------------
+*
+*   contents
+*
+-------------------------------------------------------------------------------- */
+
+html,body {
+  height: 100%;
+}
+
+#header {
+  .barL, .page, .ui__menu_btn {
+    display: none;
+  }
+
+}
+
+#contents {
+  height: 100%;
+
+  /*
+  *
+  *   menu   
+  *
+  */
+  .ui__menu_btn {
+    width: 64px;
+    height: 64px;
+    background: #000 url('/assets/img/top/bg_menu_btn.png');
+    background-size: 100%;
+    
+    z-index: 1;
+    
+    .bar {
+      width: 16px;
+      height: 1px;
+      background-color: #fff;
+      
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+    }
+    .bar:nth-child(1){
+      margin-top: -4px;
+    }
+    .bar:nth-child(2){
+      margin-top: 4px;
+    }
+  }
+
+  /*
+  *
+  *   contents
+  *
+  */
+  #topVisual {
+    padding: 0 40px;
+    color: #fff;
+    mix-blend-mode: exclusion;
+    
+    width: 100%;
+    box-sizing: border-box;
+    
+    z-index: 2;
+    
+    .tit {
+      @include fz(36);
+      font-weight: 100;
+      @extend %alegsc;
+      
+      letter-spacing: 0.12em;
+      margin-bottom: 42px;
+
+      // text-align: justify;
+      // text-justify: inter-ideograph;
+    }
+    .tit:nth-of-type(2) {letter-spacing: 0.22em;}
+    .tit:nth-of-type(3) {letter-spacing: 0.3em;}
+    .tit:nth-of-type(4) {letter-spacing: 0.31em;margin-bottom: 0;}
+
+    .text {
+     @include fz(9);
+     font-weight: 400;
+     @extend %noto;
+     letter-spacing: 0.34em;
+     
+     position: absolute;
+     top: 40px;
+     left: 44px;
+    }
+
+  }
+
+}

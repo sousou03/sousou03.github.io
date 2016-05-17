@@ -1,0 +1,184 @@
+<% 
+  // variable
+  var ejsRoot = '../../inc/'; 
+  var page = 'technology'; 
+
+  // get data
+  include(ejsRoot + '_metaData'); var data = getData();
+%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
+<%- include(ejsRoot + '_style'); %>
+<link href="/assets/css/technology.css" rel="stylesheet">
+<%- include(ejsRoot + '_script'); %>
+<script type='text/javascript' src='/assets/js/technology.js'></script>
+<%- include(ejsRoot + '_log'); %>
+</head>
+<body id="technology">
+
+  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+
+  <!-- ************************************************************
+  //
+  //  content
+  //
+  // ************************************************************ -->
+  <div id="contents">
+
+    <!-- ************************************************************
+    //  top visual
+    // ************************************************************ -->
+    <div id="topVisualWrap">
+      <div class="bg">
+        <div id="topVisual" class="adjust">
+          <p class="tit justify">create a new</p>
+          <p class="tit justify">experience in the</p>
+          <p class="tit justify">design and techn</p>
+          <p class="tit justify">−ology of small</p>
+          <p class="tit justify">innovesion</p>
+          <p class="text">デザインとテクノロジーのイノベーションであらたな体験を</p>
+        </div>
+        <div class="barL adjustW"></div>
+      </div>
+    </div>
+
+    <!-- ************************************************************
+    //  case study
+    // ************************************************************ -->
+    <div id="casestudy" class="block">
+      <h2 class="tit">CASE STUDY</h2>
+
+      <div class="boxWrap fBoth">
+        <div class="box item">
+          <div class="imgWrap">
+            <img src="/assets/img/technology/img01.png" height="256" width="256" alt="">
+            <div class="detailBox adjust">
+              <span>DETAILS</span>
+              <div class="bar adjustW"></div>
+            </div>
+          </div>
+          <p class="text">Water of the touch sensor</p>
+          <p class="subText">水のタッチセンサー</p>
+        </div>
+
+        <div class="box item">
+          <div class="imgWrap">
+            <img src="/assets/img/technology/img02.png" height="256" width="256" alt="">
+            <div class="detailBox adjust">
+              <span>DETAILS</span>
+              <div class="bar adjustW"></div>
+            </div>
+          </div>
+          <p class="text">Wearable Device Myo</p>
+          <p class="subText">ウェアラブルデバイスMYO</p>
+        </div>
+      </div>
+      
+      <div class="boxWrap fBoth">
+        <div class="box item">
+          <div class="imgWrap">
+            <img src="/assets/img/technology/img03.png" height="256" width="256" alt="">
+            <div class="detailBox adjust">
+              <span>DETAILS</span>
+              <div class="bar adjustW"></div>
+            </div>
+          </div>
+          <p class="text">muscle wire</p>
+          <p class="subText">マッスルワイヤー</p>
+        </div>
+
+        <div class="box item">
+          <div class="imgWrap">
+            <img src="/assets/img/technology/img04.png" height="256" width="256" alt="">
+            <div class="detailBox adjust">
+              <span>DETAILS</span>
+              <div class="bar adjustW"></div>
+            </div>
+          </div>
+          <p class="text">Water of the touch sensor</p>
+          <p class="subText">水のタッチセンサー</p>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- ************************************************************
+    //  article
+    // ************************************************************ -->
+    <div id="article" class="block">
+      <h2 class="tit">ARTICLE</h2>
+
+      <div class="box">
+        <p class="date">2016.12.12</p>
+        <p class="text">まだ無いユーザー体験をこの手で描き創るためのSONICJA開発チームです。</p>  
+        <p class="text">It is SONICJA development team to create draw a still not user experience with these .</p>  
+      </div>
+      
+      <div class="box">
+        <p class="date">2016.12.12</p>
+        <p class="text">まだ無いユーザー体験をこの手で描き創るためのSONICJA開発チームです。</p>  
+        <p class="text">It is SONICJA development team to create draw a still not user experience with these .</p>  
+      </div>
+      
+      <div class="box">
+        <p class="date">2016.12.12</p>
+        <p class="text">まだ無いユーザー体験をこの手で描き創るためのSONICJA開発チームです。</p>  
+        <p class="text">It is SONICJA development team to create draw a still deta user experience with these .</p>  
+      </div>
+      
+      <div class="box">
+        <p class="date">2016.12.12</p>
+        <p class="text">まだ無いユーザー体験をこの手で描き創るためのSONICJA開発チームです。</p>  
+        <p class="text">It is SONICJA development team to create draw a still not user experience with these .</p>  
+      </div>
+      
+      <div class="linkBox">
+        <span>MORE</span>
+        <div class="bar adjustW"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ************************************************************
+  //
+  //  detail
+  //
+  // ************************************************************ -->
+  <div class="detail">
+    <h2 class="tit">water of the<br>touch sensor</h2>
+    <p class="subTit">水のタッチセンサー</p>
+    <div class="video">
+      <div class="playBox adjust">
+        <span>PLAY</span>
+        <div class="bar adjustW"></div>
+      </div>
+    </div>
+    <p class="text">
+      水のタッチセンサを使ったインスタレーション。<br>
+      水に触れたことをタッチセンサでセンシングし、透明フィルムに投影されたプロジェクション画像に演出を与えている。
+    </p>
+    <p class="text">
+      nstallation that uses a touch sensor of the water.<br>
+      That touched the water sensed by the touch sensor, giving an effect on the projected projection image on a transparent film.
+    </p>
+
+    <div class="ui__menu_btn_c">
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<script>
+  
+</script>
+</body>
+</html>

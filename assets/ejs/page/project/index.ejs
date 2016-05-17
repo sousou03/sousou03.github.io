@@ -1,0 +1,112 @@
+<% 
+  // variable
+  var ejsRoot = '../../inc/'; 
+  var page = 'project'; 
+
+  // get data
+  include(ejsRoot + '_metaData'); var data = getData();
+%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
+<%- include(ejsRoot + '_style'); %>
+<link href="/assets/css/project.css" rel="stylesheet">
+<%- include(ejsRoot + '_script'); %>
+<script type='text/javascript' src='/assets/js/project.js'></script>
+<%- include(ejsRoot + '_log'); %>
+</head>
+<body id="project">
+
+  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+
+  <!-- ************************************************************
+  //
+  //  contents
+  //
+  // ************************************************************ -->
+  <div id="contents">
+
+    <!-- ************************************************************
+    //  top visual
+    // ************************************************************ -->
+    <div id="topVisualWrap">
+      <div class="bg">        
+        <div id="topVisual" class="adjust">
+          <p class="tit justify">create a new</p>
+          <p class="tit justify">experience in the</p>
+          <p class="tit justify">design and techn</p>
+          <p class="tit justify">−ology of small</p>
+          <p class="tit justify">innovesion</p>
+          <p class="text">デザインとテクノロジーのイノベーションであらたな体験を</p>
+        </div>
+        <div class="barL adjustW"></div>
+      </div>
+    </div>
+
+    <!-- ************************************************************
+    //  projects
+    // ************************************************************ -->
+    <div id="projects">
+
+      <div class="block">
+      
+        <h2 class="tit">montajyu strick</h2>
+        <p class="subTit">モンタージュストライク</p>
+        <div class="imgWrap">
+          <img src="/assets/img/project/img01.png" height="433" width="700" alt="">
+          <a href="./detail.html">
+          <div class="detailBox adjust">
+            <span>DETAILS</span>
+            <div class="bar adjustW"></div>
+          </div>
+          </a>
+        </div>
+        <p class="details">CLIENT WORK / EVENT /  2015.12.12</p>
+        <p class="tag">#WEB GL  #OpenFrameWorks</p>
+
+        <div class="barL"></div>
+
+      </div>
+
+      <div class="block">
+
+        <h2 class="tit">hinkarinka</h2>
+        <p class="subTit">ヒンカリンカ</p>
+        <div class="imgWrap">
+          <img src="/assets/img/project/img02.png" height="433" width="700" alt="">
+          <a href="./detail.html">
+          <div class="detailBox adjust">
+            <span>DETAILS</span>
+            <div class="bar adjustW"></div>
+          </div>
+          </a>
+        </div>
+        <p class="details">CLIENT WORK / EVENT /  2015.12.12</p>
+        <p class="tag">#WEB GL  #OpenFrameWorks</p>
+
+        <div class="barL"></div>
+
+      </div>
+
+      <a href="/contact">
+      <div class="linkBox">
+        <span>CONTACT</span>
+        <div class="bar adjustW"></div>
+      </div>
+      </a>
+      
+    </div>
+
+  </div>
+
+  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<% 
+  // variable
+  var ejsRoot = '../../inc/'; 
+  var page = 'controller'; 
+
+  // get data
+  include(ejsRoot + '_metaData'); var data = getData();
+%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
+<%- include(ejsRoot + '_style'); %>
+<link href="/assets/css/controller.css" rel="stylesheet">
+<%- include(ejsRoot + '_script'); %>
+<!-- <script type='text/javascript' src='./assets/js/top.js'></script> -->
+<%- include(ejsRoot + '_log'); %>
+</head>
+<body id="controller">
+
+  <!-- ************************************************************
+  //
+  //  menu area
+  //
+  // ************************************************************ -->
+  <div class="menuArea">
+
+    <h1 class="tit">Draw Menu</h1>
+    <div class="exitWrap">
+      <p class="exit">Exit</p>
+      <div class="bar"></div>
+    </div>
+
+    <ui class="fList">
+      <li><img src="/assets/img/controller/menu01.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu02.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu03.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu04.png" height="201" width="150" alt=""></li>
+      <li><img src="/assets/img/controller/menu05.png" height="201" width="150" alt=""></li>
+    </ui>
+
+  </div>  
+
+  <!-- ************************************************************
+  //
+  //  canvas area
+  //
+  // ************************************************************ -->
+  <div class="canvasAreaWrap">
+
+    <div class="canvasArea">
+        <img src="/assets/img/controller/dot.png" height="626" width="626" alt="" class="dot">
+        <img src="/assets/img/controller/scrollArea.png" height="301" width="305" alt="" class="scrollArea">
+    </div>
+
+  </div>
+
+  <!-- sample -->
+  <img src="../assets/img/controller/touchArea.png" height="626" width="626" alt="" class="touchArea">
+
+<script>
+  
+  //--------------------------------------------------
+  //
+  //  template
+  //
+  //--------------------------------------------------
+  $(window).on('load', function(event) {
+  
+    var $target = $('#topVisual');
+    var $targetH = $('');
+    var $targetW = $('.topVisualWrap .barL, .linkBox .bar');
+
+    $('#topVisualWrap').height($(window).height());
+
+  
+    $target.each(function(index, el) {
+      $(this).adjust();
+    });
+    $targetH.each(function(index, el) {
+      $(this).adjustH();
+    });
+    $targetW.each(function(index, el) {
+      $(this).adjustW();
+    });
+
+    function onResize() {
+
+      $target.each(function(index, el) {
+        $(this).adjust();
+      });
+      $targetH.each(function(index, el) {
+        $(this).adjustH();
+      });
+      $targetW.each(function(index, el) {
+        $(this).adjustW();
+      });
+
+    }
+  
+    function setEvents() {
+  
+      $(window).on('resize', onResize);
+      
+    }
+  
+    function main() {
+  
+      setEvents();
+  
+    }
+  
+    main();
+  
+  })
+</script>
+</body>
+</html>
