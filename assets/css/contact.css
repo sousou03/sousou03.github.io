@@ -205,13 +205,13 @@ Base font = 16px
  *   web font   
  *
  */
-#contents .attention .item:last-child
+#contact #contents .attention .item:last-child
 {
     font-family: 'Noto Sans Japanese';
 }
 
 .linkBox,
-#contents .attention .item:first-child
+#contact #contents .attention .item:first-child
 {
     font-family: 'Alegreya Sans', sans-serif;
 }
@@ -288,6 +288,7 @@ textarea
     resize: none;
 
     border: none;
+    border-radius: 0;
     outline: none;
     background-color: transparent;
 
@@ -317,6 +318,12 @@ html
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
+}
+
+html,
+body
+{
+    height: 100%;
 }
 
 /* --------------------------------------------------------------------------------
@@ -488,6 +495,11 @@ a:active
     padding: 15px;
 }
 
+#header .logo img
+{
+    vertical-align: middle;
+}
+
 #header .barL
 {
     position: absolute;
@@ -625,6 +637,30 @@ a:active
 */
 /* --------------------------------------------------------------------------------
 *
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+.fz30
+{
+    font-size: 30px !important;
+}
+
+.cssNone
+{
+    top: 0 !important;
+
+    margin-top: 30px !important;
+}
+
+.landState
+{
+    top: 400px !important;
+
+    margin-top: 0 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
 *   menu
 *
 -------------------------------------------------------------------------------- */
@@ -649,11 +685,6 @@ a:active
   */
 }
 
-.ui__menu .itemWrap
-{
-    padding-left: 45px;
-}
-
 .ui__menu .item
 {
     font-size: 36px;
@@ -674,10 +705,11 @@ a:active
 
 .ui__menu .ui__menu_btn_c
 {
-    bottom: 60px;
+    top: 50%;
 
     width: 64px;
     height: 64px;
+    margin-top: 200px;
 }
 
 .ui__menu .ui__menu_btn_c .bar
@@ -2284,14 +2316,14 @@ td
 -------------------------------------------------------------------------------- */
 img.fitted
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
-.flex
+img.flex
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2364,9 +2396,29 @@ img.fitted
     overflow: scroll !important;
 }
 
+.is-scroll-x
+{
+    overflow-x: scroll !important;
+}
+
+.is-scroll-y
+{
+    overflow-y: scroll !important;
+}
+
 .is-hidden
 {
     overflow: hidden !important;
+}
+
+.is-hidden-x
+{
+    overflow-x: hidden !important;
+}
+
+.is-hidden-y
+{
+    overflow-y: hidden !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2399,25 +2451,23 @@ img.fitted
 *   その他
 *
 -------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-html,
-body
+#contact
 {
-    height: 100%;
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
 }
 
-#contents
+#contact #contents
 {
     box-sizing: border-box;
     width: 100%;
     padding: 40px;
 }
 
-#contents input
+#contact #contents input
 {
     font-size: 15px;
     font-size: .9375rem;
@@ -2431,7 +2481,7 @@ body
     border-bottom: 1px solid #7d7d7e;
 }
 
-#contents input:placeholder-shown
+#contact #contents input:placeholder-shown
 {
     font-family: 'Roboto', sans-serif;
 
@@ -2440,7 +2490,7 @@ body
     color: #000;
 }
 
-#contents input::-webkit-input-placeholder
+#contact #contents input::-webkit-input-placeholder
 {
     font-family: 'Roboto', sans-serif;
 
@@ -2449,17 +2499,7 @@ body
     color: #000;
 }
 
-#contents input:-moz-placeholder
-{
-    font-family: 'Roboto', sans-serif;
-
-    letter-spacing: .04em;
-
-    opacity: 1;
-    color: #000;
-}
-
-#contents input::-moz-placeholder
+#contact #contents input:-moz-placeholder
 {
     font-family: 'Roboto', sans-serif;
 
@@ -2469,7 +2509,17 @@ body
     color: #000;
 }
 
-#contents input:-ms-input-placeholder
+#contact #contents input::-moz-placeholder
+{
+    font-family: 'Roboto', sans-serif;
+
+    letter-spacing: .04em;
+
+    opacity: 1;
+    color: #000;
+}
+
+#contact #contents input:-ms-input-placeholder
 {
     font-family: 'Roboto', sans-serif;
 
@@ -2478,17 +2528,17 @@ body
     color: #000;
 }
 
-#contents input:last-of-type
+#contact #contents input:last-of-type
 {
     margin-bottom: 30px;
 }
 
-#contents .attention
+#contact #contents .attention
 {
     margin-bottom: 30px;
 }
 
-#contents .attention .item:first-child
+#contact #contents .attention .item:first-child
 {
     font-size: 8px;
     font-size: .5rem;
@@ -2506,14 +2556,14 @@ body
     background-color: #000;
 }
 
-#contents .attention .item:first-child span
+#contact #contents .attention .item:first-child span
 {
     display: table-cell;
 
     vertical-align: middle;
 }
 
-#contents .attention .item:last-child
+#contact #contents .attention .item:last-child
 {
     font-size: 9px;
     font-size: .5625rem;

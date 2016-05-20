@@ -205,15 +205,15 @@ Base font = 16px
  *   web font   
  *
  */
-#contents #topVisualWrap #topVisual .text,
-#contents #projects .subTit
+#project #contents #topVisualWrap #topVisual .text,
+#project #contents #projects .subTit
 {
     font-family: 'Noto Sans Japanese';
 }
 
-#contents #projects .details,
-#contents #projects .tag,
-#contents #projects .detailBox
+#project #contents #projects .details,
+#project #contents #projects .tag,
+#project #contents #projects .detailBox
 {
     font-family: 'Roboto', sans-serif;
 }
@@ -225,8 +225,8 @@ Base font = 16px
 
 #header .page,
 .ui__menu .item,
-#contents #topVisualWrap #topVisual .tit,
-#contents #projects .tit
+#project #contents #topVisualWrap #topVisual .tit,
+#project #contents #projects .tit
 {
     font-family: 'Alegreya Sans SC', sans-serif;
 }
@@ -297,6 +297,7 @@ textarea
     resize: none;
 
     border: none;
+    border-radius: 0;
     outline: none;
     background-color: transparent;
 
@@ -326,6 +327,12 @@ html
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
+}
+
+html,
+body
+{
+    height: 100%;
 }
 
 /* --------------------------------------------------------------------------------
@@ -497,6 +504,11 @@ a:active
     padding: 15px;
 }
 
+#header .logo img
+{
+    vertical-align: middle;
+}
+
 #header .barL
 {
     position: absolute;
@@ -634,6 +646,30 @@ a:active
 */
 /* --------------------------------------------------------------------------------
 *
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+.fz30
+{
+    font-size: 30px !important;
+}
+
+.cssNone
+{
+    top: 0 !important;
+
+    margin-top: 30px !important;
+}
+
+.landState
+{
+    top: 400px !important;
+
+    margin-top: 0 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
 *   menu
 *
 -------------------------------------------------------------------------------- */
@@ -658,11 +694,6 @@ a:active
   */
 }
 
-.ui__menu .itemWrap
-{
-    padding-left: 45px;
-}
-
 .ui__menu .item
 {
     font-size: 36px;
@@ -683,10 +714,11 @@ a:active
 
 .ui__menu .ui__menu_btn_c
 {
-    bottom: 60px;
+    top: 50%;
 
     width: 64px;
     height: 64px;
+    margin-top: 200px;
 }
 
 .ui__menu .ui__menu_btn_c .bar
@@ -2293,14 +2325,14 @@ td
 -------------------------------------------------------------------------------- */
 img.fitted
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
-.flex
+img.flex
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2373,9 +2405,29 @@ img.fitted
     overflow: scroll !important;
 }
 
+.is-scroll-x
+{
+    overflow-x: scroll !important;
+}
+
+.is-scroll-y
+{
+    overflow-y: scroll !important;
+}
+
 .is-hidden
 {
     overflow: hidden !important;
+}
+
+.is-hidden-x
+{
+    overflow-x: hidden !important;
+}
+
+.is-hidden-y
+{
+    overflow-y: hidden !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2408,18 +2460,16 @@ img.fitted
 *   その他
 *
 -------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-html,
-body
+#project
 {
-    height: 100%;
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
 }
 
-#header
+#project #header
 {
     z-index: 1;
 
@@ -2428,33 +2478,28 @@ body
     mix-blend-mode: exclusion;
 }
 
-#header .logo
-{
-    mix-blend-mode: normal;
-}
-
-#header .barL,
-#header .bar
+#project #header .barL,
+#project #header .bar
 {
     background-color: #fff !important;
 }
 
-#contents
+#project #contents
 {
     background-color: #eee;
     /*
-  *
-  *   top visual
-  *
-  */
+    *
+    *   top visual
+    *
+    */
     /*
-  *
-  *   projects
-  *
-  */
+    *
+    *   projects
+    *
+    */
 }
 
-#contents #topVisualWrap .bg
+#project #contents #topVisualWrap .bg
 {
     position: fixed;
     top: 0;
@@ -2464,20 +2509,20 @@ body
     height: 100%;
 }
 
-#contents #topVisualWrap #topVisual
+#project #contents #topVisualWrap #topVisual
 {
     z-index: 2;
 
     box-sizing: border-box;
     width: 100%;
+    width: 375px;
+    height: 314px;
     padding: 0 40px;
 
     color: #000;
-
-    mix-blend-mode: exclusion;
 }
 
-#contents #topVisualWrap #topVisual .tit
+#project #contents #topVisualWrap #topVisual .tit
 {
     font-size: 36px;
     font-size: 2.25rem;
@@ -2489,27 +2534,27 @@ body
     text-transform: uppercase;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(2)
+#project #contents #topVisualWrap #topVisual .tit:nth-of-type(2)
 {
     letter-spacing: .01em;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(3)
+#project #contents #topVisualWrap #topVisual .tit:nth-of-type(3)
 {
-    letter-spacing: 0;
+    letter-spacing: -.05em !important;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(4)
+#project #contents #topVisualWrap #topVisual .tit:nth-of-type(4)
 {
     letter-spacing: .03em;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(5)
+#project #contents #topVisualWrap #topVisual .tit:nth-of-type(5)
 {
     letter-spacing: .05em;
 }
 
-#contents #topVisualWrap #topVisual .text
+#project #contents #topVisualWrap #topVisual .text
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2518,19 +2563,16 @@ body
     letter-spacing: .04em;
 }
 
-#contents #topVisualWrap .barL
+#project #contents #topVisualWrap .barL
 {
-    position: absolute;
-    bottom: 115px;
-    left: 50%;
-
     width: 1px;
     height: 32px;
+    margin-top: 48% !important;
 
     background-color: #000;
 }
 
-#contents #projects
+#project #contents #projects
 {
     padding-top: 45px;
     padding-bottom: 60px;
@@ -2538,23 +2580,23 @@ body
     color: #000;
     background: rgba(255, 255, 255, .8);
     /*
-    *
-    *   detail box
-    *
-    */
+      *
+      *   detail box
+      *
+      */
     /*
-    *
-    *   linkbox
-    *
-    */
+      *
+      *   linkbox
+      *
+      */
 }
 
-#contents #projects .block
+#project #contents #projects .block
 {
     padding-bottom: 30px;
 }
 
-#contents #projects .tit
+#project #contents #projects .tit
 {
     font-size: 32px;
     font-size: 2rem;
@@ -2566,7 +2608,7 @@ body
     letter-spacing: .06em;
 }
 
-#contents #projects .subTit
+#project #contents #projects .subTit
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2578,15 +2620,15 @@ body
     letter-spacing: .06em;
 }
 
-#contents #projects .imgWrap
+#project #contents #projects .imgWrap
 {
     box-sizing: border-box;
     margin-bottom: 22px;
     padding-left: 25px;
 }
 
-#contents #projects .details,
-#contents #projects .tag
+#project #contents #projects .details,
+#project #contents #projects .tag
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2598,7 +2640,7 @@ body
     letter-spacing: .06em;
 }
 
-#contents #projects .barL
+#project #contents #projects .barL
 {
     width: 1px;
     height: 32px;
@@ -2607,7 +2649,7 @@ body
     background-color: #000;
 }
 
-#contents #projects .detailBox
+#project #contents #projects .detailBox
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2627,14 +2669,14 @@ body
     background-color: #181818;
 }
 
-#contents #projects .detailBox span
+#project #contents #projects .detailBox span
 {
     display: table-cell;
 
     vertical-align: middle;
 }
 
-#contents #projects .detailBox .bar
+#project #contents #projects .detailBox .bar
 {
     position: absolute;
     bottom: 19px;
@@ -2646,13 +2688,13 @@ body
     background-color: #fff;
 }
 
-#contents #projects .linkBox
+#project #contents #projects .linkBox
 {
     font-size: 18px;
     font-size: 1.125rem;
 }
 
-#contents #projects .linkBox .bar
+#project #contents #projects .linkBox .bar
 {
     bottom: 33px;
 }

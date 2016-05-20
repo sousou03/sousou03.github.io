@@ -14,31 +14,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
 <%- include(ejsRoot + '_style'); %>
-<link href="/assets/css/contact.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
 <%- include(ejsRoot + '_script'); %>
-<script type='text/javascript' src='/assets/js/contact.js'></script>
 <%- include(ejsRoot + '_log'); %>
 </head>
-<body>
-  
-  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+<body id="contact">
+<div class="bodyInner">
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
 
-  <!-- ************************************************************
-  //
-  //  contents
-  //
-  // ************************************************************ -->
-  <div id="contents" class="adjust">
+<%- include(ejsRoot + '_header', {data:data,page:page}); %>
+
+<!-- ************************************************************
+//
+//  top visual
+//
+// ************************************************************ -->
+<div id="topVisualWrap">
+</div>
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+
+<%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<!-- ************************************************************
+//
+//  detail
+//
+// ************************************************************ -->
+<div class="detail">
+</div>
+
+<!-- ************************************************************
+//
+//  contents
+//
+// ************************************************************ -->
+<div class="contentsWrap">
+<div class="pjaxWrap pjaxMotion" data-id="contact">
+
+  <div id="contents" class="adjust" data-id="contact">
 
     <form action="">
-      <input type="text" placeholder="NAME">
-      <input type="text" placeholder="COMPANY NAME">
-      <input type="text" placeholder="E-mail address">
-      <input type="text" placeholder="Details of Inquiry">
+      <input type="text" placeholder="NAME" class="fzLiquid">
+      <input type="text" placeholder="COMPANY NAME" class="fzLiquid">
+      <input type="text" placeholder="E-mail address" class="fzLiquid">
+      <input type="text" placeholder="Details of Inquiry" class="fzLiquid">
     
       <ul class="fList attention">
-        <li class="item"><span>CHECK</span></li>
-        <li class="item">
+        <li class="item fzLiquid checkbox"><span>CHECK</span></li>
+        <li class="item fzLiquid">
           I agree with the collection of personal information.<br>
           個人情報収集時の告知に同意します。 
         </li>
@@ -53,10 +85,9 @@
 
   </div>
 
-  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
-
-<script>
-  
-</script>
+<script type='text/javascript' src='/assets/js/contact.js'></script>
+</div>
+</div>
+</div>
 </body>
 </html>

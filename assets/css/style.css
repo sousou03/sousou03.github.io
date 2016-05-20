@@ -205,19 +205,70 @@ Base font = 16px
  *   web font   
  *
  */
-.menuArea .tit,
-.menuArea .exitWrap .exit
+#top #topVisual .text,
+#about #topVisualWrap #topVisual .text,
+#about #contents #concept .text,
+#about #contents #member .box .sentence .subTit,
+#about #contents #member .box .sentence .text,
+#about #contents #company .text,
+#about #contents #access .text,
+#technology #topVisualWrap #topVisual .text,
+#technology .detail .subTit,
+#technology .detail .text,
+#technology #contents #casestudy .subText,
+#technology #contents #article .box .date,
+#technology #contents #article .box .text,
+#project #topVisualWrap #topVisual .text,
+#project #contents #projects .subTit,
+#detail #topVisualWrap #topVisual .text,
+#detail #contents .content .subTit,
+#detail #contents .content .grayArea .tit,
+#detail #contents .content .whiteArea .tit,
+#detail #contents .content .grayArea .text,
+#detail #contents .content .whiteArea .text,
+#detail #contents .content .nextProject .subTit,
+#contact #contents .attention .item:last-child
+{
+    font-family: 'Noto Sans Japanese';
+}
+
+#technology .detail .playBox,
+#technology #contents #casestudy .detailBox,
+#project #contents #projects .details,
+#project #contents #projects .tag,
+#project #contents #projects .detailBox,
+#detail #contents .content .details,
+#detail #contents .content .tag,
+#detail #contents .content .playBox,
+#detail #contents .content .grayArea .next,
+#detail #contents .content .whiteArea .next,
+#detail #contents .content .nextProject .details,
+#detail #contents .content .nextProject .tag,
+#detail #contents .content .nextProject .detailBox
 {
     font-family: 'Roboto', sans-serif;
 }
 
-.linkBox
+.linkBox,
+#about #contents .block .tit,
+#technology #contents .block .tit,
+#technology #contents #casestudy .text,
+#contact #contents .attention .item:first-child
 {
     font-family: 'Alegreya Sans', sans-serif;
 }
 
 #header .page,
-.ui__menu .item
+.ui__menu .item,
+#top #topVisual .tit,
+#about #topVisualWrap #topVisual .tit,
+#technology #topVisualWrap #topVisual .tit,
+#technology .detail .tit,
+#project #topVisualWrap #topVisual .tit,
+#project #contents #projects .tit,
+#detail #topVisualWrap #topVisual .tit,
+#detail #contents .content > .tit,
+#detail #contents .content .nextProject .tit
 {
     font-family: 'Alegreya Sans SC', sans-serif;
 }
@@ -321,9 +372,24 @@ html
 }
 
 html,
-body
+body,
+.pjaxWrap
 {
     height: 100%;
+}
+
+.pjaxMotion
+{
+    opacity: 0;
+}
+
+.wrapper
+{
+    overflow: scroll;
+
+    height: 100vh;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 /* --------------------------------------------------------------------------------
@@ -509,7 +575,7 @@ a:active
     width: 15px;
     height: 1px;
 
-    background-color: #000;
+    background-color: #fff;
 }
 
 #header .page
@@ -531,8 +597,8 @@ a:active
     top: 9px;
     right: 8px;
 
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
 }
 
 #header .ui__menu_btn .bar
@@ -545,7 +611,7 @@ a:active
     height: 1px;
     margin-left: -8px;
 
-    background-color: #000;
+    background-color: #fff;
 }
 
 #header .ui__menu_btn .bar:nth-child(1)
@@ -556,6 +622,22 @@ a:active
 #header .ui__menu_btn .bar:nth-child(2)
 {
     margin-top: 4px;
+}
+
+.forAndroid #header
+{
+    mix-blend-mode: normal !important;
+}
+
+.forAndroid #header .page
+{
+    color: #000 !important;
+}
+
+.forAndroid #header .bar,
+.forAndroid #header .barL
+{
+    background-color: #000 !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -573,6 +655,16 @@ a:active
 *   contents
 *
 -------------------------------------------------------------------------------- */
+.forAndroid #topVisual
+{
+    color: #000 !important;
+}
+
+#top.forAndroid #topVisual
+{
+    mix-blend-mode: normal !important;
+}
+
 /*
 *
 *   media query   
@@ -2451,71 +2543,1884 @@ img.flex
 *   その他
 *
 -------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-/*
-*
-*   menu area
-*
-*/
-.menuArea
+#top
 {
-    padding-top: 85px;
-
-    color: #fff;
-    background: url(/assets/img/controller/bg_menu.png) no-repeat;
+    /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
 }
 
-.menuArea .tit
+#top .bodyInner,
+#top .contentsWrap
+{
+    height: 100%;
+}
+
+#top #topVisualWrap
+{
+    display: none;
+}
+
+#top .pjaxWrap
+{
+    background-color: #eee;
+}
+
+#top #header
+{
+    z-index: 1;
+}
+
+#top #header .barL,
+#top #header .page,
+#top #header .ui__menu_btn
+{
+    display: none;
+}
+
+#top #topVisual
+{
+    z-index: 2;
+
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 375px;
+    height: 270px;
+    padding: 0 40px 0 45px;
+
+    color: #fff;
+
+    mix-blend-mode: exclusion;
+        -ms-box-sizing: border-box;
+         -o-box-sizing: border-box;
+}
+
+#top #topVisual .tit
 {
     font-size: 36px;
     font-size: 2.25rem;
     font-weight: 100;
 
-    position: absolute;
-    top: 30px;
-    left: 20px;
+    margin-bottom: 42px;
 
-    letter-spacing: 0;
+    letter-spacing: .10em;
 }
 
-.menuArea .exitWrap
+#top #topVisual .tit:nth-of-type(2)
 {
-    position: absolute;
-    top: 32px;
-    right: 20px;
+    letter-spacing: .22em;
 }
 
-.menuArea .exitWrap .exit
+#top #topVisual .tit:nth-of-type(3)
 {
-    font-size: 30px;
-    font-size: 1.875rem;
-    font-weight: 100;
-
-    letter-spacing: 0;
+    letter-spacing: .26em;
 }
 
-.menuArea .exitWrap .bar
+#top #topVisual .tit:nth-of-type(4)
+{
+    margin-bottom: 0;
+
+    letter-spacing: .31em;
+}
+
+#top #topVisual .text
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 400;
+
+    position: absolute;
+    top: 40px;
+    left: 44px;
+
+    letter-spacing: .34em;
+}
+
+#top #contents
+{
+    height: 100%;
+    /*
+    *
+    *   menu   
+    *
+    */
+}
+
+#top #contents .ui__menu_btn
+{
+    z-index: 1;
+
+    width: 64px;
+    height: 64px;
+
+    background: #000 url('/assets/img/top/bg_menu_btn.png');
+    background-size: 100%;
+}
+
+#top #contents .ui__menu_btn .bar
 {
     position: absolute;
-    bottom: -5px;
-    left: 2px;
+    top: 50%;
+    left: 50%;
 
-    width: 48px;
+    width: 16px;
     height: 1px;
+    margin-left: -8px;
 
     background-color: #fff;
 }
 
-/*
-*
-*   canvas area
-*
-*/
-.canvasAreaWrap
+#top #contents .ui__menu_btn .bar:nth-child(1)
 {
-    background: url(/assets/img/controller/bg.png);
+    margin-top: -4px;
+}
+
+#top #contents .ui__menu_btn .bar:nth-child(2)
+{
+    margin-top: 4px;
+}
+
+#about
+{
+    /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+}
+
+#about #header
+{
+    z-index: 1;
+
+    mix-blend-mode: exclusion;
+}
+
+#about #header .page
+{
+    color: #fff !important;
+}
+
+#about #header .barL,
+#about #header .bar
+{
+    background-color: #fff !important;
+}
+
+#about #topVisualWrap .bg
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url(/assets/img/about/bg.png) no-repeat;
+}
+
+#about #topVisualWrap .pjaxMotion
+{
+    height: 100%;
+}
+
+#about #topVisualWrap #topVisual
+{
+    z-index: 2;
+
+    box-sizing: border-box;
+    width: 100%;
+    width: 375px;
+    height: 314px;
+    padding: 0 40px;
+
+    color: #fff !important;
+
+    mix-blend-mode: exclusion;
+}
+
+#about #topVisualWrap #topVisual .tit
+{
+    font-size: 36px;
+    font-size: 2.25rem;
+    font-weight: 100;
+
+    margin-bottom: 25px;
+
+    letter-spacing: .10em;
+    text-transform: uppercase;
+}
+
+#about #topVisualWrap #topVisual .tit:nth-of-type(2)
+{
+    letter-spacing: .01em;
+}
+
+#about #topVisualWrap #topVisual .tit:nth-of-type(3)
+{
+    letter-spacing: -.05em !important;
+}
+
+#about #topVisualWrap #topVisual .tit:nth-of-type(4)
+{
+    letter-spacing: .03em;
+}
+
+#about #topVisualWrap #topVisual .tit:nth-of-type(5)
+{
+    letter-spacing: .05em;
+}
+
+#about #topVisualWrap #topVisual .text
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 400;
+
+    letter-spacing: .04em;
+}
+
+#about #topVisualWrap .barL
+{
+    width: 1px;
+    height: 32px;
+    margin-top: 48% !important;
+
+    background-color: #fff;
+}
+
+#about #contents
+{
+    padding-top: 100vh;
+    /*
+    *
+    *   block
+    *
+    */
+    /*
+    *
+    *   concept
+    *
+    */
+    /*
+    *
+    *   member
+    *
+    */
+    /*
+    *
+    *   company
+    *
+    */
+    /*
+    *
+    *   access
+    *
+    */
+}
+
+#about #contents .block
+{
+    background: rgba(63, 63, 63, .8);
+}
+
+#about #contents .block .tit
+{
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: 300;
+
+    margin-bottom: 30px;
+    padding-top: 12%;
+    padding-left: 25px;
+
+    letter-spacing: .06em;
+}
+
+#about #contents #concept
+{
+    color: #fff;
+}
+
+#about #contents #concept .text
+{
+    font-size: 10px;
+    font-size: .625rem;
+    font-weight: 100;
+    line-height: 2;
+
+    padding: 0 12% 10%;
+
+    text-align: justify;
+    text-justify: inter-ideograph;
+    letter-spacing: .04em;
+}
+
+#about #contents #concept .text:last-child
+{
+    padding-bottom: 45px;
+}
+
+#about #contents #member
+{
+    background: rgba(255, 255, 255, .8);
+}
+
+#about #contents #member .box
+{
+    padding: 0 12% 10%;
+}
+
+#about #contents #member .box .photo
+{
+    float: left;
+}
+
+#about #contents #member .box .sentence
+{
+    padding-left: 54%;
+}
+
+#about #contents #member .box .sentence .subTit
+{
+    font-size: 13px;
+    font-size: .8125rem;
+    font-weight: 500;
+
+    margin-bottom: 15px;
+
+    letter-spacing: 0;
+}
+
+#about #contents #member .box .sentence .text
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 100;
+    line-height: 1.55;
+
+    text-align: justify;
+    text-justify: inter-ideograph;
+    letter-spacing: .04em;
+}
+
+#about #contents #member .box .sentence .text:nth-of-type(1)
+{
+    margin-bottom: 15px;
+}
+
+#about #contents #company
+{
+    color: #fff;
+}
+
+#about #contents #company .text
+{
+    font-size: 10px;
+    font-size: .625rem;
+    font-weight: 100;
+    line-height: 2;
+
+    padding: 0 12% 0;
+
+    text-align: justify;
+    text-justify: inter-ideograph;
+    letter-spacing: .04em;
+}
+
+#about #contents #access
+{
+    padding-bottom: 60px;
+
+    color: #fff;
+}
+
+#about #contents #access .tit
+{
+    padding-top: 12%;
+}
+
+#about #contents #access .text
+{
+    font-size: 10px;
+    font-size: .625rem;
+    font-weight: 100;
+    line-height: 2;
+
+    padding: 0 12% 8%;
+
+    text-align: justify;
+    text-justify: inter-ideograph;
+    letter-spacing: .04em;
+}
+
+#about #contents #access .map
+{
+    margin-bottom: 30px;
+}
+
+#about #contents #access .barL
+{
+    width: 1px;
+    height: 32px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    background-color: #fff;
+}
+
+#about #contents #access .linkBox
+{
+    font-size: 18px;
+    font-size: 1.125rem;
+}
+
+#about #contents #access .linkBox .bar
+{
+    bottom: 33px;
+}
+
+#about.landscape #member .box .sentence
+{
+    padding-left: 160px !important;
+}
+
+#about.landscape #topVisualWrap .pjaxMotion
+{
+    height: 100vh !important;
+    min-height: 320px !important;
+}
+
+#about.landscape #contents
+{
+    padding-top: 0 !important;
+}
+
+#technology
+{
+    /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+    /*
+  *
+  *   top visual
+  *
+  */
+    /* --------------------------------------------------------------------------------
+  *
+  *   detail
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+}
+
+#technology .bodyInner
+{
+    background-color: #eee;
+}
+
+#technology #header
+{
+    z-index: 1;
+
+    color: #fff;
+
+    mix-blend-mode: exclusion;
+}
+
+#technology #topVisualWrap
+{
+    background-color: #eee;
+}
+
+#technology #topVisualWrap .bg
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+#technology #topVisualWrap .pjaxMotion
+{
+    height: 100%;
+}
+
+#technology #topVisualWrap #topVisual
+{
+    z-index: 2;
+
+    box-sizing: border-box;
+    width: 100%;
+    width: 375px;
+    height: 314px;
+    padding: 0 40px;
+
+    color: #000;
+}
+
+#technology #topVisualWrap #topVisual .tit
+{
+    font-size: 36px;
+    font-size: 2.25rem;
+    font-weight: 100;
+
+    margin-bottom: 25px;
+
+    letter-spacing: .10em;
+    text-transform: uppercase;
+}
+
+#technology #topVisualWrap #topVisual .tit:nth-of-type(2)
+{
+    letter-spacing: .01em;
+}
+
+#technology #topVisualWrap #topVisual .tit:nth-of-type(3)
+{
+    letter-spacing: -.05em !important;
+}
+
+#technology #topVisualWrap #topVisual .tit:nth-of-type(4)
+{
+    letter-spacing: .03em;
+}
+
+#technology #topVisualWrap #topVisual .tit:nth-of-type(5)
+{
+    letter-spacing: .05em;
+}
+
+#technology #topVisualWrap #topVisual .text
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 400;
+
+    letter-spacing: .04em;
+}
+
+#technology #topVisualWrap .barL
+{
+    width: 1px;
+    height: 32px;
+    margin-top: 48% !important;
+
+    background-color: #000;
+}
+
+#technology .detail
+{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    overflow: scroll;
+
+    width: 100%;
+    height: 100%;
+
+    color: #fff;
+    /*
+    *
+    *   playbox
+    *
+    */
+    /*
+    *
+    *   close
+    *
+    */
+}
+
+#technology .detail .scrollArea
+{
+    background-color: rgba(0, 0, 0, .75);
+}
+
+#technology .detail .tit
+{
+    font-size: 32px;
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.1;
+
+    padding-top: 75px;
+    padding-bottom: 15px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#technology .detail .subTit
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 22px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#technology .detail .video
+{
+    display: block;
+
+    width: 295px;
+    height: 165px;
+    margin: 0 auto;
+    margin-bottom: 32px;
+
+    background-color: pink;
+}
+
+#technology .detail .text
+{
+    font-size: 10px;
+    font-size: .625rem;
+    font-weight: 100;
+    line-height: 2;
+
+    padding: 0 40px 30px;
+
+    letter-spacing: .04em;
+}
+
+#technology .detail .playBox
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    position: relative;
+
+    display: table;
+
+    width: 65px;
+    height: 65px;
+
+    text-align: center;
+    letter-spacing: .06em;
+
+    color: #fff;
+    background-color: #181818;
+}
+
+#technology .detail .playBox span
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+#technology .detail .playBox .bar
+{
+    position: absolute;
+    bottom: 19px;
+
+    width: 25px;
+    height: 1px;
+    margin: 0 auto;
+
+    background-color: #fff;
+}
+
+#technology .detail .ui__menu_btn_c
+{
+    position: absolute;
+    top: 59px;
+    right: 0;
+
+    width: 44px;
+    height: 44px;
+}
+
+#technology .detail .ui__menu_btn_c .bar
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 16px;
+    height: 1px;
+    margin-left: -8px;
+
+    background-color: #fff;
+}
+
+#technology .detail .ui__menu_btn_c .bar:nth-child(1)
+{
+    transform: rotate(45deg);
+}
+
+#technology .detail .ui__menu_btn_c .bar:nth-child(2)
+{
+    transform: rotate(-45deg);
+}
+
+#technology #contents
+{
+    padding-top: 100vh;
+    /*
+    *
+    *   block
+    *
+    */
+    /*
+    *
+    *   casestudy
+    *
+    */
+    /*
+    *
+    *   article
+    *
+    */
+}
+
+#technology #contents .block
+{
+    background: rgba(63, 63, 63, .8);
+}
+
+#technology #contents .block .tit
+{
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: 300;
+
+    margin-bottom: 30px;
+    padding-top: 45px;
+    padding-left: 25px;
+
+    letter-spacing: .06em;
+}
+
+#technology #contents #casestudy
+{
+    color: #000;
+    background: rgba(255, 255, 255, .8);
+}
+
+#technology #contents #casestudy .boxWrap
+{
+    padding: 0 40px 30px;
+}
+
+#technology #contents #casestudy .boxWrap:last-child
+{
+    padding-bottom: 45px;
+}
+
+#technology #contents #casestudy .box
+{
+    width: 44%;
+}
+
+#technology #contents #casestudy .box .text
+{
+    margin-bottom: 15px;
+}
+
+#technology #contents #casestudy .text
+{
+    font-size: 15px;
+    font-size: .9375rem;
+    font-weight: 500;
+    line-height: 1.26;
+
+    letter-spacing: .04em;
+}
+
+#technology #contents #casestudy .subText
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 100;
+
+    letter-spacing: .04em;
+}
+
+#technology #contents #casestudy .imgWrap
+{
+    position: relative;
+
+    margin-bottom: 15px;
+}
+
+#technology #contents #casestudy .detailBox
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    position: relative;
+
+    display: table;
+
+    width: 65px;
+    height: 65px;
+
+    text-align: center;
+    letter-spacing: .06em;
+
+    color: #fff;
+}
+
+#technology #contents #casestudy .detailBox span
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+#technology #contents #casestudy .detailBox .bar
+{
+    position: absolute;
+    bottom: 19px;
+
+    width: 35px;
+    height: 1px;
+    margin: 0 auto;
+
+    background-color: #fff;
+}
+
+#technology #contents #article
+{
+    padding-bottom: 65px;
+
+    color: #fff;
+}
+
+#technology #contents #article .box
+{
+    padding-bottom: 30px;
+}
+
+#technology #contents #article .box .date,
+#technology #contents #article .box .text
+{
+    font-size: 10px;
+    font-size: .625rem;
+    font-weight: 100;
+
+    letter-spacing: .04em;
+}
+
+#technology #contents #article .box .date
+{
+    padding-bottom: 15px;
+    padding-left: 25px;
+}
+
+#technology #contents #article .box .text
+{
+    line-height: 2;
+
+    padding: 0 40px;
+
+    text-decoration: underline;
+}
+
+#technology.landscape #topVisualWrap .pjaxMotion
+{
+    height: 100vh !important;
+    min-height: 320px !important;
+}
+
+#technology.landscape #contents
+{
+    padding-top: 0 !important;
+}
+
+#project
+{
+    /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+    /*
+  *
+  *   top visual
+  *
+  */
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+}
+
+#project .bodyInner
+{
+    background-color: #eee;
+}
+
+#project #header
+{
+    z-index: 1;
+
+    color: #fff;
+
+    mix-blend-mode: exclusion;
+}
+
+#project #topVisualWrap
+{
+    background-color: #eee;
+}
+
+#project #topVisualWrap .bg
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+#project #topVisualWrap .pjaxMotion
+{
+    height: 100%;
+}
+
+#project #topVisualWrap #topVisual
+{
+    z-index: 2;
+
+    box-sizing: border-box;
+    width: 100%;
+    width: 375px;
+    height: 314px;
+    padding: 0 40px;
+
+    color: #000;
+}
+
+#project #topVisualWrap #topVisual .tit
+{
+    font-size: 36px;
+    font-size: 2.25rem;
+    font-weight: 100;
+
+    margin-bottom: 25px;
+
+    letter-spacing: .10em;
+    text-transform: uppercase;
+}
+
+#project #topVisualWrap #topVisual .tit:nth-of-type(2)
+{
+    letter-spacing: .01em;
+}
+
+#project #topVisualWrap #topVisual .tit:nth-of-type(3)
+{
+    letter-spacing: -.05em !important;
+}
+
+#project #topVisualWrap #topVisual .tit:nth-of-type(4)
+{
+    letter-spacing: .03em;
+}
+
+#project #topVisualWrap #topVisual .tit:nth-of-type(5)
+{
+    letter-spacing: .05em;
+}
+
+#project #topVisualWrap #topVisual .text
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 400;
+
+    letter-spacing: .04em;
+}
+
+#project #topVisualWrap .barL
+{
+    width: 1px;
+    height: 32px;
+    margin-top: 48% !important;
+
+    background-color: #000;
+}
+
+#project #contents
+{
+    padding-top: 100vh;
+    /*
+    *
+    *   projects
+    *
+    */
+}
+
+#project #contents #projects
+{
+    padding-top: 45px;
+    padding-bottom: 60px;
+
+    color: #000;
+    background: rgba(255, 255, 255, .8);
+    /*
+      *
+      *   detail box
+      *
+      */
+    /*
+      *
+      *   linkbox
+      *
+      */
+}
+
+#project #contents #projects .block
+{
+    padding-bottom: 30px;
+}
+
+#project #contents #projects .tit
+{
+    font-size: 32px;
+    font-size: 2rem;
+    font-weight: 100;
+
+    padding-bottom: 15px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#project #contents #projects .subTit
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 22px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#project #contents #projects .imgWrap
+{
+    box-sizing: border-box;
+    margin-bottom: 22px;
+    padding-left: 25px;
+}
+
+#project #contents #projects .details,
+#project #contents #projects .tag
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 18px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#project #contents #projects .barL
+{
+    width: 1px;
+    height: 32px;
+    margin: 0 auto;
+
+    background-color: #000;
+}
+
+#project #contents #projects .detailBox
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    position: relative;
+
+    display: table;
+
+    width: 65px;
+    height: 65px;
+
+    text-align: center;
+    letter-spacing: .06em;
+
+    color: #fff;
+    background-color: #181818;
+}
+
+#project #contents #projects .detailBox span
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+#project #contents #projects .detailBox .bar
+{
+    position: absolute;
+    bottom: 19px;
+
+    width: 35px;
+    height: 1px;
+    margin: 0 auto;
+
+    background-color: #fff;
+}
+
+#project #contents #projects .linkBox
+{
+    font-size: 18px;
+    font-size: 1.125rem;
+}
+
+#project #contents #projects .linkBox .bar
+{
+    bottom: 33px;
+}
+
+#project.landscape #topVisualWrap .pjaxMotion
+{
+    height: 100vh !important;
+    min-height: 320px !important;
+}
+
+#project.landscape #contents
+{
+    padding-top: 0 !important;
+}
+
+#detail
+{
+    /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+}
+
+#detail #header
+{
+    z-index: 1;
+
+    color: #fff;
+
+    mix-blend-mode: exclusion;
+}
+
+#detail #topVisualWrap
+{
+    height: 0 !important;
+    min-height: 0 !important;
+}
+
+#detail #topVisualWrap .bg
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+#detail #topVisualWrap .pjaxMotion
+{
+    height: 100%;
+}
+
+#detail #topVisualWrap #topVisual
+{
+    z-index: 2;
+
+    box-sizing: border-box;
+    width: 100%;
+    width: 375px;
+    height: 314px;
+    padding: 0 40px;
+
+    color: #000;
+
+    mix-blend-mode: exclusion;
+}
+
+#detail #topVisualWrap #topVisual .tit
+{
+    font-size: 36px;
+    font-size: 2.25rem;
+    font-weight: 100;
+
+    margin-bottom: 25px;
+
+    letter-spacing: .10em;
+    text-transform: uppercase;
+}
+
+#detail #topVisualWrap #topVisual .tit:nth-of-type(2)
+{
+    letter-spacing: .01em;
+}
+
+#detail #topVisualWrap #topVisual .tit:nth-of-type(3)
+{
+    letter-spacing: -.05em !important;
+}
+
+#detail #topVisualWrap #topVisual .tit:nth-of-type(4)
+{
+    letter-spacing: .03em;
+}
+
+#detail #topVisualWrap #topVisual .tit:nth-of-type(5)
+{
+    letter-spacing: .05em;
+}
+
+#detail #topVisualWrap #topVisual .text
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 400;
+
+    letter-spacing: .04em;
+}
+
+#detail #topVisualWrap .barL
+{
+    position: absolute;
+    bottom: 115px;
+    left: 50%;
+
+    width: 1px;
+    height: 32px;
+
+    background-color: #000;
+}
+
+#detail html,
+#detail body
+{
+    height: 100%;
+}
+
+#detail #contents
+{
+    padding-top: 100vh;
+    /*
+    *
+    *   content
+    *
+    */
+}
+
+#detail #contents .content
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    color: #fff;
+    background-color: rgba(0, 0, 0, .75);
+    /*
+      *
+      *   playbox
+      *
+      */
+    /*
+      *
+      *   close
+      *
+      */
+    /*
+      *
+      *   grayArea whiteArea
+      *
+      */
+    /*
+      *
+      *   next project
+      *
+      */
+}
+
+#detail #contents .content > .tit
+{
+    font-size: 32px;
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.1;
+
+    padding-top: 75px;
+    padding-bottom: 15px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#detail #contents .content .subTit
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 22px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#detail #contents .content .details,
+#detail #contents .content .tag
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 18px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#detail #contents .content .tag
+{
+    padding-bottom: 30px;
+}
+
+#detail #contents .content .imgWrap .barL
+{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+
+    width: 1px;
+    height: 32px;
+
+    background-color: #fff;
+}
+
+#detail #contents .content .playBox
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    position: relative;
+
+    display: table;
+
+    width: 65px;
+    height: 65px;
+
+    text-align: center;
+    letter-spacing: .06em;
+
+    color: #fff;
+    background-color: #181818;
+}
+
+#detail #contents .content .playBox span
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+#detail #contents .content .playBox .bar
+{
+    position: absolute;
+    bottom: 19px;
+
+    width: 25px;
+    height: 1px;
+    margin: 0 auto;
+
+    background-color: #fff;
+}
+
+#detail #contents .content .ui__menu_btnC
+{
+    position: fixed;
+    z-index: 2;
+    top: 59px;
+    right: 0;
+
+    width: 44px;
+    height: 44px;
+
+    mix-blend-mode: exclusion;
+}
+
+#detail #contents .content .ui__menu_btnC .bar
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 16px;
+    height: 1px;
+    margin-left: -8px;
+
+    background-color: #fff;
+}
+
+#detail #contents .content .ui__menu_btnC .bar:nth-child(1)
+{
+    transform: rotate(45deg);
+}
+
+#detail #contents .content .ui__menu_btnC .bar:nth-child(2)
+{
+    transform: rotate(-45deg);
+}
+
+#detail #contents .content .grayArea,
+#detail #contents .content .whiteArea
+{
+    padding-top: 45px;
+    padding-bottom: 40px;
+
+    background-color: #3e3e3e;
+}
+
+#detail #contents .content .grayArea .tit,
+#detail #contents .content .grayArea .text,
+#detail #contents .content .whiteArea .tit,
+#detail #contents .content .whiteArea .text
+{
+    padding: 0 40px 0;
+}
+
+#detail #contents .content .grayArea .tit,
+#detail #contents .content .whiteArea .tit
+{
+    font-size: 14px;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.42;
+
+    margin-bottom: 25px;
+
+    letter-spacing: .04em;
+}
+
+#detail #contents .content .grayArea .text,
+#detail #contents .content .whiteArea .text
+{
+    font-size: 10px;
+    font-size: .625rem;
+    font-weight: 100;
+    line-height: 2;
+
+    margin-bottom: 25px;
+
+    letter-spacing: .04em;
+}
+
+#detail #contents .content .grayArea .video,
+#detail #contents .content .whiteArea .video
+{
+    width: 270px;
+    height: 150px;
+    margin: 0 auto;
+
+    background-color: pink;
+}
+
+#detail #contents .content .grayArea .img,
+#detail #contents .content .whiteArea .img
+{
+    margin-bottom: 45px;
+
+    text-align: center;
+}
+
+#detail #contents .content .grayArea .next,
+#detail #contents .content .whiteArea .next
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 13px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#detail #contents .content .grayArea .barL,
+#detail #contents .content .whiteArea .barL
+{
+    width: 1px;
+    height: 32px;
+    margin: 0 auto;
+
+    background-color: #000;
+}
+
+#detail #contents .content .whiteArea
+{
+    color: #000;
+    background-color: #fff;
+}
+
+#detail #contents .content .nextProject
+{
+    padding-top: 46px;
+    padding-bottom: 30px;
+
+    background-color: #3e3e3e;
+    /*
+        *
+        *   detail box
+        *
+        */
+}
+
+#detail #contents .content .nextProject .tit
+{
+    font-size: 32px;
+    font-size: 2rem;
+    font-weight: 100;
+
+    padding-bottom: 15px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#detail #contents .content .nextProject .subTit
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 22px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#detail #contents .content .nextProject .imgWrap
+{
+    box-sizing: border-box;
+    margin-bottom: 22px;
+    padding-left: 25px;
+}
+
+#detail #contents .content .nextProject .details,
+#detail #contents .content .nextProject .tag
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    padding-bottom: 18px;
+
+    text-align: center;
+    letter-spacing: .06em;
+}
+
+#detail #contents .content .nextProject .detailBox
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 300;
+
+    position: relative;
+
+    display: table;
+
+    width: 65px;
+    height: 65px;
+
+    text-align: center;
+    letter-spacing: .06em;
+
+    color: #fff;
+    background-color: #181818;
+}
+
+#detail #contents .content .nextProject .detailBox span
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+#detail #contents .content .nextProject .detailBox .bar
+{
+    position: absolute;
+    bottom: 19px;
+
+    width: 35px;
+    height: 1px;
+    margin: 0 auto;
+
+    background-color: #fff;
+}
+
+#detail.landscape #topVisualWrap .pjaxMotion
+{
+    height: 100vh !important;
+    min-height: 320px !important;
+}
+
+#detail.landscape #contents
+{
+    padding-top: 0 !important;
+}
+
+#contact
+{
+    /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+}
+
+#contact .bodyInner,
+#contact .contentsWrap
+{
+    height: 100%;
+}
+
+#contact #header
+{
+    z-index: 1;
+
+    color: #fff;
+
+    mix-blend-mode: exclusion;
+}
+
+#contact #topVisualWrap
+{
+    display: none;
+}
+
+#contact #contents
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 40px;
+
+    background-color: #eee;
+}
+
+#contact #contents input
+{
+    font-size: 15px;
+    font-size: .9375rem;
+
+    display: block;
+
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #7d7d7e;
+}
+
+#contact #contents input:placeholder-shown
+{
+    font-family: 'Roboto', sans-serif;
+
+    letter-spacing: .04em;
+
+    color: #000;
+}
+
+#contact #contents input::-webkit-input-placeholder
+{
+    font-family: 'Roboto', sans-serif;
+
+    letter-spacing: .04em;
+
+    color: #000;
+}
+
+#contact #contents input:-moz-placeholder
+{
+    font-family: 'Roboto', sans-serif;
+
+    letter-spacing: .04em;
+
+    opacity: 1;
+    color: #000;
+}
+
+#contact #contents input::-moz-placeholder
+{
+    font-family: 'Roboto', sans-serif;
+
+    letter-spacing: .04em;
+
+    opacity: 1;
+    color: #000;
+}
+
+#contact #contents input:-ms-input-placeholder
+{
+    font-family: 'Roboto', sans-serif;
+
+    letter-spacing: .04em;
+
+    color: #000;
+}
+
+#contact #contents input:last-of-type
+{
+    margin-bottom: 30px;
+}
+
+#contact #contents .attention
+{
+    margin-bottom: 30px;
+}
+
+#contact #contents .attention .item:first-child
+{
+    font-size: 8px;
+    font-size: .5rem;
+    font-weight: 300;
+
+    display: table;
+
+    width: 33px;
+    height: 33px;
+
+    text-align: center;
+    letter-spacing: .06em;
+
+    color: #fff;
+    background-color: #000;
+}
+
+#contact #contents .attention .item:first-child span
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+#contact #contents .attention .item:last-child
+{
+    font-size: 9px;
+    font-size: .5625rem;
+    font-weight: 200;
+    line-height: 1.8;
+
+    float: none;
+
+    padding-left: 48px;
+
+    letter-spacing: .04em;
+}
+
+#contact.landscape .pjaxWrap
+{
+    padding-top: 40px !important;
+
+    background-color: #eee;
 }

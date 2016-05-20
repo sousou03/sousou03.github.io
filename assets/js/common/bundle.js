@@ -370,8 +370,6 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
       var minute = this.now.getMinutes() ;      // 分
       var second = this.now.getSeconds() ;
 
-      console.log(hour,minute,second);
-
     },
 
     date: function() {
@@ -403,8 +401,6 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
       // 曜日 (英語)
       var weekDayEN = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"] ;
       var wDE = weekDayEN[this.now.getDay()] ;
-
-      console.log(wDJ,wDE);
 
     },
 
@@ -708,7 +704,9 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
 //
 //--------------------------------------------------
 
-$(window).on('load', function(event) {
+(function(){
+
+  var gb = jp.co.sjPlus;
 
   function setImgSPSize($target){
 
@@ -731,9 +729,262 @@ $(window).on('load', function(event) {
 
   }
 
-  setImgSPSize($('img'));
+  gb.setImgSPSize = setImgSPSize;
 
-});
+})();
+
+//--------------------------------------------------
+//
+//  デバイス、ブラウザ、バージョン判定
+//
+//--------------------------------------------------
+(function(){
+
+  var gb = jp.co.sjPlus;
+
+  var ua = {};
+  var userAgent = window.navigator.userAgent.toLowerCase();
+  var appVersion = window.navigator.appVersion.toLowerCase();
+
+  //--------------------------------------------------
+  //
+  //  デバイス判定
+  //
+  //--------------------------------------------------
+
+  function isDevice() {
+
+    ua.deviceSP = (function(){
+      var media = ["iphone","ipod","ipad","android","dream","cupcake","blackberry9500","blackberry9530","blackberry9520","blackberry9550","blackberry9800","webos","incognito","webmate"];
+      var pattern = new RegExp(media.join("|"),"i");
+      return pattern.test(userAgent);
+    })();
+
+    ua.deviceTab = (function(){
+      var u = userAgent;
+
+      return (u.indexOf("windows") != -1 && u.indexOf("touch") != -1)
+        || u.indexOf("ipad") != -1
+        || (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
+        || (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
+        || u.indexOf("kindle") != -1
+        || u.indexOf("silk") != -1
+        || u.indexOf("playbook") != -1;
+    })();
+
+    ua.deviceMB = (function(){
+      var u = userAgent;
+
+      return (u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
+        || u.indexOf("iphone") != -1
+        || u.indexOf("ipod") != -1
+        || (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
+        || (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
+        || u.indexOf("blackberry") != -1;
+    })();
+
+    if (ua.deviceSP) $('body').addClass('deviceSP');
+    if (ua.deviceTAB) $('body').addClass('deviceTAB');
+    if (ua.deviceMB) $('body').addClass('deviceMB');
+
+    ua.isiPad = (function(){
+      var pattern = new RegExp("ipad","i");
+      return pattern.test(userAgent);
+    })();
+
+    ua.isiPhone = (function(){
+      var pattern = new RegExp("iphone","i");
+      return pattern.test(userAgent);
+    })();
+
+    ua.isiOS = (function(){
+      return (ua.isiPad || ua.isiPhone);
+    })();
+
+    ua.isWin = (function(){
+      if (navigator.platform.indexOf("Win") > -1) return true;
+      else return false;
+    })();
+
+  }
+
+  //--------------------------------------------------
+  //
+  // ブラウザ・バージョン判定
+  //
+  //--------------------------------------------------
+
+  function isBrowserVersion() {
+
+    ua.isIE = (function(){
+        var pattern = new RegExp("msie","i");
+        var pattern2 = new RegExp("trident","i");
+        return pattern.test(userAgent) || pattern2.test(userAgent);
+    })();
+
+    ua.isIEVersion = (function(){
+        
+        if (appVersion.indexOf("msie 10.") != -1) return 'ie10';
+        else if (appVersion.indexOf("msie 9.") != -1) return 'ie9';
+        else if (appVersion.indexOf("msie 8.") != -1) return 'ie8';
+        else if (appVersion.indexOf("msie 7.") != -1) return 'ie7';
+        else if (appVersion.indexOf("msie 6.") != -1) return 'ie6';
+        else if (appVersion.indexOf("trident") != -1) return 'ie11';
+        else return 'notIE';
+
+    })();
+
+    if (ua.isIE) $('body').addClass('ie');
+    if (ua.isIEVersion == 'ie9') $('body').addClass('ie9');
+    if (ua.isIEVersion == 'ie10') $('body').addClass('ie10');
+    if (ua.isIEVersion == 'ie11') $('body').addClass('ie11');
+
+    ua.isSafari = (function(){
+        if(userAgent.indexOf("chrome") != -1) return false;
+        if(userAgent.indexOf("lunascape") != -1) return false;
+        var pattern = new RegExp("safari","i");
+        return pattern.test(userAgent);
+    })();
+
+    ua.isChrome = (function(){
+        var pattern = new RegExp("chrome","i");
+        return pattern.test(userAgent);
+    })();
+
+    ua.isFirefox = (function(){
+        var pattern = new RegExp("firefox","i");
+        return pattern.test(userAgent);
+    })();
+
+    ua.isOpera = (function(){
+        var pattern = new RegExp("opera","i");
+        return pattern.test(userAgent);
+    })();
+
+  }
+
+  //--------------------------------------------------
+  //
+  // レスポンシブ判定,ランドスケープ判定
+  //
+  //--------------------------------------------------
+  
+  function isResizeOrientation() {
+
+    var W = window.innerWidth,
+        H = window.innerHeight,
+
+        isSP = false,
+        cnt = 0,
+
+        bp = 850;
+
+    // 最初ポートレートかランドスケープか判定
+
+    // function init() {
+
+    //   getSize();
+
+    //   if (W > H) cnt = 1;
+    //   else cnt = 0;
+
+    //   log('init');
+
+    // }
+
+    function getSize() {
+      W = window.innerWidth;
+      H = window.innerHeight;   
+    }
+
+    function onResize() {
+
+      getSize();
+
+      if (W > bp) {
+        isSP = false;
+        $('body').removeClass('isSP')
+      } else {
+        isSP = true;
+        $('body').addClass('isSP');
+      }
+
+      if (window.innerHeight > window.innerWidth) {
+      // if (cnt%2==0) {
+        $("body").addClass("portrait");
+        $("body").removeClass("landscape");
+      }else{
+        $("body").addClass("landscape");
+        $("body").removeClass("portrait");
+      }
+      
+      // cnt++;
+      // log(cnt);
+      // $(window).trigger('orient');
+
+    }
+
+    // init();
+
+    gb.isResizeOrient = onResize;
+    // gb.isResizeOrientInit = init;
+
+  }
+
+  // ------------------------------------------------------------
+  //
+  //  各個別デバイスチェック
+  //
+  // ------------------------------------------------------------
+
+  function isIndividual() {
+
+    if (androidVersion() < 5.6) {
+      $('body').addClass('forAndroid');
+      $('.logo img').attr({src: '/assets/img/common/logo.png'});
+    } 
+    // if (iphoneVersion() < 7 && url.indexOf('error') == -1) {
+    //   location.href = '/error.html';
+    // } 
+
+    // 標準ブラウザ判定
+    function isAndroidBrowser() {
+      var ua = window.navigator.userAgent
+      if (/Android/.test(ua) && /Linux; U;/.test(ua) && !/Chrome/.test(ua)) {
+        return true;
+      }
+      return false;
+    }
+
+
+    function androidVersion() {
+      var uat = navigator.userAgent;
+      if( uat.indexOf("Android") > 0 ) {
+
+          var version = parseFloat(uat.slice(uat.indexOf("Android")+8));
+          return version;
+          
+      }
+    }
+
+    function iphoneVersion() {
+      var uat = navigator.userAgent;
+      if( uat.indexOf("iPhone OS") > 0 ) {
+
+          var version = parseFloat(uat.slice(uat.indexOf("iPhone OS")+10));
+          return version;
+
+      }
+    }
+
+  }
+
+  gb.isDevice = isDevice;
+  gb.isBrowserVersion = isBrowserVersion;
+  gb.isResizeOrientation = isResizeOrientation;
+  gb.isIndividual = isIndividual;
+
+}());
 //--------------------------------------------------
 //
 //  updateManager
@@ -831,22 +1082,131 @@ $(window).on('load', function(event) {
 })();
 //--------------------------------------------------
 //
-//  layout adjust
+//  pjax
+//
+//--------------------------------------------------
+
+(function(){
+
+  var gb = jp.co.sjPlus;
+
+  function Pjax(param) {
+
+    this.param = param;
+
+    this.id = null;
+    gb.pjax = {count:0};
+    gb.Timer = null;
+
+    this.setEvents();
+
+  }
+
+  Pjax.prototype = {
+
+    setID: function () {
+
+        this.id = $('.pjaxWrap').data('id');
+        $('body').attr('id', this.id);
+
+    },
+
+    onReady: function () {
+
+        $.pjax(this.param);
+        
+    },
+
+    onFetch: function () {
+
+      // alert('fetch');
+      // イベント解除
+      $(document).off('ready');
+      $(window).off('render load resize orientationchange');
+
+      // ページ離脱時のモーション
+      TweenMax.to($('.pjaxMotion'), 0.6, {
+          y: -50,
+          opacity: 0,
+          ease: Power3.easeIn,
+          onComplete: function(){
+
+            // 非表示
+            $('.pjaxMotion').css({opacity: 0});
+
+          }
+        });
+        
+    },
+
+    onRender: function () {
+
+      // alert('render');
+
+      $('.bodyInner').scrollTop(0);
+      $('.contentsWrap').scrollTop(0);
+
+      this.setID();
+
+      switch (this.id){
+        case 'top':
+          $(window).trigger('renderTop');
+          break;
+        case 'about':
+          $(window).trigger('renderAbout');
+          break;
+        case 'technology':
+          $(window).trigger('renderTechnology');
+          break;
+        case 'project':
+          $(window).trigger('renderProject');
+          break;
+        case 'detail':
+          $(window).trigger('renderDetail');
+          break;
+        case 'contact':
+          $(window).trigger('renderContact');
+          break;
+      } 
+
+    },
+
+    setEvents: function () {
+
+      var self = this;
+
+      this.onReady();
+
+      $(document).on('pjax:fetch', function(){self.onFetch.call(self)});
+      $(document).on('pjax:render', function(){self.onRender.call(self)});
+
+    },
+
+  }
+
+  gb.Pjax = Pjax;
+
+})();
+//--------------------------------------------------
+//
+//  position center
 //
 //--------------------------------------------------
 (function(){
 
   var gb = jp.co.sjPlus;
 
-  function Adjust($target,$targetH,$targetW) {
+  function PosCenter($target,$targetH,$targetW) {
 
     this.$target = $target;
     this.$targetH = $targetH;
     this.$targetW = $targetW;
 
+    this.onLoad();
+
   }
 
-  Adjust.prototype = {
+  PosCenter.prototype = {
 
     onLoad: function() {
 
@@ -870,9 +1230,146 @@ $(window).on('load', function(event) {
 
   }
 
-  gb.Adjust = Adjust;
+  gb.PosCenter = PosCenter;
 
 })();
+//--------------------------------------------------
+//
+//  Size
+//
+//--------------------------------------------------
+(function(){
+
+  var gb = jp.co.sjPlus;
+
+  function Size($obj,list,win,notObj,flag,notList){
+
+    if (!notObj) {
+      this.$target = $obj;  
+    } else {
+      this.$target = $obj.not(notObj);  
+    }
+
+    this.defList = [
+              'width','height',
+              'top','right','bottom','left',
+              'margin-top','margin-right','margin-bottom','margin-left',
+              'padding-top','padding-right','padding-bottom','padding-left',
+
+              'background-size'
+            ];
+
+    this.list = this.defList.concat(list);
+    // 重複削除
+    this.list = this.list.filter(function (x, i, self) {
+              return self.indexOf(x) === i;
+           });
+    // 対象から外す
+    for (var i = 0; i < notList.length; i++) {
+      for(j=0; j<this.list.length; j++){
+          if(this.list[j] == notList[i]){
+              this.list.splice(j--, 1);
+          }
+      }
+    }
+    this.tempList = [];
+    this.len = this.list.length;
+
+    this.win = win;
+    this.defW = win.def;
+    this.maxW = win.max;
+    this.minW = win.min;
+
+    if (!win.hFlag) this.W = window.innerWidth;
+    else this.W = window.innerHeight;
+    this.rate = this.W / this.defW;
+
+    this.flag = flag;
+
+    this.getDef();
+
+  }
+
+  Size.prototype = {
+
+    getDef: function () {
+
+      var self = this;
+
+      this.$target.each(function(index) {
+
+        self.tempList[index] = [];
+
+        for (var i = 0; i < self.len; i++) {
+
+          var css = $(this).css(self.list[i]);
+          if (css !== '0px' && css !== 'auto') {
+
+            if (self.flag == 'inner' && self.list[i] == 'width') {
+              var val = parseInt($(this).innerWidth());
+            } else {
+              var val = parseInt(css);
+            }
+
+            $(this).data(self.list[i],val);
+            self.tempList[index].push(self.list[i]);
+          };
+
+        };
+
+      });
+
+    },
+
+    setVal: function () {
+
+      var self = this
+
+      this.$target.each(function(index) {
+
+        var len = self.tempList[index].length;
+
+        for (var i = 0; i < len; i++) {
+
+          $(this).css(self.tempList[index][i],$(this).data(self.tempList[index][i]) * self.rate);  
+
+        };
+
+      });
+
+    },
+
+    update: function () {
+
+      if (!this.win.hFlag) this.W = window.innerWidth;
+      else this.W = window.innerHeight;
+
+      if (this.W > this.maxW) this.W = this.maxW;
+      if (this.W < this.minW) this.W = this.minW;
+
+      this.rate = this.W / this.defW;
+
+    },
+
+    onResize: function () {
+
+      this.update();
+      this.setVal();
+
+    },
+
+    main: function () {
+
+      this.update();
+      this.setVal();
+
+    }
+
+  }
+  // 公開api
+  gb.Size = Size;
+
+}());
 //--------------------------------------------------
 //
 //  menu
@@ -904,6 +1401,7 @@ $(window).on('load', function(event) {
 
     ready: function() {
 
+      this.$menu.find('.itemWrap').adjust();
 
     },
 
@@ -926,6 +1424,7 @@ $(window).on('load', function(event) {
     open: function() {
 
       this.$menu.show();
+      this.ready();
       
     },
 
@@ -958,9 +1457,12 @@ $(window).on('load', function(event) {
 
       var self = this;
 
-      this.$btn.on('click', function(){self.open.call(self);});
-      this.$close.on('click', function(){self.close.call(self);});
-      this.$item.on('click', function(e){self.stopProp.call(self,e);});
+      var e;
+      if ($('body').attr('id') == 'top') e = 'click';
+      else e = 'touchstart';
+      this.$btn.on(e, function(){self.open.call(self);});
+      this.$close.on(e, function(){self.close.call(self);});
+      // this.$item.on('click', function(e){self.stopProp.call(self,e);});
 
     },
 
@@ -989,6 +1491,8 @@ $(window).on('load', function(event) {
 
     this.W = $(window).width(),
     this.H = $(window).height();
+
+    this.scrollY = 0;
 
     this.setEvents();
     this.ready();
@@ -1020,15 +1524,30 @@ $(window).on('load', function(event) {
 
     open: function() {
 
+      // gb.Vimeo($('#player'),$('.playBox'));
+
+      // 背景固定
+      this.scrollY = $('.contentsWrap').scrollTop(); 
+
+      $('.pjaxWrap').css( {
+        position: 'fixed',
+        width: '100%',
+        top: -1 * this.scrollY
+      } );
+
+      // モーダル表示
       this.$menu.show();
-      log(1);
       
     },
 
     close: function() {
 
+      // 背景固定解除
+      $('.pjaxWrap').attr( { style: '' } ).css({opacity: 1});
+      $( '.bodyInner, .contentsWrap' ).scrollTop(this.scrollY);
+
+      // モーダル非表示
       this.$menu.hide();
-      log(2);
 
     },
 
@@ -1049,8 +1568,8 @@ $(window).on('load', function(event) {
 
       var self = this;
 
-      this.$btn.on('click', function(){self.open.call(self);});
-      this.$close.on('click', function(){self.close.call(self);});
+      this.$btn.on('touchstart click', function(){self.open.call(self);});
+      this.$close.on('touchstart click', function(){self.close.call(self);});
 
     },
 
@@ -1059,3 +1578,116 @@ $(window).on('load', function(event) {
   gb.Modal = Modal;
 
 })();
+//--------------------------------------------------
+//
+//  vimeo
+//
+//--------------------------------------------------
+(function(){
+
+  var gb = jp.co.sjPlus;
+
+  function Vimeo($obj,$btn) {
+
+    var iframe = $obj[0];
+    this.player = $f(iframe);
+
+    log(this.player);
+
+    this.$btn = $btn;
+
+    this.setEvents();
+    this.ready();
+
+  }
+
+  Vimeo.prototype = {
+
+    ready: function() {
+
+
+    },
+
+    onPause: function () {
+
+    },
+
+    onFinish: function () {
+
+    },
+
+    onPlayProgress: function (data) {
+
+    },
+
+    setEvents: function() {
+
+      var self = this;
+
+      this.player.addEvent('ready', function() {          
+          self.player.addEvent('pause', onPause);
+          self.player.addEvent('finish', onFinish);
+          self.player.addEvent('playProgress', onPlayProgress);
+      });
+
+      this.$btn.on('click', function() {
+          self.player.api('play');
+      });
+
+    },
+
+  }
+
+  gb.Vimeo = Vimeo;
+
+})();
+//--------------------------------------------------
+//
+//  Common
+//
+//--------------------------------------------------
+(function(){
+
+  var gb = jp.co.sjPlus;
+
+  var param = {
+        area : '.pjaxWrap, #header, #topVisualWrap, .ui__menu, .detail',
+        link : 'a.pjax',
+        ajax: { timeout: 2500},
+        wait: 600,
+        load : { script: true }
+      }
+
+  function onReady() {
+
+    gb.isDevice();
+    gb.isBrowserVersion();
+    gb.isResizeOrientation();
+    gb.isIndividual();
+
+    // pjax
+    new gb.Pjax(param)
+
+  }
+
+  function onLoad() {
+
+  }
+
+  function setEvents() {
+
+    $(document).on('ready', onReady);
+    $(window).on('load', onLoad);
+
+  }
+
+
+  function main() {
+
+    setEvents();
+
+  } 
+
+  main();
+
+}());

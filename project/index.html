@@ -96,7 +96,7 @@
 //  style sheet
 //
 // ************************************************************ -->
-<link href="/assets/css/project.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
 <!-- ************************************************************
 //
 //  script
@@ -106,7 +106,6 @@
 <script type='text/javascript' src='/assets/js/common/bundle.js'></script>
 
 
-<script type='text/javascript' src='/assets/js/project.js'></script>
 <!-- ************************************************************
 //
 //  log
@@ -125,15 +124,21 @@
 </script> -->
 </head>
 <body id="project">
+<div class="bodyInner">
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
 
-  <!-- ************************************************************
+<!-- ************************************************************
 //
 //  header
 //
 // ************************************************************ -->
 
 
-<header id="header">
+<header id="header" class="pjaxMotion">
   <h1 class="logo"><a href="/"><img src="/assets/img/common/logo_w.png" height="23" width="184" alt=""></a></h1>
   <div class="barL"></div>
   <p class="page">PROJECT</p>
@@ -144,29 +149,70 @@
   </div>
 </header>
 
-  <!-- ************************************************************
-  //
-  //  contents
-  //
-  // ************************************************************ -->
-  <div id="contents">
-
-    <!-- ************************************************************
-    //  top visual
-    // ************************************************************ -->
-    <div id="topVisualWrap">
-      <div class="bg">        
-        <div id="topVisual" class="adjust">
-          <p class="tit justify">create a new</p>
-          <p class="tit justify">experience in the</p>
-          <p class="tit justify">design and techn</p>
-          <p class="tit justify">−ology of small</p>
-          <p class="tit justify">innovesion</p>
-          <p class="text">デザインとテクノロジーのイノベーションであらたな体験を</p>
-        </div>
-        <div class="barL adjustW"></div>
-      </div>
+<!-- ************************************************************
+//
+//  top visual
+//
+// ************************************************************ -->
+<div id="topVisualWrap">
+  <div class="bg">
+    <div class="pjaxMotion">
+    <div id="topVisual" class="adjust">
+      <p class="tit justify fzLiquid">create a new</p>
+      <p class="tit justify fzLiquid">experience in the</p>
+      <p class="tit justify fzLiquid">design and techn</p>
+      <p class="tit justify fzLiquid">−ology of small</p>
+      <p class="tit justify fzLiquid">innovesion</p>
+      <p class="text fzLiquid">デザインとテクノロジーのイノベーションであらたな体験を</p>
     </div>
+    <div class="barL adjust"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+<div class="ui__menu pjaxMotion">
+  <ul class="itemWrap adjustH">
+    <li class="item fzLiquid"><a class="pjax" href="/">TOP</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/about">ABOUT</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/project">PROJECT</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/technology">TECHNOLOGY</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/contact">CONTACT</a></li>
+  </ul>
+
+  <div class="ui__menu_btn_c adjustW">
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+
+<!-- ************************************************************
+//
+//  detail
+//
+// ************************************************************ -->
+<div class="detail">
+</div>
+
+<!-- ************************************************************
+//
+//  contents
+//
+// ************************************************************ -->
+<div class="contentsWrap">
+<div class="pjaxWrap pjaxMotion" data-id="project">
+
+  <div id="contents">
 
     <!-- ************************************************************
     //  projects
@@ -178,8 +224,8 @@
         <h2 class="tit">montajyu strick</h2>
         <p class="subTit">モンタージュストライク</p>
         <div class="imgWrap">
-          <img src="/assets/img/project/img01.png" height="433" width="700" alt="">
-          <a href="./detail.html">
+          <img src="/assets/img/project/img01.png" height="433" width="700" alt="" class="flex">
+          <a href="/project/detail.html" class='pjax'>
           <div class="detailBox adjust">
             <span>DETAILS</span>
             <div class="bar adjustW"></div>
@@ -198,8 +244,8 @@
         <h2 class="tit">hinkarinka</h2>
         <p class="subTit">ヒンカリンカ</p>
         <div class="imgWrap">
-          <img src="/assets/img/project/img02.png" height="433" width="700" alt="">
-          <a href="./detail.html">
+          <img src="/assets/img/project/img02.png" height="433" width="700" alt="" class="flex">
+          <a href="/project/detail02.html" class='pjax'>
           <div class="detailBox adjust">
             <span>DETAILS</span>
             <div class="bar adjustW"></div>
@@ -213,7 +259,7 @@
 
       </div>
 
-      <a href="/contact">
+      <a href="/contact" class="pjax">
       <div class="linkBox">
         <span>CONTACT</span>
         <div class="bar adjustW"></div>
@@ -224,28 +270,9 @@
 
   </div>
 
-  <!-- ************************************************************
-//
-//  menu
-//
-// ************************************************************ -->
-<div class="ui__menu">
-  <ul class="itemWrap adjustH">
-    <li class="item"><a href="/">TOP</a></li>
-    <li class="item"><a href="/about">ABOUT</a></li>
-    <li class="item"><a href="/project">PROJECT</a></li>
-    <li class="item"><a href="/technology">TECHNOLOGY</a></li>
-    <li class="item"><a href="/contact">CONTACT</a></li>
-  </ul>
-
-  <div class="ui__menu_btn_c adjustW">
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
+<script type='text/javascript' src='/assets/js/project.js'></script>
 </div>
-
-<script>
-
-</script>
+</div>
+</div>
 </body>
 </html>

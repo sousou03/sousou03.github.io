@@ -10,11 +10,13 @@
   
   .logo {
     padding: 15px;
+    
+    img {vertical-align: middle;}
   }
   .barL {
     width: 15px;
     height: 1px;
-    background-color: #000;
+    background-color: #fff;
     position: absolute;
     left: 122px;
     top: 23px;
@@ -34,13 +36,13 @@
     position: absolute;
     right: 8px;
     top: 9px;
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
     
     .bar {
       width: 16px;
       height: 1px;
-      background-color: #000;
+      background-color: #fff;
       
       position: absolute;
       top: 50%;
@@ -56,6 +58,11 @@
   }
 }
 
+.forAndroid #header {
+  mix-blend-mode: normal !important;
+  .page {color: #000 !important;}
+  .bar, .barL {background-color: #000 !important;}
+}
 
 @media only screen and (min-width: minBpSP) {
 
@@ -101,6 +108,19 @@
 
 #contents {
     
+}
+
+.forAndroid #topVisual {
+  color: #000 !important;
+}
+#top.forAndroid  #topVisual {
+  mix-blend-mode: normal !important;
+}
+#topVisualWrap,
+#topVisualWrap .bg {
+
+  // min-height: 320px;
+
 }
 
 /*
@@ -181,4 +201,24 @@
 @media only screen and (max-width: maxBpSP) {
 
 
+}
+
+
+/* --------------------------------------------------------------------------------
+*
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+.fz30 {
+  font-size: 30px !important;
+}
+
+.cssNone {
+  margin-top: 30px !important;
+  top: 0 !important;
+}
+
+.landState {
+  top: 400px !important;
+  margin-top: 0 !important;
 }

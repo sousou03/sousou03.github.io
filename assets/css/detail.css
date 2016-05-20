@@ -205,25 +205,25 @@ Base font = 16px
  *   web font   
  *
  */
-#contents #topVisualWrap #topVisual .text,
-#contents .content .subTit,
-#contents .content .grayArea .tit,
-#contents .content .whiteArea .tit,
-#contents .content .grayArea .text,
-#contents .content .whiteArea .text,
-#contents .content .nextProject .subTit
+#detail #contents #topVisualWrap #topVisual .text,
+#detail #contents .content .subTit,
+#detail #contents .content .grayArea .tit,
+#detail #contents .content .whiteArea .tit,
+#detail #contents .content .grayArea .text,
+#detail #contents .content .whiteArea .text,
+#detail #contents .content .nextProject .subTit
 {
     font-family: 'Noto Sans Japanese';
 }
 
-#contents .content .details,
-#contents .content .tag,
-#contents .content .playBox,
-#contents .content .grayArea .next,
-#contents .content .whiteArea .next,
-#contents .content .nextProject .details,
-#contents .content .nextProject .tag,
-#contents .content .nextProject .detailBox
+#detail #contents .content .details,
+#detail #contents .content .tag,
+#detail #contents .content .playBox,
+#detail #contents .content .grayArea .next,
+#detail #contents .content .whiteArea .next,
+#detail #contents .content .nextProject .details,
+#detail #contents .content .nextProject .tag,
+#detail #contents .content .nextProject .detailBox
 {
     font-family: 'Roboto', sans-serif;
 }
@@ -235,9 +235,9 @@ Base font = 16px
 
 #header .page,
 .ui__menu .item,
-#contents #topVisualWrap #topVisual .tit,
-#contents .content > .tit,
-#contents .content .nextProject .tit
+#detail #contents #topVisualWrap #topVisual .tit,
+#detail #contents .content > .tit,
+#detail #contents .content .nextProject .tit
 {
     font-family: 'Alegreya Sans SC', sans-serif;
 }
@@ -308,6 +308,7 @@ textarea
     resize: none;
 
     border: none;
+    border-radius: 0;
     outline: none;
     background-color: transparent;
 
@@ -337,6 +338,12 @@ html
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
+}
+
+html,
+body
+{
+    height: 100%;
 }
 
 /* --------------------------------------------------------------------------------
@@ -508,6 +515,11 @@ a:active
     padding: 15px;
 }
 
+#header .logo img
+{
+    vertical-align: middle;
+}
+
 #header .barL
 {
     position: absolute;
@@ -645,6 +657,30 @@ a:active
 */
 /* --------------------------------------------------------------------------------
 *
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+.fz30
+{
+    font-size: 30px !important;
+}
+
+.cssNone
+{
+    top: 0 !important;
+
+    margin-top: 30px !important;
+}
+
+.landState
+{
+    top: 400px !important;
+
+    margin-top: 0 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
 *   menu
 *
 -------------------------------------------------------------------------------- */
@@ -669,11 +705,6 @@ a:active
   */
 }
 
-.ui__menu .itemWrap
-{
-    padding-left: 45px;
-}
-
 .ui__menu .item
 {
     font-size: 36px;
@@ -694,10 +725,11 @@ a:active
 
 .ui__menu .ui__menu_btn_c
 {
-    bottom: 60px;
+    top: 50%;
 
     width: 64px;
     height: 64px;
+    margin-top: 200px;
 }
 
 .ui__menu .ui__menu_btn_c .bar
@@ -2304,14 +2336,14 @@ td
 -------------------------------------------------------------------------------- */
 img.fitted
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
-.flex
+img.flex
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2384,9 +2416,29 @@ img.fitted
     overflow: scroll !important;
 }
 
+.is-scroll-x
+{
+    overflow-x: scroll !important;
+}
+
+.is-scroll-y
+{
+    overflow-y: scroll !important;
+}
+
 .is-hidden
 {
     overflow: hidden !important;
+}
+
+.is-hidden-x
+{
+    overflow-x: hidden !important;
+}
+
+.is-hidden-y
+{
+    overflow-y: hidden !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2419,18 +2471,22 @@ img.fitted
 *   その他
 *
 -------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-html,
-body
+#detail
+{
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
+}
+
+#detail html,
+#detail body
 {
     height: 100%;
 }
 
-#header
+#detail #header
 {
     z-index: 1;
 
@@ -2439,32 +2495,32 @@ body
     mix-blend-mode: exclusion;
 }
 
-#header .logo
+#detail #header .logo
 {
     mix-blend-mode: normal;
 }
 
-#header .barL,
-#header .bar
+#detail #header .barL,
+#detail #header .bar
 {
     background-color: #fff !important;
 }
 
-#contents
+#detail #contents
 {
     /*
-  *
-  *   top visual
-  *
-  */
+    *
+    *   top visual
+    *
+    */
     /*
-  *
-  *   content
-  *
-  */
+    *
+    *   content
+    *
+    */
 }
 
-#contents #topVisualWrap .bg
+#detail #contents #topVisualWrap .bg
 {
     position: fixed;
     top: 0;
@@ -2474,12 +2530,14 @@ body
     height: 100%;
 }
 
-#contents #topVisualWrap #topVisual
+#detail #contents #topVisualWrap #topVisual
 {
     z-index: 2;
 
     box-sizing: border-box;
     width: 100%;
+    width: 375px;
+    height: 314px;
     padding: 0 40px;
 
     color: #000;
@@ -2487,7 +2545,7 @@ body
     mix-blend-mode: exclusion;
 }
 
-#contents #topVisualWrap #topVisual .tit
+#detail #contents #topVisualWrap #topVisual .tit
 {
     font-size: 36px;
     font-size: 2.25rem;
@@ -2499,27 +2557,27 @@ body
     text-transform: uppercase;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(2)
+#detail #contents #topVisualWrap #topVisual .tit:nth-of-type(2)
 {
     letter-spacing: .01em;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(3)
+#detail #contents #topVisualWrap #topVisual .tit:nth-of-type(3)
 {
-    letter-spacing: 0;
+    letter-spacing: -.05em !important;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(4)
+#detail #contents #topVisualWrap #topVisual .tit:nth-of-type(4)
 {
     letter-spacing: .03em;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(5)
+#detail #contents #topVisualWrap #topVisual .tit:nth-of-type(5)
 {
     letter-spacing: .05em;
 }
 
-#contents #topVisualWrap #topVisual .text
+#detail #contents #topVisualWrap #topVisual .text
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2528,7 +2586,7 @@ body
     letter-spacing: .04em;
 }
 
-#contents #topVisualWrap .barL
+#detail #contents #topVisualWrap .barL
 {
     position: absolute;
     bottom: 115px;
@@ -2540,7 +2598,7 @@ body
     background-color: #000;
 }
 
-#contents .content
+#detail #contents .content
 {
     position: absolute;
     top: 0;
@@ -2551,28 +2609,28 @@ body
     color: #fff;
     background-color: rgba(0, 0, 0, .75);
     /*
-    *
-    *   playbox
-    *
-    */
+      *
+      *   playbox
+      *
+      */
     /*
-    *
-    *   close
-    *
-    */
+      *
+      *   close
+      *
+      */
     /*
-    *
-    *   grayArea whiteArea
-    *
-    */
+      *
+      *   grayArea whiteArea
+      *
+      */
     /*
-    *
-    *   next project
-    *
-    */
+      *
+      *   next project
+      *
+      */
 }
 
-#contents .content > .tit
+#detail #contents .content > .tit
 {
     font-size: 32px;
     font-size: 2rem;
@@ -2586,7 +2644,7 @@ body
     letter-spacing: .06em;
 }
 
-#contents .content .subTit
+#detail #contents .content .subTit
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2598,8 +2656,8 @@ body
     letter-spacing: .06em;
 }
 
-#contents .content .details,
-#contents .content .tag
+#detail #contents .content .details,
+#detail #contents .content .tag
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2611,12 +2669,12 @@ body
     letter-spacing: .06em;
 }
 
-#contents .content .tag
+#detail #contents .content .tag
 {
     padding-bottom: 30px;
 }
 
-#contents .content .imgWrap .barL
+#detail #contents .content .imgWrap .barL
 {
     position: absolute;
     top: 20px;
@@ -2628,7 +2686,7 @@ body
     background-color: #fff;
 }
 
-#contents .content .playBox
+#detail #contents .content .playBox
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2648,14 +2706,14 @@ body
     background-color: #181818;
 }
 
-#contents .content .playBox span
+#detail #contents .content .playBox span
 {
     display: table-cell;
 
     vertical-align: middle;
 }
 
-#contents .content .playBox .bar
+#detail #contents .content .playBox .bar
 {
     position: absolute;
     bottom: 19px;
@@ -2667,7 +2725,7 @@ body
     background-color: #fff;
 }
 
-#contents .content .ui__menu_btn_c
+#detail #contents .content .ui__menu_btn_c
 {
     position: absolute;
     top: 59px;
@@ -2677,7 +2735,7 @@ body
     height: 44px;
 }
 
-#contents .content .ui__menu_btn_c .bar
+#detail #contents .content .ui__menu_btn_c .bar
 {
     position: absolute;
     top: 50%;
@@ -2690,18 +2748,18 @@ body
     background-color: #fff;
 }
 
-#contents .content .ui__menu_btn_c .bar:nth-child(1)
+#detail #contents .content .ui__menu_btn_c .bar:nth-child(1)
 {
     transform: rotate(45deg);
 }
 
-#contents .content .ui__menu_btn_c .bar:nth-child(2)
+#detail #contents .content .ui__menu_btn_c .bar:nth-child(2)
 {
     transform: rotate(-45deg);
 }
 
-#contents .content .grayArea,
-#contents .content .whiteArea
+#detail #contents .content .grayArea,
+#detail #contents .content .whiteArea
 {
     padding-top: 45px;
     padding-bottom: 40px;
@@ -2709,16 +2767,16 @@ body
     background-color: #3e3e3e;
 }
 
-#contents .content .grayArea .tit,
-#contents .content .grayArea .text,
-#contents .content .whiteArea .tit,
-#contents .content .whiteArea .text
+#detail #contents .content .grayArea .tit,
+#detail #contents .content .grayArea .text,
+#detail #contents .content .whiteArea .tit,
+#detail #contents .content .whiteArea .text
 {
     padding: 0 40px 0;
 }
 
-#contents .content .grayArea .tit,
-#contents .content .whiteArea .tit
+#detail #contents .content .grayArea .tit,
+#detail #contents .content .whiteArea .tit
 {
     font-size: 14px;
     font-size: .875rem;
@@ -2730,8 +2788,8 @@ body
     letter-spacing: .04em;
 }
 
-#contents .content .grayArea .text,
-#contents .content .whiteArea .text
+#detail #contents .content .grayArea .text,
+#detail #contents .content .whiteArea .text
 {
     font-size: 10px;
     font-size: .625rem;
@@ -2743,8 +2801,8 @@ body
     letter-spacing: .04em;
 }
 
-#contents .content .grayArea .video,
-#contents .content .whiteArea .video
+#detail #contents .content .grayArea .video,
+#detail #contents .content .whiteArea .video
 {
     width: 270px;
     height: 150px;
@@ -2753,16 +2811,16 @@ body
     background-color: pink;
 }
 
-#contents .content .grayArea .img,
-#contents .content .whiteArea .img
+#detail #contents .content .grayArea .img,
+#detail #contents .content .whiteArea .img
 {
     margin-bottom: 45px;
 
     text-align: center;
 }
 
-#contents .content .grayArea .next,
-#contents .content .whiteArea .next
+#detail #contents .content .grayArea .next,
+#detail #contents .content .whiteArea .next
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2774,8 +2832,8 @@ body
     letter-spacing: .06em;
 }
 
-#contents .content .grayArea .barL,
-#contents .content .whiteArea .barL
+#detail #contents .content .grayArea .barL,
+#detail #contents .content .whiteArea .barL
 {
     width: 1px;
     height: 32px;
@@ -2784,26 +2842,26 @@ body
     background-color: #000;
 }
 
-#contents .content .whiteArea
+#detail #contents .content .whiteArea
 {
     color: #000;
     background-color: #fff;
 }
 
-#contents .content .nextProject
+#detail #contents .content .nextProject
 {
     padding-top: 46px;
     padding-bottom: 30px;
 
     background-color: #3e3e3e;
     /*
-      *
-      *   detail box
-      *
-      */
+        *
+        *   detail box
+        *
+        */
 }
 
-#contents .content .nextProject .tit
+#detail #contents .content .nextProject .tit
 {
     font-size: 32px;
     font-size: 2rem;
@@ -2815,7 +2873,7 @@ body
     letter-spacing: .06em;
 }
 
-#contents .content .nextProject .subTit
+#detail #contents .content .nextProject .subTit
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2827,15 +2885,15 @@ body
     letter-spacing: .06em;
 }
 
-#contents .content .nextProject .imgWrap
+#detail #contents .content .nextProject .imgWrap
 {
     box-sizing: border-box;
     margin-bottom: 22px;
     padding-left: 25px;
 }
 
-#contents .content .nextProject .details,
-#contents .content .nextProject .tag
+#detail #contents .content .nextProject .details,
+#detail #contents .content .nextProject .tag
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2847,7 +2905,7 @@ body
     letter-spacing: .06em;
 }
 
-#contents .content .nextProject .detailBox
+#detail #contents .content .nextProject .detailBox
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2867,14 +2925,14 @@ body
     background-color: #181818;
 }
 
-#contents .content .nextProject .detailBox span
+#detail #contents .content .nextProject .detailBox span
 {
     display: table-cell;
 
     vertical-align: middle;
 }
 
-#contents .content .nextProject .detailBox .bar
+#detail #contents .content .nextProject .detailBox .bar
 {
     position: absolute;
     bottom: 19px;

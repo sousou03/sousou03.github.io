@@ -1,127 +1,22 @@
+<% 
+  // variable
+  var ejsRoot = '../../inc/'; 
+  var page = 'detail'; 
 
+  // get data
+  include(ejsRoot + '_metaData'); var data = getData();
+%>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- ************************************************************
-//
-//  meta
-//
-// ************************************************************ -->
-<title>detail</title>
-<meta name="description" content="detaildescription">
-<meta name="keywords" content="detailkeyword">
-<meta name="author" content="">
-
-<!-- fb ogp -->    
-<meta property="og:title" content="現在のページ名" /> 
-<meta property="og:type" content="article" /> <!-- websiteなど -->
-<meta property="og:url" content="現在のページURL" /> 
-<meta property="og:image" content="サムネイルURL" />
-<meta property="og:site_name" content="サイト名" />
-<meta property="og:description" content="ページ概要" /> <!-- 絶対パスで -->
-
-<!-- twitter ogp -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="DisneyOzMovie">
-<meta name="twitter:creator" content="DisneyOzMovie">
-<meta name="twitter:url" content="http://www.findyourwaytooz.com">
-<meta name="twitter:title" content="Find Your Way to Oz | Disney&#39;s Oz The Great and Powerful | Google Chrome">
-<meta name="twitter:description" content="A Chrome Experiment, inspired by Disney&#39;s Oz The Great and Powerful.">
-<meta name="twitter:image" content="http://www.findyourwaytooz.com/img/social/twitter.png"> <!-- TODO: change this -->
-
-<!-- ************************************************************
-//
-//  クローラーにindex
-//
-// ************************************************************ -->
-<!-- <meta name="robots" content="index, follow"> -->
-<!-- <meta name="robots" content="noindex, follow"> -->
-<!-- <meta name="robots" content="noindex, nofollow"> -->
-
-<!-- ************************************************************
-//
-//  google翻訳
-//
-// ************************************************************ -->
-<!-- <meta name="google" value="notranslate"> -->
-
-<!-- ************************************************************
-//
-//  sp対策
-//
-// ************************************************************ -->
-<!-- <meta name="format-detection" content="telephone=yes,email=yes"> -->
-<!-- <meta name="format-detection" content="telephone=no"> -->
-
-<!-- ************************************************************
-//
-//  IE互換表示対策(標準モードでレンダリング)
-//
-// ************************************************************ -->
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"/> -->
-
-<!-- ************************************************************
-//
-//  favicon
-//
-// ************************************************************ -->
-<!-- <link rel="shortcut icon" href="/favicon.ico" /> -->
-
-<!-- ************************************************************
-//
-//  sp home icon
-//
-// ************************************************************ -->
-
-<!-- 光沢感あり -->
-<!-- <link rel="apple-touch-icon" href="/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon-144x144.png"> -->
-
-<!-- 光沢感無し -->
-<!-- <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144x144.png"> -->
-
-<!-- 最大の画像を用意して一つでもいい -->
-<!-- <link rel="apple-touch-icon" href="/apple-touch-icon-144x144.png"> -->
-<!-- <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144x144.png"> -->
-<!-- ************************************************************
-//
-//  style sheet
-//
-// ************************************************************ -->
+<%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
+<%- include(ejsRoot + '_style'); %>
 <link href="/assets/css/style.css" rel="stylesheet">
-<!-- ************************************************************
-//
-//  script
-//
-// ************************************************************ -->
-<script type='text/javascript' src='/assets/js/common/libs.js'></script>
-<script type='text/javascript' src='/assets/js/common/bundle.js'></script>
-
-
-<!-- ************************************************************
-//
-//  log
-//
-// ************************************************************ -->
-<!-- <script type="text/javascript" src="http://www31.tracer.jp/VL/Trace?c=uu14752&amp;p=&amp;tp=1&amp;lk=1&amp;fl=1"></script>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36445911-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script> -->
+<%- include(ejsRoot + '_script'); %>
+<%- include(ejsRoot + '_log'); %>
 </head>
 <body id="detail">
 <div class="bodyInner">
@@ -131,23 +26,7 @@
 //
 // ************************************************************ -->
 
-<!-- ************************************************************
-//
-//  header
-//
-// ************************************************************ -->
-
-
-<header id="header" class="pjaxMotion">
-  <h1 class="logo"><a href="/"><img src="/assets/img/common/logo_w.png" height="23" width="184" alt=""></a></h1>
-  <div class="barL"></div>
-  <p class="page">PROJECT</p>
-
-  <div class="ui__menu_btn">
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-</header>
+<%- include(ejsRoot + '_header', {data:data,page:page}); %>
 
 <!-- ************************************************************
 //
@@ -176,25 +55,7 @@
 //
 // ************************************************************ -->
 
-<!-- ************************************************************
-//
-//  menu
-//
-// ************************************************************ -->
-<div class="ui__menu pjaxMotion">
-  <ul class="itemWrap adjustH">
-    <li class="item fzLiquid"><a class="pjax" href="/">TOP</a></li>
-    <li class="item fzLiquid"><a class="pjax" href="/about">ABOUT</a></li>
-    <li class="item fzLiquid"><a class="pjax" href="/project">PROJECT</a></li>
-    <li class="item fzLiquid"><a class="pjax" href="/technology">TECHNOLOGY</a></li>
-    <li class="item fzLiquid"><a class="pjax" href="/contact">CONTACT</a></li>
-  </ul>
-
-  <div class="ui__menu_btn_c adjustW">
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-</div>
+<%- include(ejsRoot + '_menu', {data:data,page:page}); %>
 
 <!-- ************************************************************
 //
@@ -213,12 +74,12 @@
 <div class="pjaxWrap pjaxMotion" data-id="detail">
 
   <div id="contents">
-  
+
     <!-- ************************************************************
     //  content
     // ************************************************************ -->
     <div class="content">
-  
+
       <a href="/project" class="pjax">
       <div class="ui__menu_btnC">
         <div class="bar"></div>
@@ -351,7 +212,7 @@
         <p class="subTit">ヒンカリンカ</p>
         <div class="imgWrap">
           <img src="/assets/img/project/img02.png" height="433" width="700" alt="" class="flex">
-          <a href="/project/detail02.html" class="pjax">
+          <a href="/project/detail.html" class="pjax">
           <div class="detailBox adjust">
             <span>DETAILS</span>
             <div class="bar adjustW"></div>

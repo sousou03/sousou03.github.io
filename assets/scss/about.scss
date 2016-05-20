@@ -1,37 +1,32 @@
-@charset "utf-4";
+@charset "utf-8";
 
-@import "init/import";
-@import "init/reset"; // リセットCSS、フォントサイズ
+#about {
 
-@import "base/import"; // 共通css
-
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-
-html,body {
-  height: 100%;
-  // background: rgba(63,63,63,.8);
-}
-
-#header {
-  z-index: 1;
-  color: #fff;
-  mix-blend-mode: exclusion;
+  /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
   
-  .barL, .bar {background-color: #fff !important;}
-}
+  #header {
+    z-index: 1;
+    mix-blend-mode: exclusion;
+    
+    .page {color: #fff !important;}
+    .barL, .bar {background-color: #fff !important;}
+  }
 
-#contents {
   
-  /*
+  /* --------------------------------------------------------------------------------
   *
   *   top visual
   *
-  */
+  -------------------------------------------------------------------------------- */
   #topVisualWrap {
+
+    // @include media-min('SP') {
+    //  min-height: 568px;
+    // }
 
     .bg {
       background: url(/assets/img/about/bg.png) no-repeat;
@@ -41,17 +36,25 @@ html,body {
       position: fixed;
       left: 0;
       top: 0;
+      
+    }
+
+    .pjaxMotion {
+      height: 100%;
     }
     
     #topVisual {
       padding: 0 40px;
-      color: #fff;
+      color: #fff !important;
       mix-blend-mode: exclusion;
       
       width: 100%;
       box-sizing: border-box;
       
       z-index: 2;
+      
+      width: 375px;
+      height: 314px;
       
       .tit {
         @include fz(36);
@@ -67,7 +70,7 @@ html,body {
         // text-justify: inter-ideograph;
       }
       .tit:nth-of-type(2) {letter-spacing: 0.01em;}
-      .tit:nth-of-type(3) {letter-spacing: 0em;}
+      .tit:nth-of-type(3) {letter-spacing: -0.05em !important;}
       .tit:nth-of-type(4) {letter-spacing: 0.03em;}
       .tit:nth-of-type(5) {letter-spacing: 0.05em;}
 
@@ -89,186 +92,205 @@ html,body {
       width: 1px;
       height: 32px;
       background-color: #fff;
-      bottom: 115px;
-      position: absolute;
-      left: 50%;
+      margin-top: 48% !important;
     }
 
-  }
+  }  
 
-  /*
+  /* --------------------------------------------------------------------------------
   *
-  *   block
+  *   contents
   *
-  */
-  .block {
+  -------------------------------------------------------------------------------- */
+
+  #contents {
     
-    background: rgba(63,63,63,.8);
+    padding-top: 100vh;
     
-    .tit {
-      padding-top: 45px;
-      padding-left: 25px;
-      margin-bottom: 30px;
+    /*
+    *
+    *   block
+    *
+    */
+    .block {
       
-      @include fz(18);
-      font-weight: 300;
-      @extend %aleg;
-      letter-spacing: 0.06em;
-    }
-    
-  }
-
-  /*
-  *
-  *   concept
-  *
-  */
-  #concept {
-
-    color: #fff;
-  
-    .text {
-      padding: 0 40px 30px;
+      background: rgba(63,63,63,.8);
       
-      @include fz(10);
-      font-weight: 100;
-      @extend %noto;
-      letter-spacing: 0.04em;
-      line-height: 2;
-      
-      text-align: justify;
-      text-justify: inter-ideograph;
-    }
-    .text:last-child {
-      padding-bottom: 45px;
-    }
-    
-  }
-
-  /*
-  *
-  *   member
-  *
-  */
-  #member {
-
-    background: rgba(255,255,255,.8);
-  
-    .box {
-      padding: 0 40px 30px;
-      
-      .photo {
-        float: left;
-      }
-      .detail {
-        padding-left: 160px;
-      }
-
-      .detail .subTit {
-        @include fz(13);
-        font-weight: 500;
-        @extend %noto;
-        letter-spacing: 0em;
-        margin-bottom: 15px;
-      }
-
-      .detail .text {
+      .tit {
+        padding-top: 12%;
+        padding-left: 25px;
+        margin-bottom: 30px;
         
-        @include fz(9);
+        @include fz(18);
+        font-weight: 300;
+        @extend %aleg;
+        letter-spacing: 0.06em;
+      }
+      
+    }
+
+    /*
+    *
+    *   concept
+    *
+    */
+    #concept {
+
+      color: #fff;
+    
+      .text {
+        padding: 0 12% 10%;
+        
+        @include fz(10);
         font-weight: 100;
         @extend %noto;
         letter-spacing: 0.04em;
-        line-height: 1.55;
+        line-height: 2;
         
         text-align: justify;
         text-justify: inter-ideograph;
-          
+      }
+      .text:last-child {
+        padding-bottom: 45px;
       }
       
-      .detail .text:nth-of-type(1){
+    }
+
+    /*
+    *
+    *   member
+    *
+    */
+    #member {
+
+      background: rgba(255,255,255,.8);
+    
+      .box {
+        padding: 0 12% 10%;
         
-        margin-bottom: 15px;
+        .photo {
+          float: left;
+        }
+        .sentence {
+          padding-left: 54%;
+        }
+
+        .sentence .subTit {
+          @include fz(13);
+          font-weight: 500;
+          @extend %noto;
+          letter-spacing: 0em;
+          margin-bottom: 15px;
+        }
+
+        .sentence .text {
           
+          @include fz(9);
+          font-weight: 100;
+          @extend %noto;
+          letter-spacing: 0.04em;
+          line-height: 1.55;
+          
+          text-align: justify;
+          text-justify: inter-ideograph;
+            
+        }
+        
+        .sentence .text:nth-of-type(1){
+          
+          margin-bottom: 15px;
+            
+        }
+        
+      }
+      .block:last-child {
+        // padding-bottom: 45px;
       }
       
     }
-    .block:last-child {
-      // padding-bottom: 45px;
-    }
+
+    /*
+    *
+    *   company
+    *
+    */
+    #company {
+
+      color: #fff;
     
-  }
-
-  /*
-  *
-  *   company
-  *
-  */
-  #company {
-
-    color: #fff;
-  
-    .text {
-      padding: 0 40px 0;
-      
-      @include fz(10);
-      font-weight: 100;
-      @extend %noto;
-      letter-spacing: 0.04em;
-      line-height: 2;
-      
-      text-align: justify;
-      text-justify: inter-ideograph;
-    }
-    
-  }
-
-  /*
-  *
-  *   access
-  *
-  */
-  #access {
-
-    color: #fff;
-    padding-bottom: 60px;
-    
-    .tit {
-      padding-top: 30px;
-    }
-  
-    .text {
-      padding: 0 40px 20px;
-      
-      @include fz(10);
-      font-weight: 100;
-      @extend %noto;
-      letter-spacing: 0.04em;
-      line-height: 2;
-      
-      text-align: justify;
-      text-justify: inter-ideograph;
-    }
-
-    .map {
-      margin-bottom: 30px;
-    }
-
-    .barL {
-      width: 1px;
-      height: 32px;
-      background-color: #fff;
-      margin: 0 auto;
-      margin-bottom: 30px;
-    }
-
-    .linkBox {
-      @include fz(18);
-      
-      .bar {
-        bottom: 33px;        
+      .text {
+        padding: 0 12% 0;
+        
+        @include fz(10);
+        font-weight: 100;
+        @extend %noto;
+        letter-spacing: 0.04em;
+        line-height: 2;
+        
+        text-align: justify;
+        text-justify: inter-ideograph;
       }
+      
+    }
+
+    /*
+    *
+    *   access
+    *
+    */
+    #access {
+
+      color: #fff;
+      padding-bottom: 60px;
+      
+      .tit {
+        padding-top: 12%;
+      }
+    
+      .text {
+        padding: 0 12% 8%;
+        
+        @include fz(10);
+        font-weight: 100;
+        @extend %noto;
+        letter-spacing: 0.04em;
+        line-height: 2;
+        
+        text-align: justify;
+        text-justify: inter-ideograph;
+      }
+
+      .map {
+        margin-bottom: 30px;
+      }
+
+      .barL {
+        width: 1px;
+        height: 32px;
+        background-color: #fff;
+        margin: 0 auto;
+        margin-bottom: 30px;
+      }
+
+      .linkBox {
+        @include fz(18);
+        
+        .bar {
+          bottom: 33px;        
+        }
+      }
+
     }
 
   }
+
+  /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+  &.landscape #member .box .sentence{padding-left: 160px !important;}
+  &.landscape #topVisualWrap .pjaxMotion{height: 100vh !important;min-height: 320px !important;}
+  &.landscape #contents{padding-top: 0 !important;}
 
 }

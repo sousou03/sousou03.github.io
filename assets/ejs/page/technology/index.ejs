@@ -14,38 +14,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
 <%- include(ejsRoot + '_style'); %>
-<link href="/assets/css/technology.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
 <%- include(ejsRoot + '_script'); %>
-<script type='text/javascript' src='/assets/js/technology.js'></script>
 <%- include(ejsRoot + '_log'); %>
 </head>
 <body id="technology">
+<div class="bodyInner">
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
 
-  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+<%- include(ejsRoot + '_header', {data:data,page:page}); %>
 
-  <!-- ************************************************************
-  //
-  //  content
-  //
-  // ************************************************************ -->
-  <div id="contents">
+<!-- ************************************************************
+//
+//  top visual
+//
+// ************************************************************ -->
+<div id="topVisualWrap">
+  <div class="bg">
+    <div class="pjaxMotion">
+    <div id="topVisual" class="adjust">
+      <p class="tit justify fzLiquid">create a new</p>
+      <p class="tit justify fzLiquid">experience in the</p>
+      <p class="tit justify fzLiquid">design and techn</p>
+      <p class="tit justify fzLiquid">−ology of small</p>
+      <p class="tit justify fzLiquid">innovesion</p>
+      <p class="text fzLiquid">デザインとテクノロジーのイノベーションであらたな体験を</p>
+    </div>
+    <div class="barL adjust"></div>
+    </div>
+  </div>
+</div>
 
-    <!-- ************************************************************
-    //  top visual
-    // ************************************************************ -->
-    <div id="topVisualWrap">
-      <div class="bg">
-        <div id="topVisual" class="adjust">
-          <p class="tit justify">create a new</p>
-          <p class="tit justify">experience in the</p>
-          <p class="tit justify">design and techn</p>
-          <p class="tit justify">−ology of small</p>
-          <p class="tit justify">innovesion</p>
-          <p class="text">デザインとテクノロジーのイノベーションであらたな体験を</p>
-        </div>
-        <div class="barL adjustW"></div>
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+
+<%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<!-- ************************************************************
+//
+//  detail
+//
+// ************************************************************ -->
+<div class="detail">
+  <div class="scrollArea pjaxMotion">
+    <h2 class="tit">water of the<br>touch sensor</h2>
+    <p class="subTit">水のタッチセンサー</p>
+    <div class="video">
+      <iframe id="player1" src="https://player.vimeo.com/video/122657704?api=1&player_id=player1" width="295"
+      height="165" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <div class="playBox adjust">
+        <span>PLAY</span>
+        <div class="bar adjustW"></div>
       </div>
     </div>
+    
+    <p class="text">
+      水のタッチセンサを使ったインスタレーション。<br>
+      水に触れたことをタッチセンサでセンシングし、透明フィルムに投影されたプロジェクション画像に演出を与えている。
+    </p>
+    <p class="text">
+      nstallation that uses a touch sensor of the water.<br>
+      That touched the water sensed by the touch sensor, giving an effect on the projected projection image on a transparent film.
+    </p>
+
+    <div class="ui__menu_btn_c">
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ************************************************************
+//
+//  content
+//
+// ************************************************************ -->
+<div class="contentsWrap">
+<div class="pjaxWrap pjaxMotion" data-id="technology">
+
+  <div id="contents">
 
     <!-- ************************************************************
     //  case study
@@ -56,7 +111,7 @@
       <div class="boxWrap fBoth">
         <div class="box item">
           <div class="imgWrap">
-            <img src="/assets/img/technology/img01.png" height="256" width="256" alt="">
+            <img src="/assets/img/technology/img01.png" height="256" width="256" alt="" class="flex">
             <div class="detailBox adjust">
               <span>DETAILS</span>
               <div class="bar adjustW"></div>
@@ -68,7 +123,7 @@
 
         <div class="box item">
           <div class="imgWrap">
-            <img src="/assets/img/technology/img02.png" height="256" width="256" alt="">
+            <img src="/assets/img/technology/img02.png" height="256" width="256" alt="" class="flex">
             <div class="detailBox adjust">
               <span>DETAILS</span>
               <div class="bar adjustW"></div>
@@ -82,7 +137,7 @@
       <div class="boxWrap fBoth">
         <div class="box item">
           <div class="imgWrap">
-            <img src="/assets/img/technology/img03.png" height="256" width="256" alt="">
+            <img src="/assets/img/technology/img03.png" height="256" width="256" alt="" class="flex">
             <div class="detailBox adjust">
               <span>DETAILS</span>
               <div class="bar adjustW"></div>
@@ -94,7 +149,7 @@
 
         <div class="box item">
           <div class="imgWrap">
-            <img src="/assets/img/technology/img04.png" height="256" width="256" alt="">
+            <img src="/assets/img/technology/img04.png" height="256" width="256" alt="" class="flex">
             <div class="detailBox adjust">
               <span>DETAILS</span>
               <div class="bar adjustW"></div>
@@ -145,40 +200,19 @@
     </div>
 
   </div>
-
-  <!-- ************************************************************
-  //
-  //  detail
-  //
-  // ************************************************************ -->
-  <div class="detail">
-    <h2 class="tit">water of the<br>touch sensor</h2>
-    <p class="subTit">水のタッチセンサー</p>
-    <div class="video">
-      <div class="playBox adjust">
-        <span>PLAY</span>
-        <div class="bar adjustW"></div>
-      </div>
-    </div>
-    <p class="text">
-      水のタッチセンサを使ったインスタレーション。<br>
-      水に触れたことをタッチセンサでセンシングし、透明フィルムに投影されたプロジェクション画像に演出を与えている。
-    </p>
-    <p class="text">
-      nstallation that uses a touch sensor of the water.<br>
-      That touched the water sensed by the touch sensor, giving an effect on the projected projection image on a transparent film.
-    </p>
-
-    <div class="ui__menu_btn_c">
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-  </div>
-
-  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
-
+<!-- 
+<iframe id="player1" src="https://player.vimeo.com/video/76979871?api=1&player_id=player1" width="630" height="354" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+ -->
+<script type='text/javascript' src='/assets/js/technology.js'></script>
 <script>
-  
+
+$(function() {
+
+});
+
 </script>
+</div>
+</div>
+</div>
 </body>
 </html>

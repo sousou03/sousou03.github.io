@@ -205,7 +205,7 @@ Base font = 16px
  *   web font   
  *
  */
-#contents #topVisual .text
+#top #contents #topVisual .text
 {
     font-family: 'Noto Sans Japanese';
 }
@@ -217,7 +217,7 @@ Base font = 16px
 
 #header .page,
 .ui__menu .item,
-#contents #topVisual .tit
+#top #contents #topVisual .tit
 {
     font-family: 'Alegreya Sans SC', sans-serif;
 }
@@ -288,6 +288,7 @@ textarea
     resize: none;
 
     border: none;
+    border-radius: 0;
     outline: none;
     background-color: transparent;
 
@@ -317,6 +318,12 @@ html
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
+}
+
+html,
+body
+{
+    height: 100%;
 }
 
 /* --------------------------------------------------------------------------------
@@ -488,6 +495,11 @@ a:active
     padding: 15px;
 }
 
+#header .logo img
+{
+    vertical-align: middle;
+}
+
 #header .barL
 {
     position: absolute;
@@ -625,6 +637,30 @@ a:active
 */
 /* --------------------------------------------------------------------------------
 *
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+.fz30
+{
+    font-size: 30px !important;
+}
+
+.cssNone
+{
+    top: 0 !important;
+
+    margin-top: 30px !important;
+}
+
+.landState
+{
+    top: 400px !important;
+
+    margin-top: 0 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
 *   menu
 *
 -------------------------------------------------------------------------------- */
@@ -649,11 +685,6 @@ a:active
   */
 }
 
-.ui__menu .itemWrap
-{
-    padding-left: 45px;
-}
-
 .ui__menu .item
 {
     font-size: 36px;
@@ -674,10 +705,11 @@ a:active
 
 .ui__menu .ui__menu_btn_c
 {
-    bottom: 60px;
+    top: 50%;
 
     width: 64px;
     height: 64px;
+    margin-top: 200px;
 }
 
 .ui__menu .ui__menu_btn_c .bar
@@ -2284,14 +2316,14 @@ td
 -------------------------------------------------------------------------------- */
 img.fitted
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
-.flex
+img.flex
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2364,9 +2396,29 @@ img.fitted
     overflow: scroll !important;
 }
 
+.is-scroll-x
+{
+    overflow-x: scroll !important;
+}
+
+.is-scroll-y
+{
+    overflow-y: scroll !important;
+}
+
 .is-hidden
 {
     overflow: hidden !important;
+}
+
+.is-hidden-x
+{
+    overflow-x: hidden !important;
+}
+
+.is-hidden-y
+{
+    overflow-y: hidden !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2404,35 +2456,29 @@ img.fitted
 *   contents
 *
 -------------------------------------------------------------------------------- */
-html,
-body
-{
-    height: 100%;
-}
-
-#header .barL,
-#header .page,
-#header .ui__menu_btn
+#top #header .barL,
+#top #header .page,
+#top #header .ui__menu_btn
 {
     display: none;
 }
 
-#contents
+#top #contents
 {
     height: 100%;
     /*
-  *
-  *   menu   
-  *
-  */
+    *
+    *   menu   
+    *
+    */
     /*
-  *
-  *   contents
-  *
-  */
+    *
+    *   contents
+    *
+    */
 }
 
-#contents .ui__menu_btn
+#top #contents .ui__menu_btn
 {
     z-index: 1;
 
@@ -2443,7 +2489,7 @@ body
     background-size: 100%;
 }
 
-#contents .ui__menu_btn .bar
+#top #contents .ui__menu_btn .bar
 {
     position: absolute;
     top: 50%;
@@ -2456,30 +2502,31 @@ body
     background-color: #fff;
 }
 
-#contents .ui__menu_btn .bar:nth-child(1)
+#top #contents .ui__menu_btn .bar:nth-child(1)
 {
     margin-top: -4px;
 }
 
-#contents .ui__menu_btn .bar:nth-child(2)
+#top #contents .ui__menu_btn .bar:nth-child(2)
 {
     margin-top: 4px;
 }
 
-#contents #topVisual
+#top #contents #topVisual
 {
     z-index: 2;
 
     box-sizing: border-box;
-    width: 100%;
-    padding: 0 40px;
+    width: 375px;
+    height: 270px;
+    padding: 0 40px 0 45px;
 
     color: #fff;
 
     mix-blend-mode: exclusion;
 }
 
-#contents #topVisual .tit
+#top #contents #topVisual .tit
 {
     font-size: 36px;
     font-size: 2.25rem;
@@ -2487,27 +2534,27 @@ body
 
     margin-bottom: 42px;
 
-    letter-spacing: .12em;
+    letter-spacing: .10em;
 }
 
-#contents #topVisual .tit:nth-of-type(2)
+#top #contents #topVisual .tit:nth-of-type(2)
 {
     letter-spacing: .22em;
 }
 
-#contents #topVisual .tit:nth-of-type(3)
+#top #contents #topVisual .tit:nth-of-type(3)
 {
-    letter-spacing: .3em;
+    letter-spacing: .26em;
 }
 
-#contents #topVisual .tit:nth-of-type(4)
+#top #contents #topVisual .tit:nth-of-type(4)
 {
     margin-bottom: 0;
 
     letter-spacing: .31em;
 }
 
-#contents #topVisual .text
+#top #contents #topVisual .text
 {
     font-size: 9px;
     font-size: .5625rem;

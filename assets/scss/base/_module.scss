@@ -17,7 +17,7 @@
   background-size: 375px;
   background-position: 0;
 
-  .itemWrap {padding-left: 45px;}
+  // .itemWrap {padding-left: 45px;}
   .item {
     @include fz(36);
     font-weight: 100;
@@ -40,7 +40,8 @@
     width: 64px;
     height: 64px;
     
-    bottom: 60px;
+    margin-top: 200px;
+    top: 50%;
     
     .bar {
       width: 16px;
@@ -646,13 +647,13 @@
 -------------------------------------------------------------------------------- */    
 
   img.fitted {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
   }
 
-  .flex {
-    width:100%;
-    height:auto;
+  img.flex {
+    width:100% !important;
+    height:auto !important;
   }
 
 /* --------------------------------------------------------------------------------

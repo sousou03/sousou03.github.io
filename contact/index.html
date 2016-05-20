@@ -96,7 +96,7 @@
 //  style sheet
 //
 // ************************************************************ -->
-<link href="/assets/css/contact.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
 <!-- ************************************************************
 //
 //  script
@@ -106,7 +106,6 @@
 <script type='text/javascript' src='/assets/js/common/bundle.js'></script>
 
 
-<script type='text/javascript' src='/assets/js/contact.js'></script>
 <!-- ************************************************************
 //
 //  log
@@ -124,17 +123,23 @@
   })();
 </script> -->
 </head>
-<body>
-  
-  <!-- ************************************************************
+<body id="contact">
+<div class="bodyInner">
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
+
+<!-- ************************************************************
 //
 //  header
 //
 // ************************************************************ -->
 
 
-<header id="header">
-  <h1 class="logo"><a href="/"><img src="/assets/img/common/logo.png" height="23" width="184" alt=""></a></h1>
+<header id="header" class="pjaxMotion">
+  <h1 class="logo"><a href="/"><img src="/assets/img/common/logo_w.png" height="23" width="184" alt=""></a></h1>
   <div class="barL"></div>
   <p class="page">CONTACT</p>
 
@@ -144,22 +149,67 @@
   </div>
 </header>
 
-  <!-- ************************************************************
-  //
-  //  contents
-  //
-  // ************************************************************ -->
-  <div id="contents" class="adjust">
+<!-- ************************************************************
+//
+//  top visual
+//
+// ************************************************************ -->
+<div id="topVisualWrap">
+</div>
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+<div class="ui__menu pjaxMotion">
+  <ul class="itemWrap adjustH">
+    <li class="item fzLiquid"><a class="pjax" href="/">TOP</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/about">ABOUT</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/project">PROJECT</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/technology">TECHNOLOGY</a></li>
+    <li class="item fzLiquid"><a class="pjax" href="/contact">CONTACT</a></li>
+  </ul>
+
+  <div class="ui__menu_btn_c adjustW">
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+
+<!-- ************************************************************
+//
+//  detail
+//
+// ************************************************************ -->
+<div class="detail">
+</div>
+
+<!-- ************************************************************
+//
+//  contents
+//
+// ************************************************************ -->
+<div class="contentsWrap">
+<div class="pjaxWrap pjaxMotion" data-id="contact">
+
+  <div id="contents" class="adjust" data-id="contact">
 
     <form action="">
-      <input type="text" placeholder="NAME">
-      <input type="text" placeholder="COMPANY NAME">
-      <input type="text" placeholder="E-mail address">
-      <input type="text" placeholder="Details of Inquiry">
+      <input type="text" placeholder="NAME" class="fzLiquid">
+      <input type="text" placeholder="COMPANY NAME" class="fzLiquid">
+      <input type="text" placeholder="E-mail address" class="fzLiquid">
+      <input type="text" placeholder="Details of Inquiry" class="fzLiquid">
     
       <ul class="fList attention">
-        <li class="item"><span>CHECK</span></li>
-        <li class="item">
+        <li class="item fzLiquid checkbox"><span>CHECK</span></li>
+        <li class="item fzLiquid">
           I agree with the collection of personal information.<br>
           個人情報収集時の告知に同意します。 
         </li>
@@ -174,28 +224,9 @@
 
   </div>
 
-  <!-- ************************************************************
-//
-//  menu
-//
-// ************************************************************ -->
-<div class="ui__menu">
-  <ul class="itemWrap adjustH">
-    <li class="item"><a href="/">TOP</a></li>
-    <li class="item"><a href="/about">ABOUT</a></li>
-    <li class="item"><a href="/project">PROJECT</a></li>
-    <li class="item"><a href="/technology">TECHNOLOGY</a></li>
-    <li class="item"><a href="/contact">CONTACT</a></li>
-  </ul>
-
-  <div class="ui__menu_btn_c adjustW">
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
+<script type='text/javascript' src='/assets/js/contact.js'></script>
 </div>
-
-<script>
-  
-</script>
+</div>
+</div>
 </body>
 </html>

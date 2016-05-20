@@ -14,48 +14,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
 <%- include(ejsRoot + '_style'); %>
-<link href="/assets/css/detail.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
 <%- include(ejsRoot + '_script'); %>
-<script type='text/javascript' src='/assets/js/detail.js'></script>
 <%- include(ejsRoot + '_log'); %>
 </head>
 <body id="detail">
+<div class="bodyInner">
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
 
-  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+<%- include(ejsRoot + '_header', {data:data,page:page}); %>
 
-  <!-- ************************************************************
-  //
-  //  contents
-  //
-  // ************************************************************ -->
+<!-- ************************************************************
+//
+//  top visual
+//
+// ************************************************************ -->
+<div id="topVisualWrap">
+  <div class="bg">
+    <div class="pjaxMotion">
+    <div id="topVisual" class="adjust">
+      <p class="tit justify fzLiquid">create a new</p>
+      <p class="tit justify fzLiquid">experience in the</p>
+      <p class="tit justify fzLiquid">design and techn</p>
+      <p class="tit justify fzLiquid">−ology of small</p>
+      <p class="tit justify fzLiquid">innovesion</p>
+      <p class="text fzLiquid">デザインとテクノロジーのイノベーションであらたな体験を</p>
+    </div>
+    <div class="barL adjust"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+
+<%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<!-- ************************************************************
+//
+//  detail
+//
+// ************************************************************ -->
+<div class="detail">
+</div>
+
+<!-- ************************************************************
+//
+//  contents
+//
+// ************************************************************ -->
+<div class="contentsWrap">
+<div class="pjaxWrap pjaxMotion" data-id="detail">
+
   <div id="contents">
   
-    <!-- ************************************************************
-    //  top visual
-    // ************************************************************ -->
-    <div id="topVisualWrap">
-      <div class="bg">
-        <div id="topVisual" class="adjust">
-          <p class="tit justify">create a new</p>
-          <p class="tit justify">experience in the</p>
-          <p class="tit justify">design and techn</p>
-          <p class="tit justify">−ology of small</p>
-          <p class="tit justify">innovesion</p>
-          <p class="text">デザインとテクノロジーのイノベーションであらたな体験を</p>
-        </div>
-        <div class="barL adjustW"></div>
-      </div>
-    </div>
-
     <!-- ************************************************************
     //  content
     // ************************************************************ -->
     <div class="content">
-
-      <div class="ui__menu_btn_c">
+  
+      <a href="/project" class="pjax">
+      <div class="ui__menu_btnC">
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
+      </a>
 
       <h2 class="tit">water of the<br>touch sensor</h2>
       <p class="subTit">水のタッチセンサー</p>
@@ -181,11 +211,13 @@
         <h2 class="tit">hinkarinka</h2>
         <p class="subTit">ヒンカリンカ</p>
         <div class="imgWrap">
-          <img src="/assets/img/project/img02.png" height="433" width="700" alt="">
+          <img src="/assets/img/project/img02.png" height="433" width="700" alt="" class="flex">
+          <a href="/project/detail02.html" class="pjax">
           <div class="detailBox adjust">
             <span>DETAILS</span>
             <div class="bar adjustW"></div>
           </div>
+          </a>
         </div>
         <p class="details">CLIENT WORK / EVENT /  2015.12.12</p>
         <p class="tag">#WEB GL  #OpenFrameWorks</p>
@@ -196,10 +228,9 @@
 
   </div>
 
-  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
-
-<script>
-  
-</script>
+<script type='text/javascript' src='/assets/js/detail.js'></script>
+</div>
+</div>
+</div>
 </body>
 </html>

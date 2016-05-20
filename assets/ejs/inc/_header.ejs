@@ -8,7 +8,7 @@ var src,pgaeName;
 var p = page || null;
 
 // logo src
-if(p == 'about' || p == 'technology' || p == 'project' || p == 'detail'){
+if(p == 'about' || p == 'technology' || p == 'project' || p == 'detail' || p == 'contact'){
     src = '/assets/img/common/logo_w.png';
 }else{
     src = '/assets/img/common/logo.png';
@@ -27,7 +27,7 @@ if(p == 'about'){
 
 %>
 
-<header id="header">
+<header id="header" class="pjaxMotion">
   <h1 class="logo"><a href="/"><img src="<%= src %>" height="23" width="184" alt=""></a></h1>
   <div class="barL"></div>
   <p class="page"><%= pgaeName %></p>

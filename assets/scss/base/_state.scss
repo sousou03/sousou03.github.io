@@ -33,8 +33,20 @@
 .is-scroll {
   overflow: scroll !important;
 }
+.is-scroll-x {
+  overflow-x: scroll !important;
+}
+.is-scroll-y {
+  overflow-y: scroll !important;
+}
 .is-hidden {
   overflow: hidden !important;
+}
+.is-hidden-x {
+  overflow-x: hidden !important;
+}
+.is-hidden-y {
+  overflow-y: hidden !important;
 }
 
 /* --------------------------------------------------------------------------------

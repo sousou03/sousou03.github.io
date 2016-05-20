@@ -205,25 +205,25 @@ Base font = 16px
  *   web font   
  *
  */
-#contents #topVisualWrap #topVisual .text,
-#contents #concept .text,
-#contents #member .box .detail .subTit,
-#contents #member .box .detail .text,
-#contents #company .text,
-#contents #access .text
+#about #contents #topVisualWrap #topVisual .text,
+#about #contents #concept .text,
+#about #contents #member .box .detail .subTit,
+#about #contents #member .box .detail .text,
+#about #contents #company .text,
+#about #contents #access .text
 {
     font-family: 'Noto Sans Japanese';
 }
 
 .linkBox,
-#contents .block .tit
+#about #contents .block .tit
 {
     font-family: 'Alegreya Sans', sans-serif;
 }
 
 #header .page,
 .ui__menu .item,
-#contents #topVisualWrap #topVisual .tit
+#about #contents #topVisualWrap #topVisual .tit
 {
     font-family: 'Alegreya Sans SC', sans-serif;
 }
@@ -294,6 +294,7 @@ textarea
     resize: none;
 
     border: none;
+    border-radius: 0;
     outline: none;
     background-color: transparent;
 
@@ -323,6 +324,12 @@ html
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
+}
+
+html,
+body
+{
+    height: 100%;
 }
 
 /* --------------------------------------------------------------------------------
@@ -494,6 +501,11 @@ a:active
     padding: 15px;
 }
 
+#header .logo img
+{
+    vertical-align: middle;
+}
+
 #header .barL
 {
     position: absolute;
@@ -631,6 +643,30 @@ a:active
 */
 /* --------------------------------------------------------------------------------
 *
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+.fz30
+{
+    font-size: 30px !important;
+}
+
+.cssNone
+{
+    top: 0 !important;
+
+    margin-top: 30px !important;
+}
+
+.landState
+{
+    top: 400px !important;
+
+    margin-top: 0 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
 *   menu
 *
 -------------------------------------------------------------------------------- */
@@ -655,11 +691,6 @@ a:active
   */
 }
 
-.ui__menu .itemWrap
-{
-    padding-left: 45px;
-}
-
 .ui__menu .item
 {
     font-size: 36px;
@@ -680,10 +711,11 @@ a:active
 
 .ui__menu .ui__menu_btn_c
 {
-    bottom: 60px;
+    top: 50%;
 
     width: 64px;
     height: 64px;
+    margin-top: 200px;
 }
 
 .ui__menu .ui__menu_btn_c .bar
@@ -2290,14 +2322,14 @@ td
 -------------------------------------------------------------------------------- */
 img.fitted
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
-.flex
+img.flex
 {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2370,9 +2402,29 @@ img.fitted
     overflow: scroll !important;
 }
 
+.is-scroll-x
+{
+    overflow-x: scroll !important;
+}
+
+.is-scroll-y
+{
+    overflow-y: scroll !important;
+}
+
 .is-hidden
 {
     overflow: hidden !important;
+}
+
+.is-hidden-x
+{
+    overflow-x: hidden !important;
+}
+
+.is-hidden-y
+{
+    overflow-y: hidden !important;
 }
 
 /* --------------------------------------------------------------------------------
@@ -2405,18 +2457,16 @@ img.fitted
 *   その他
 *
 -------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-html,
-body
+#about
 {
-    height: 100%;
+    /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
 }
 
-#header
+#about #header
 {
     z-index: 1;
 
@@ -2425,47 +2475,47 @@ body
     mix-blend-mode: exclusion;
 }
 
-#header .barL,
-#header .bar
+#about #header .barL,
+#about #header .bar
 {
     background-color: #fff !important;
 }
 
-#contents
+#about #contents
 {
     /*
-  *
-  *   top visual
-  *
-  */
+    *
+    *   top visual
+    *
+    */
     /*
-  *
-  *   block
-  *
-  */
+    *
+    *   block
+    *
+    */
     /*
-  *
-  *   concept
-  *
-  */
+    *
+    *   concept
+    *
+    */
     /*
-  *
-  *   member
-  *
-  */
+    *
+    *   member
+    *
+    */
     /*
-  *
-  *   company
-  *
-  */
+    *
+    *   company
+    *
+    */
     /*
-  *
-  *   access
-  *
-  */
+    *
+    *   access
+    *
+    */
 }
 
-#contents #topVisualWrap .bg
+#about #contents #topVisualWrap .bg
 {
     position: fixed;
     top: 0;
@@ -2477,12 +2527,14 @@ body
     background: url(/assets/img/about/bg.png) no-repeat;
 }
 
-#contents #topVisualWrap #topVisual
+#about #contents #topVisualWrap #topVisual
 {
     z-index: 2;
 
     box-sizing: border-box;
     width: 100%;
+    width: 375px;
+    height: 314px;
     padding: 0 40px;
 
     color: #fff;
@@ -2490,7 +2542,7 @@ body
     mix-blend-mode: exclusion;
 }
 
-#contents #topVisualWrap #topVisual .tit
+#about #contents #topVisualWrap #topVisual .tit
 {
     font-size: 36px;
     font-size: 2.25rem;
@@ -2502,27 +2554,27 @@ body
     text-transform: uppercase;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(2)
+#about #contents #topVisualWrap #topVisual .tit:nth-of-type(2)
 {
     letter-spacing: .01em;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(3)
+#about #contents #topVisualWrap #topVisual .tit:nth-of-type(3)
 {
-    letter-spacing: 0;
+    letter-spacing: -.05em !important;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(4)
+#about #contents #topVisualWrap #topVisual .tit:nth-of-type(4)
 {
     letter-spacing: .03em;
 }
 
-#contents #topVisualWrap #topVisual .tit:nth-of-type(5)
+#about #contents #topVisualWrap #topVisual .tit:nth-of-type(5)
 {
     letter-spacing: .05em;
 }
 
-#contents #topVisualWrap #topVisual .text
+#about #contents #topVisualWrap #topVisual .text
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2531,81 +2583,78 @@ body
     letter-spacing: .04em;
 }
 
-#contents #topVisualWrap .barL
+#about #contents #topVisualWrap .barL
 {
-    position: absolute;
-    bottom: 115px;
-    left: 50%;
-
     width: 1px;
     height: 32px;
+    margin-top: 48% !important;
 
     background-color: #fff;
 }
 
-#contents .block
+#about #contents .block
 {
     background: rgba(63, 63, 63, .8);
 }
 
-#contents .block .tit
+#about #contents .block .tit
 {
     font-size: 18px;
     font-size: 1.125rem;
     font-weight: 300;
 
     margin-bottom: 30px;
-    padding-top: 45px;
+    padding-top: 12%;
     padding-left: 25px;
 
     letter-spacing: .06em;
 }
 
-#contents #concept
+#about #contents #concept
 {
     color: #fff;
 }
 
-#contents #concept .text
+#about #contents #concept .text
 {
     font-size: 10px;
     font-size: .625rem;
     font-weight: 100;
     line-height: 2;
 
-    padding: 0 40px 30px;
+    padding: 0 12% 10%;
 
     text-align: justify;
     text-justify: inter-ideograph;
     letter-spacing: .04em;
 }
 
-#contents #concept .text:last-child
+#about #contents #concept .text:last-child
 {
     padding-bottom: 45px;
 }
 
-#contents #member
+#about #contents #member
 {
     background: rgba(255, 255, 255, .8);
 }
 
-#contents #member .box
+#about #contents #member .box
 {
-    padding: 0 40px 30px;
+    padding: 0 12% 10%;
 }
 
-#contents #member .box .photo
+#about #contents #member .box .photo
 {
     float: left;
 }
 
-#contents #member .box .detail
+#about #contents #member .box .detail
 {
-    padding-left: 160px;
+    padding-left: 54%;
 }
 
-#contents #member .box .detail .subTit
+#about #contents #member .box .detail .subTit
 {
     font-size: 13px;
     font-size: .8125rem;
@@ -2616,7 +2665,7 @@ body
     letter-spacing: 0;
 }
 
-#contents #member .box .detail .text
+#about #contents #member .box .detail .text
 {
     font-size: 9px;
     font-size: .5625rem;
@@ -2628,62 +2677,62 @@ body
     letter-spacing: .04em;
 }
 
-#contents #member .box .detail .text:nth-of-type(1)
+#about #contents #member .box .detail .text:nth-of-type(1)
 {
     margin-bottom: 15px;
 }
 
-#contents #company
+#about #contents #company
 {
     color: #fff;
 }
 
-#contents #company .text
+#about #contents #company .text
 {
     font-size: 10px;
     font-size: .625rem;
     font-weight: 100;
     line-height: 2;
 
-    padding: 0 40px 0;
+    padding: 0 12% 0;
 
     text-align: justify;
     text-justify: inter-ideograph;
     letter-spacing: .04em;
 }
 
-#contents #access
+#about #contents #access
 {
     padding-bottom: 60px;
 
     color: #fff;
 }
 
-#contents #access .tit
+#about #contents #access .tit
 {
-    padding-top: 30px;
+    padding-top: 12%;
 }
 
-#contents #access .text
+#about #contents #access .text
 {
     font-size: 10px;
     font-size: .625rem;
     font-weight: 100;
     line-height: 2;
 
-    padding: 0 40px 20px;
+    padding: 0 12% 8%;
 
     text-align: justify;
     text-justify: inter-ideograph;
     letter-spacing: .04em;
 }
 
-#contents #access .map
+#about #contents #access .map
 {
     margin-bottom: 30px;
 }
 
-#contents #access .barL
+#about #contents #access .barL
 {
     width: 1px;
     height: 32px;
@@ -2693,13 +2742,13 @@ body
     background-color: #fff;
 }
 
-#contents #access .linkBox
+#about #contents #access .linkBox
 {
     font-size: 18px;
     font-size: 1.125rem;
 }
 
-#contents #access .linkBox .bar
+#about #contents #access .linkBox .bar
 {
     bottom: 33px;
 }

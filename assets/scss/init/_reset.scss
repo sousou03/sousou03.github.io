@@ -32,6 +32,8 @@ input, button, select, textarea {
   outline:none;
   -webkit-appearance: none;
   border: none;
+  -webkit-border-radius: 0;
+          border-radius: 0;
   background-color: rgba(0,0,0,0);
 }
 

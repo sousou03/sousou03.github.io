@@ -13,19 +13,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
 <%- include(ejsRoot + '_style'); %>
-<link href="./assets/css/top.css" rel="stylesheet">
+<link href="./assets/css/style.css" rel="stylesheet" class="stylesheet">
 <%- include(ejsRoot + '_script'); %>
-<script type='text/javascript' src='./assets/js/top.js'></script>
 <%- include(ejsRoot + '_log'); %>
 </head>
-<body>
-  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+<body id="top">
+<div class="bodyInner">
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
+<%- include(ejsRoot + '_header', {data:data,page:page}); %>
 
-  <!-- ************************************************************
-  //
-  //  contents
-  //
-  // ************************************************************ -->
+<!-- ************************************************************
+//
+//  top visual
+//
+// ************************************************************ -->
+<div id="topVisualWrap">
+</div>
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+
+<%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<!-- ************************************************************
+//
+//  detail
+//
+// ************************************************************ -->
+<div class="detail">
+</div>
+
+<!-- ************************************************************
+//
+//  contents
+//
+// ************************************************************ -->
+<div class="contentsWrap">
+<div class="pjaxWrap pjaxMotion" data-id="top">
+
   <div id="contents">
 
     <div class="ui__menu_btn adjust">
@@ -34,19 +66,18 @@
     </div>
 
     <div id="topVisual" class="adjust">
-      <p class="tit justify">CHALLENGE THE</p>
-      <p class="tit justify">TECHNOLOGY,</p>
-      <p class="tit justify">AIM TO NEW</p>
-      <p class="tit justify">EXPERIENCE</p>
-      <p class="text">技術に挑み、新しい体験を目指して</p>
+      <p class="tit justify fzLiquid">CHALLENGE THE</p>
+      <p class="tit justify fzLiquid">TECHNOLOGY,</p>
+      <p class="tit justify fzLiquid">AIM TO NEW</p>
+      <p class="tit justify fzLiquid">EXPERIENCE</p>
+      <p class="text fzLiquid">技術に挑み、新しい体験を目指して</p>
     </div>
-
+  
   </div>
 
-  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
-
-<script>
-  
-</script>
+<script type='text/javascript' src='./assets/js/top.js'></script>
+</div>
+</div>
+</div>
 </body>
 </html>

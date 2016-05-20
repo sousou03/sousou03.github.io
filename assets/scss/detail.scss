@@ -1,41 +1,29 @@
-@charset "utf-4";
+@charset "utf-8";
 
-@import "init/import";
-@import "init/reset"; // リセットCSS、フォントサイズ
+#detail {
 
-@import "base/import"; // 共通css
-
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-
-html,body {
-  height: 100%;
-  // background: rgba(63,63,63,.8);
-}
-
-#header {
-  z-index: 1;
-  color: #fff;
-  mix-blend-mode: exclusion;
-  
-  .logo {
-    mix-blend-mode: normal;
+  /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+  #header {
+    color: #fff;
+    mix-blend-mode: exclusion;
+    z-index: 1;
+    
   }
-  .barL, .bar {background-color: #fff !important;}
-}
-
-
-#contents {
   
-  /*
+  /* --------------------------------------------------------------------------------
   *
   *   top visual
   *
-  */
+  -------------------------------------------------------------------------------- */
+  
   #topVisualWrap {
+
+    min-height: 0 !important;
+    height: 0 !important;
 
     .bg {
       height: 100%;
@@ -44,6 +32,11 @@ html,body {
       position: fixed;
       left: 0;
       top: 0;
+      
+    }
+
+    .pjaxMotion {
+      height: 100%;
     }
     
     #topVisual {
@@ -55,6 +48,9 @@ html,body {
       box-sizing: border-box;
       
       z-index: 2;
+      
+      width: 375px;
+      height: 314px;
       
       .tit {
         @include fz(36);
@@ -70,7 +66,7 @@ html,body {
         // text-justify: inter-ideograph;
       }
       .tit:nth-of-type(2) {letter-spacing: 0.01em;}
-      .tit:nth-of-type(3) {letter-spacing: 0em;}
+      .tit:nth-of-type(3) {letter-spacing: -0.05em !important;}
       .tit:nth-of-type(4) {letter-spacing: 0.03em;}
       .tit:nth-of-type(5) {letter-spacing: 0.05em;}
 
@@ -98,213 +94,46 @@ html,body {
     }
 
   }
-
-  /*
-  *
-  *   content
-  *
-  */
-  .content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,.75);
-    color: #fff;
-    width: 100%;
     
-    > .tit {
-      padding-top: 75px;
-      padding-bottom: 15px;
-      text-align: center;
-      line-height: 1.1;
-      letter-spacing: 0.06em;
-      
-      @include fz(32);
-      font-weight: 100;
-      @extend %alegsc;
-    }
+  /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
 
-    .subTit {
-      padding-bottom: 22px;
-      text-align: center;
-      letter-spacing: 0.06em;
-      
-      @include fz(9);
-      font-weight: 300;
-      @extend %noto;
-    }
+  html,body {
+    height: 100%;
+  }
 
-    .details, .tag {
-      @include fz(9);
-      font-weight: 300;
-      @extend %robot;
-      text-align: center;
-      letter-spacing: 0.06em;
-      padding-bottom: 18px;
-    }
-    .tag {padding-bottom: 30px;}
+  #contents {
 
-    .imgWrap {
-      .barL {
-        width: 1px;
-        height: 32px;
-        background-color: #fff;
-        position: absolute;
-        left: 50%;
-        top: 20px;
-      }
-    }
+    padding-top: 100vh;
 
     /*
     *
-    *   playbox
+    *   content
     *
     */
-    .playBox {
-      width: 65px;
-      height: 65px;
-      
-      background-color: #181818;
-      color: #fff;
-      @include fz(9);
-      font-weight: 300;
-      @extend %robot;
-      display: table;
-      text-align: center;
-      letter-spacing: 0.06em;
-      position: relative;
-      
-      span {
-        display: table-cell;
-        vertical-align: middle;
-      }
-      
-      .bar {
-        width: 25px;
-        height: 1px;
-        background-color: #fff;
-        position: absolute;
-        margin: 0 auto;
-        bottom: 19px;
-      }
-      
-    }
-
-    /*
-    *
-    *   close
-    *
-    */
-    .ui__menu_btn_c {
-      width: 44px;
-      height: 44px;
-      
+    .content {
       position: absolute;
-      right: 0;
-      top: 59px;
+      left: 0;
+      top: 0;
+      background-color: rgba(0,0,0,.75);
+      color: #fff;
+      width: 100%;
       
-      .bar {
-        width: 16px;
-        height: 1px;
-        background-color: #fff;
-        
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -8px;
-      }
-      .bar:nth-child(1){
-        transform: rotate(45deg);
-      }
-      .bar:nth-child(2){
-        transform: rotate(-45deg);
-      }
-    }
-
-    /*
-    *
-    *   grayArea whiteArea
-    *
-    */
-    .grayArea,.whiteArea {
-      background-color: #3e3e3e;
-      padding-top: 45px;
-      padding-bottom: 40px;
-      
-      .tit, .text {
-        padding: 0 40px 0;
-      }
-      .tit {
-        margin-bottom: 25px;
-        @include fz(14);
-        font-weight: 400;
-        @extend %noto;
-        line-height: 1.42;
-        letter-spacing: .04em;
-      } 
-      .text {
-        margin-bottom: 25px;
-
-        @include fz(10);
-        font-weight: 100;
-        @extend %noto;
-        letter-spacing: 0.04em;
-        line-height: 2;
-      }
-
-      .video {
-        width: 270px;
-        height: 150px;
-        margin: 0 auto;
-        background-color: pink;
-      }
-
-      .img {
-        text-align: center;
-        margin-bottom: 45px;
-      }
-
-      .next {
-        @include fz(9);
-        font-weight: 300;
-        @extend %robot;
-        text-align: center;
-        letter-spacing: 0.06em;
-        padding-bottom: 13px;
-      }
-
-      .barL {
-        width: 1px;
-        height: 32px;
-        background-color: #000;
-        margin: 0 auto;
-      }
-    }
-
-    .whiteArea {
-      background-color: #fff;
-      color: #000;
-    }
-
-    /*
-    *
-    *   next project
-    *
-    */
-    .nextProject {
-      padding-top: 46px;
-      padding-bottom: 30px;
-      background-color: #3E3E3E;
-    
-      .tit {
+      > .tit {
+        padding-top: 75px;
         padding-bottom: 15px;
+        text-align: center;
+        line-height: 1.1;
+        letter-spacing: 0.06em;
         
         @include fz(32);
         font-weight: 100;
         @extend %alegsc;
-        letter-spacing: 0.06em;
-        text-align: center;
       }
+
       .subTit {
         padding-bottom: 22px;
         text-align: center;
@@ -314,11 +143,7 @@ html,body {
         font-weight: 300;
         @extend %noto;
       }
-      .imgWrap {
-        padding-left: 25px;
-        margin-bottom: 22px;
-        box-sizing: border-box;
-      }
+
       .details, .tag {
         @include fz(9);
         font-weight: 300;
@@ -327,17 +152,29 @@ html,body {
         letter-spacing: 0.06em;
         padding-bottom: 18px;
       }
+      .tag {padding-bottom: 30px;}
+
+      .imgWrap {
+        .barL {
+          width: 1px;
+          height: 32px;
+          background-color: #fff;
+          position: absolute;
+          left: 50%;
+          top: 20px;
+        }
+      }
 
       /*
       *
-      *   detail box
+      *   playbox
       *
       */
-      .detailBox {
+      .playBox {
         width: 65px;
         height: 65px;
-        background-color: #181818;
         
+        background-color: #181818;
         color: #fff;
         @include fz(9);
         font-weight: 300;
@@ -353,7 +190,7 @@ html,body {
         }
         
         .bar {
-          width: 35px;
+          width: 25px;
           height: 1px;
           background-color: #fff;
           position: absolute;
@@ -363,8 +200,195 @@ html,body {
         
       }
 
+      /*
+      *
+      *   close
+      *
+      */
+      .ui__menu_btnC {
+        width: 44px;
+        height: 44px;
+        
+        // position: absolute;
+        position: fixed;
+        right: 0;
+        top: 59px;
+        
+        z-index: 2;
+        mix-blend-mode: exclusion;
+        
+        .bar {
+          width: 16px;
+          height: 1px;
+          background-color: #fff;
+          
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -8px;
+        }
+        .bar:nth-child(1){
+          transform: rotate(45deg);
+        }
+        .bar:nth-child(2){
+          transform: rotate(-45deg);
+        }
+      }
+
+      /*
+      *
+      *   grayArea whiteArea
+      *
+      */
+      .grayArea,.whiteArea {
+        background-color: #3e3e3e;
+        padding-top: 45px;
+        padding-bottom: 40px;
+        
+        .tit, .text {
+          padding: 0 40px 0;
+        }
+        .tit {
+          margin-bottom: 25px;
+          @include fz(14);
+          font-weight: 400;
+          @extend %noto;
+          line-height: 1.42;
+          letter-spacing: .04em;
+        } 
+        .text {
+          margin-bottom: 25px;
+
+          @include fz(10);
+          font-weight: 100;
+          @extend %noto;
+          letter-spacing: 0.04em;
+          line-height: 2;
+        }
+
+        .video {
+          width: 270px;
+          height: 150px;
+          margin: 0 auto;
+          background-color: pink;
+        }
+
+        .img {
+          text-align: center;
+          margin-bottom: 45px;
+        }
+
+        .next {
+          @include fz(9);
+          font-weight: 300;
+          @extend %robot;
+          text-align: center;
+          letter-spacing: 0.06em;
+          padding-bottom: 13px;
+        }
+
+        .barL {
+          width: 1px;
+          height: 32px;
+          background-color: #000;
+          margin: 0 auto;
+        }
+      }
+
+      .whiteArea {
+        background-color: #fff;
+        color: #000;
+      }
+
+      /*
+      *
+      *   next project
+      *
+      */
+      .nextProject {
+        padding-top: 46px;
+        padding-bottom: 30px;
+        background-color: #3E3E3E;
+      
+        .tit {
+          padding-bottom: 15px;
+          
+          @include fz(32);
+          font-weight: 100;
+          @extend %alegsc;
+          letter-spacing: 0.06em;
+          text-align: center;
+        }
+        .subTit {
+          padding-bottom: 22px;
+          text-align: center;
+          letter-spacing: 0.06em;
+          
+          @include fz(9);
+          font-weight: 300;
+          @extend %noto;
+        }
+        .imgWrap {
+          padding-left: 25px;
+          margin-bottom: 22px;
+          box-sizing: border-box;
+        }
+        .details, .tag {
+          @include fz(9);
+          font-weight: 300;
+          @extend %robot;
+          text-align: center;
+          letter-spacing: 0.06em;
+          padding-bottom: 18px;
+        }
+
+        /*
+        *
+        *   detail box
+        *
+        */
+        .detailBox {
+          width: 65px;
+          height: 65px;
+          background-color: #181818;
+          
+          color: #fff;
+          @include fz(9);
+          font-weight: 300;
+          @extend %robot;
+          display: table;
+          text-align: center;
+          letter-spacing: 0.06em;
+          position: relative;
+          
+          span {
+            display: table-cell;
+            vertical-align: middle;
+          }
+          
+          .bar {
+            width: 35px;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            margin: 0 auto;
+            bottom: 19px;
+          }
+          
+        }
+
+      }
+
+
     }
-
-
   }
+
+  /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+  &.landscape #topVisualWrap .pjaxMotion{height: 100vh !important;min-height: 320px !important;}
+  &.landscape #contents{padding-top: 0 !important;}
+
 }

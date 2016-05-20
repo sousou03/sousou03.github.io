@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@import "init/import";
+@import "init/reset"; // リセットCSS、フォントサイズ
+
+@import "base/import"; // 共通css
+
+
+@import "top.scss";
+@import "about.scss";
+@import "technology.scss";
+@import "project.scss";
+@import "detail.scss";
+@import "contact.scss";

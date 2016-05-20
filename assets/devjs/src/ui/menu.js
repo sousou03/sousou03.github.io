@@ -29,6 +29,7 @@
 
     ready: function() {
 
+      this.$menu.find('.itemWrap').adjust();
 
     },
 
@@ -51,6 +52,7 @@
     open: function() {
 
       this.$menu.show();
+      this.ready();
       
     },
 
@@ -83,9 +85,12 @@
 
       var self = this;
 
-      this.$btn.on('click', function(){self.open.call(self);});
-      this.$close.on('click', function(){self.close.call(self);});
-      this.$item.on('click', function(e){self.stopProp.call(self,e);});
+      var e;
+      if ($('body').attr('id') == 'top') e = 'click';
+      else e = 'touchstart';
+      this.$btn.on(e, function(){self.open.call(self);});
+      this.$close.on(e, function(){self.close.call(self);});
+      // this.$item.on('click', function(e){self.stopProp.call(self,e);});
 
     },
 

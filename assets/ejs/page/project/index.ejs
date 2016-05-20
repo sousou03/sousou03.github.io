@@ -14,38 +14,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%- include(ejsRoot + '_meta', {data:data.meta[page]}); %>
 <%- include(ejsRoot + '_style'); %>
-<link href="/assets/css/project.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
 <%- include(ejsRoot + '_script'); %>
-<script type='text/javascript' src='/assets/js/project.js'></script>
 <%- include(ejsRoot + '_log'); %>
 </head>
 <body id="project">
+<div class="bodyInner">
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
 
-  <%- include(ejsRoot + '_header', {data:data,page:page}); %>
+<%- include(ejsRoot + '_header', {data:data,page:page}); %>
 
-  <!-- ************************************************************
-  //
-  //  contents
-  //
-  // ************************************************************ -->
-  <div id="contents">
-
-    <!-- ************************************************************
-    //  top visual
-    // ************************************************************ -->
-    <div id="topVisualWrap">
-      <div class="bg">        
-        <div id="topVisual" class="adjust">
-          <p class="tit justify">create a new</p>
-          <p class="tit justify">experience in the</p>
-          <p class="tit justify">design and techn</p>
-          <p class="tit justify">−ology of small</p>
-          <p class="tit justify">innovesion</p>
-          <p class="text">デザインとテクノロジーのイノベーションであらたな体験を</p>
-        </div>
-        <div class="barL adjustW"></div>
-      </div>
+<!-- ************************************************************
+//
+//  top visual
+//
+// ************************************************************ -->
+<div id="topVisualWrap">
+  <div class="bg">
+    <div class="pjaxMotion">
+    <div id="topVisual" class="adjust">
+      <p class="tit justify fzLiquid">create a new</p>
+      <p class="tit justify fzLiquid">experience in the</p>
+      <p class="tit justify fzLiquid">design and techn</p>
+      <p class="tit justify fzLiquid">−ology of small</p>
+      <p class="tit justify fzLiquid">innovesion</p>
+      <p class="text fzLiquid">デザインとテクノロジーのイノベーションであらたな体験を</p>
     </div>
+    <div class="barL adjust"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ************************************************************
+//
+//  menu
+//
+// ************************************************************ -->
+
+<%- include(ejsRoot + '_menu', {data:data,page:page}); %>
+
+<!-- ************************************************************
+//
+//  detail
+//
+// ************************************************************ -->
+<div class="detail">
+</div>
+
+<!-- ************************************************************
+//
+//  contents
+//
+// ************************************************************ -->
+<div class="contentsWrap">
+<div class="pjaxWrap pjaxMotion" data-id="project">
+
+  <div id="contents">
 
     <!-- ************************************************************
     //  projects
@@ -57,8 +85,8 @@
         <h2 class="tit">montajyu strick</h2>
         <p class="subTit">モンタージュストライク</p>
         <div class="imgWrap">
-          <img src="/assets/img/project/img01.png" height="433" width="700" alt="">
-          <a href="./detail.html">
+          <img src="/assets/img/project/img01.png" height="433" width="700" alt="" class="flex">
+          <a href="/project/detail.html" class='pjax'>
           <div class="detailBox adjust">
             <span>DETAILS</span>
             <div class="bar adjustW"></div>
@@ -77,8 +105,8 @@
         <h2 class="tit">hinkarinka</h2>
         <p class="subTit">ヒンカリンカ</p>
         <div class="imgWrap">
-          <img src="/assets/img/project/img02.png" height="433" width="700" alt="">
-          <a href="./detail.html">
+          <img src="/assets/img/project/img02.png" height="433" width="700" alt="" class="flex">
+          <a href="/project/detail02.html" class='pjax'>
           <div class="detailBox adjust">
             <span>DETAILS</span>
             <div class="bar adjustW"></div>
@@ -92,7 +120,7 @@
 
       </div>
 
-      <a href="/contact">
+      <a href="/contact" class="pjax">
       <div class="linkBox">
         <span>CONTACT</span>
         <div class="bar adjustW"></div>
@@ -103,10 +131,9 @@
 
   </div>
 
-  <%- include(ejsRoot + '_menu', {data:data,page:page}); %>
-
-<script>
-
-</script>
+<script type='text/javascript' src='/assets/js/project.js'></script>
+</div>
+</div>
+</div>
 </body>
 </html>

@@ -1,100 +1,119 @@
-@charset "utf-4";
+@charset "utf-8";
 
-@import "init/import";
-@import "init/reset"; // リセットCSS、フォントサイズ
+#top {
 
-@import "base/import"; // 共通css
+  .bodyInner, .contentsWrap {
+    height: 100%;
+  }
 
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
-
-html,body {
-  height: 100%;
-}
-
-#header {
-  .barL, .page, .ui__menu_btn {
+  #topVisualWrap {
     display: none;
   }
-
-}
-
-#contents {
-  height: 100%;
-
-  /*
+  
+  .pjaxWrap {
+    background-color: #eee;
+  }
+  /* --------------------------------------------------------------------------------
   *
-  *   menu   
+  *   header
   *
-  */
-  .ui__menu_btn {
-    width: 64px;
-    height: 64px;
-    background: #000 url('/assets/img/top/bg_menu_btn.png');
-    background-size: 100%;
-    
+  -------------------------------------------------------------------------------- */
+  #header {
+
     z-index: 1;
     
-    .bar {
-      width: 16px;
-      height: 1px;
-      background-color: #fff;
-      
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -8px;
+    .barL, .page, .ui__menu_btn {
+      display: none;
     }
-    .bar:nth-child(1){
-      margin-top: -4px;
-    }
-    .bar:nth-child(2){
-      margin-top: 4px;
-    }
+
   }
 
-  /*
+  /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+    #topVisual {
+      padding: 0px 40px 0 45px;
+      color: #fff;
+      mix-blend-mode: exclusion;
+      
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      
+      z-index: 2;
+      width: 375px;
+      height: 270px;
+      
+      .tit {
+        @include fz(36);
+        font-weight: 100;
+        @extend %alegsc;
+        
+        letter-spacing: 0.10em;
+        margin-bottom: 42px;
+
+        // text-align: justify;
+        // text-justify: inter-ideograph;
+      }
+      .tit:nth-of-type(2) {letter-spacing: 0.22em;}
+      .tit:nth-of-type(3) {letter-spacing: 0.26em;}
+      .tit:nth-of-type(4) {letter-spacing: 0.31em;margin-bottom: 0;}
+
+      .text {
+       @include fz(9);
+       font-weight: 400;
+       @extend %noto;
+       letter-spacing: 0.34em;
+       
+       position: absolute;
+       top: 40px;
+       left: 44px;
+      }
+
+    }
+
+  /* --------------------------------------------------------------------------------
   *
   *   contents
   *
-  */
-  #topVisual {
-    padding: 0 40px;
-    color: #fff;
-    mix-blend-mode: exclusion;
-    
-    width: 100%;
-    box-sizing: border-box;
-    
-    z-index: 2;
-    
-    .tit {
-      @include fz(36);
-      font-weight: 100;
-      @extend %alegsc;
+  -------------------------------------------------------------------------------- */
+
+  #contents {
+    height: 100%;
+
+    /*
+    *
+    *   menu   
+    *
+    */
+    .ui__menu_btn {
+      width: 64px;
+      height: 64px;
+      background: #000 url('/assets/img/top/bg_menu_btn.png');
+      background-size: 100%;
       
-      letter-spacing: 0.12em;
-      margin-bottom: 42px;
-
-      // text-align: justify;
-      // text-justify: inter-ideograph;
-    }
-    .tit:nth-of-type(2) {letter-spacing: 0.22em;}
-    .tit:nth-of-type(3) {letter-spacing: 0.3em;}
-    .tit:nth-of-type(4) {letter-spacing: 0.31em;margin-bottom: 0;}
-
-    .text {
-     @include fz(9);
-     font-weight: 400;
-     @extend %noto;
-     letter-spacing: 0.34em;
-     
-     position: absolute;
-     top: 40px;
-     left: 44px;
+      z-index: 1;
+      
+      .bar {
+        width: 16px;
+        height: 1px;
+        background-color: #fff;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -8px;
+      }
+      .bar:nth-child(1){
+        margin-top: -4px;
+      }
+      .bar:nth-child(2){
+        margin-top: 4px;
+      }
     }
 
   }

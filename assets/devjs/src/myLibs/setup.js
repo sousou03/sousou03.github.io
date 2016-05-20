@@ -370,8 +370,6 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
       var minute = this.now.getMinutes() ;      // 分
       var second = this.now.getSeconds() ;
 
-      console.log(hour,minute,second);
-
     },
 
     date: function() {
@@ -403,8 +401,6 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
       // 曜日 (英語)
       var weekDayEN = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"] ;
       var wDE = weekDayEN[this.now.getDay()] ;
-
-      console.log(wDJ,wDE);
 
     },
 
@@ -708,7 +704,9 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
 //
 //--------------------------------------------------
 
-$(window).on('load', function(event) {
+(function(){
+
+  var gb = jp.co.sjPlus;
 
   function setImgSPSize($target){
 
@@ -731,6 +729,259 @@ $(window).on('load', function(event) {
 
   }
 
-  setImgSPSize($('img'));
+  gb.setImgSPSize = setImgSPSize;
 
-});
+})();
+
+//--------------------------------------------------
+//
+//  デバイス、ブラウザ、バージョン判定
+//
+//--------------------------------------------------
+(function(){
+
+  var gb = jp.co.sjPlus;
+
+  var ua = {};
+  var userAgent = window.navigator.userAgent.toLowerCase();
+  var appVersion = window.navigator.appVersion.toLowerCase();
+
+  //--------------------------------------------------
+  //
+  //  デバイス判定
+  //
+  //--------------------------------------------------
+
+  function isDevice() {
+
+    ua.deviceSP = (function(){
+      var media = ["iphone","ipod","ipad","android","dream","cupcake","blackberry9500","blackberry9530","blackberry9520","blackberry9550","blackberry9800","webos","incognito","webmate"];
+      var pattern = new RegExp(media.join("|"),"i");
+      return pattern.test(userAgent);
+    })();
+
+    ua.deviceTab = (function(){
+      var u = userAgent;
+
+      return (u.indexOf("windows") != -1 && u.indexOf("touch") != -1)
+        || u.indexOf("ipad") != -1
+        || (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
+        || (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
+        || u.indexOf("kindle") != -1
+        || u.indexOf("silk") != -1
+        || u.indexOf("playbook") != -1;
+    })();
+
+    ua.deviceMB = (function(){
+      var u = userAgent;
+
+      return (u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
+        || u.indexOf("iphone") != -1
+        || u.indexOf("ipod") != -1
+        || (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
+        || (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
+        || u.indexOf("blackberry") != -1;
+    })();
+
+    if (ua.deviceSP) $('body').addClass('deviceSP');
+    if (ua.deviceTAB) $('body').addClass('deviceTAB');
+    if (ua.deviceMB) $('body').addClass('deviceMB');
+
+    ua.isiPad = (function(){
+      var pattern = new RegExp("ipad","i");
+      return pattern.test(userAgent);
+    })();
+
+    ua.isiPhone = (function(){
+      var pattern = new RegExp("iphone","i");
+      return pattern.test(userAgent);
+    })();
+
+    ua.isiOS = (function(){
+      return (ua.isiPad || ua.isiPhone);
+    })();
+
+    ua.isWin = (function(){
+      if (navigator.platform.indexOf("Win") > -1) return true;
+      else return false;
+    })();
+
+  }
+
+  //--------------------------------------------------
+  //
+  // ブラウザ・バージョン判定
+  //
+  //--------------------------------------------------
+
+  function isBrowserVersion() {
+
+    ua.isIE = (function(){
+        var pattern = new RegExp("msie","i");
+        var pattern2 = new RegExp("trident","i");
+        return pattern.test(userAgent) || pattern2.test(userAgent);
+    })();
+
+    ua.isIEVersion = (function(){
+        
+        if (appVersion.indexOf("msie 10.") != -1) return 'ie10';
+        else if (appVersion.indexOf("msie 9.") != -1) return 'ie9';
+        else if (appVersion.indexOf("msie 8.") != -1) return 'ie8';
+        else if (appVersion.indexOf("msie 7.") != -1) return 'ie7';
+        else if (appVersion.indexOf("msie 6.") != -1) return 'ie6';
+        else if (appVersion.indexOf("trident") != -1) return 'ie11';
+        else return 'notIE';
+
+    })();
+
+    if (ua.isIE) $('body').addClass('ie');
+    if (ua.isIEVersion == 'ie9') $('body').addClass('ie9');
+    if (ua.isIEVersion == 'ie10') $('body').addClass('ie10');
+    if (ua.isIEVersion == 'ie11') $('body').addClass('ie11');
+
+    ua.isSafari = (function(){
+        if(userAgent.indexOf("chrome") != -1) return false;
+        if(userAgent.indexOf("lunascape") != -1) return false;
+        var pattern = new RegExp("safari","i");
+        return pattern.test(userAgent);
+    })();
+
+    ua.isChrome = (function(){
+        var pattern = new RegExp("chrome","i");
+        return pattern.test(userAgent);
+    })();
+
+    ua.isFirefox = (function(){
+        var pattern = new RegExp("firefox","i");
+        return pattern.test(userAgent);
+    })();
+
+    ua.isOpera = (function(){
+        var pattern = new RegExp("opera","i");
+        return pattern.test(userAgent);
+    })();
+
+  }
+
+  //--------------------------------------------------
+  //
+  // レスポンシブ判定,ランドスケープ判定
+  //
+  //--------------------------------------------------
+  
+  function isResizeOrientation() {
+
+    var W = window.innerWidth,
+        H = window.innerHeight,
+
+        isSP = false,
+        cnt = 0,
+
+        bp = 850;
+
+    // 最初ポートレートかランドスケープか判定
+
+    // function init() {
+
+    //   getSize();
+
+    //   if (W > H) cnt = 1;
+    //   else cnt = 0;
+
+    //   log('init');
+
+    // }
+
+    function getSize() {
+      W = window.innerWidth;
+      H = window.innerHeight;   
+    }
+
+    function onResize() {
+
+      getSize();
+
+      if (W > bp) {
+        isSP = false;
+        $('body').removeClass('isSP')
+      } else {
+        isSP = true;
+        $('body').addClass('isSP');
+      }
+
+      if (window.innerHeight > window.innerWidth) {
+      // if (cnt%2==0) {
+        $("body").addClass("portrait");
+        $("body").removeClass("landscape");
+      }else{
+        $("body").addClass("landscape");
+        $("body").removeClass("portrait");
+      }
+      
+      // cnt++;
+      // log(cnt);
+      // $(window).trigger('orient');
+
+    }
+
+    // init();
+
+    gb.isResizeOrient = onResize;
+    // gb.isResizeOrientInit = init;
+
+  }
+
+  // ------------------------------------------------------------
+  //
+  //  各個別デバイスチェック
+  //
+  // ------------------------------------------------------------
+
+  function isIndividual() {
+
+    if (androidVersion() < 5.6) {
+      $('body').addClass('forAndroid');
+      $('.logo img').attr({src: '/assets/img/common/logo.png'});
+    } 
+    // if (iphoneVersion() < 7 && url.indexOf('error') == -1) {
+    //   location.href = '/error.html';
+    // } 
+
+    // 標準ブラウザ判定
+    function isAndroidBrowser() {
+      var ua = window.navigator.userAgent
+      if (/Android/.test(ua) && /Linux; U;/.test(ua) && !/Chrome/.test(ua)) {
+        return true;
+      }
+      return false;
+    }
+
+
+    function androidVersion() {
+      var uat = navigator.userAgent;
+      if( uat.indexOf("Android") > 0 ) {
+
+          var version = parseFloat(uat.slice(uat.indexOf("Android")+8));
+          return version;
+          
+      }
+    }
+
+    function iphoneVersion() {
+      var uat = navigator.userAgent;
+      if( uat.indexOf("iPhone OS") > 0 ) {
+
+          var version = parseFloat(uat.slice(uat.indexOf("iPhone OS")+10));
+          return version;
+
+      }
+    }
+
+  }
+
+  gb.isDevice = isDevice;
+  gb.isBrowserVersion = isBrowserVersion;
+  gb.isResizeOrientation = isResizeOrientation;
+  gb.isIndividual = isIndividual;
+
+}());

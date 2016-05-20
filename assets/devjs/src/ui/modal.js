@@ -19,6 +19,8 @@
     this.W = $(window).width(),
     this.H = $(window).height();
 
+    this.scrollY = 0;
+
     this.setEvents();
     this.ready();
 
@@ -49,15 +51,30 @@
 
     open: function() {
 
+      // gb.Vimeo($('#player'),$('.playBox'));
+
+      // 背景固定
+      this.scrollY = $('.contentsWrap').scrollTop(); 
+
+      $('.pjaxWrap').css( {
+        position: 'fixed',
+        width: '100%',
+        top: -1 * this.scrollY
+      } );
+
+      // モーダル表示
       this.$menu.show();
-      log(1);
       
     },
 
     close: function() {
 
+      // 背景固定解除
+      $('.pjaxWrap').attr( { style: '' } ).css({opacity: 1});
+      $( '.bodyInner, .contentsWrap' ).scrollTop(this.scrollY);
+
+      // モーダル非表示
       this.$menu.hide();
-      log(2);
 
     },
 
@@ -78,8 +95,8 @@
 
       var self = this;
 
-      this.$btn.on('click', function(){self.open.call(self);});
-      this.$close.on('click', function(){self.close.call(self);});
+      this.$btn.on('touchstart click', function(){self.open.call(self);});
+      this.$close.on('touchstart click', function(){self.close.call(self);});
 
     },
 

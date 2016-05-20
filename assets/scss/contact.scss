@@ -1,83 +1,112 @@
-@charset "utf-4";
+@charset "utf-8";
 
-@import "init/import";
-@import "init/reset"; // リセットCSS、フォントサイズ
+#contact {
 
-@import "base/import"; // 共通css
+  .bodyInner, .contentsWrap {
+    height: 100%;
+  }
 
-/* --------------------------------------------------------------------------------
-*
-*   contents
-*
--------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------
+  *
+  *   header
+  *
+  -------------------------------------------------------------------------------- */
+  #header {
+    z-index: 1;
+    color: #fff;
+    mix-blend-mode: exclusion;
+  }
 
-html,body {
-  height: 100%;
-}
+  /* --------------------------------------------------------------------------------
+  *
+  *   top visual
+  *
+  -------------------------------------------------------------------------------- */
+  #topVisualWrap { display: none; }
 
-#contents {
-  // height: 100%;
-  width: 100%;
-  padding: 40px;
-  box-sizing: border-box;
-  // padding: 80px 40px 0;
+  /* --------------------------------------------------------------------------------
+  *
+  *   contents
+  *
+  -------------------------------------------------------------------------------- */
 
-  input {
-    
-    height: 45px;
-    @include fz(15);
-    display: block;
-    border-bottom: 1px solid #7d7d7e;
+  #contents {
+    // height: 100%;
     width: 100%;
-    margin-bottom: 15px;
+    padding: 40px;
+    box-sizing: border-box;
+    // padding: 80px 40px 0;
     
-    @include placeholder {
-      color: #000;
-      letter-spacing: 0.04em;
-      font-family: 'Roboto', sans-serif;
-    }
+    background-color: #eee;
 
-  }
-  input:last-of-type {
-    margin-bottom: 30px;
-  }
-  
-  .attention {
-  
-    margin-bottom: 30px;
-
-    .item:first-child {
-      width: 33px;
-      height: 33px;
-      background-color: #000;
+    input {
       
-      color: #fff;
-      @include fz(8);
-      font-weight: 300;
-      @extend %aleg;
-      display: table;
-      text-align: center;
+      height: 45px;
+      @include fz(15);
+      display: block;
+      border-bottom: 1px solid #7d7d7e;
+      width: 100%;
+      margin-bottom: 15px;
       
-      letter-spacing: 0.06em;
-      
-      span {
-        display: table-cell;
-        vertical-align: middle;
+      @include placeholder {
+        color: #000;
+        letter-spacing: 0.04em;
+        font-family: 'Roboto', sans-serif;
       }
+
+    }
+    input:last-of-type {
+      margin-bottom: 30px;
+    }
+    
+    .attention {
+    
+      margin-bottom: 30px;
+
+      .item:first-child {
+        width: 33px;
+        height: 33px;
+        background-color: #000;
+        
+        color: #fff;
+        @include fz(8);
+        font-weight: 300;
+        @extend %aleg;
+        display: table;
+        text-align: center;
+        
+        letter-spacing: 0.06em;
+        
+        span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      .item:last-child {
+        @include fz(9);
+        font-weight: 200;
+        @extend %noto;
+        letter-spacing: 0.04em;
+        
+        padding-left: 48px;
+        float: none;
+        line-height: 1.8;
+        
+      }
+
     }
 
-    .item:last-child {
-      @include fz(9);
-      font-weight: 200;
-      @extend %noto;
-      letter-spacing: 0.04em;
-      
-      padding-left: 48px;
-      float: none;
-      line-height: 1.8;
-      
-    }
+  }
 
+  /* --------------------------------------------------------------------------------
+  *
+  *   landscape
+  *
+  -------------------------------------------------------------------------------- */
+  &.landscape .pjaxWrap{
+    background-color: #eee;
+    padding-top: 40px !important;
   }
 
 }
