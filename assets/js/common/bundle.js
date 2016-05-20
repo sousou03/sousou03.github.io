@@ -1372,6 +1372,81 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
 }());
 //--------------------------------------------------
 //
+//  GoogleMap
+//
+//--------------------------------------------------
+(function(){
+
+  var gb = jp.co.sjPlus;
+
+  function GoogleMap(address,$object,opt) {
+
+    this.target = $object;
+
+    this.map;
+    this.geo;
+    this.address = address;
+
+    // param
+    this.latlng = new google.maps.LatLng(36, 138);
+    this.opts = {
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: this.latlng
+    };
+    this.opts = $.extend(this.opts,opt);
+    this.req = {};
+
+    this.run();
+
+  }
+
+  // メソッド追加
+  GoogleMap.prototype = {
+
+    run: function(e) {
+
+      var self = this;
+
+      this.map = new google.maps.Map(this.target, this.opts);
+      this.geo = new google.maps.Geocoder();
+      this.req = {address: this.address};
+
+      this.geo.geocode(this.req, function(result, status){
+
+          // setGoogleMap
+          if (status != google.maps.GeocoderStatus.OK) {
+            console.log('error');
+            return;
+          }
+
+          var latlng = result[0].geometry.location;
+
+          self.map.setCenter(latlng);
+
+          var markerOpt = {
+              position: latlng,
+              map: self.map,
+              draggable: true
+          };
+          var marker = new google.maps.Marker(markerOpt);
+
+          // イベント設定
+          google.maps.event.addDomListener(window, 'resize', function(){
+            self.map.panTo(latlng);
+          });
+
+      });
+
+    }
+
+  }
+
+  gb.GoogleMap = GoogleMap;
+
+})();
+//--------------------------------------------------
+//
 //  menu
 //
 //--------------------------------------------------
@@ -1592,7 +1667,7 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
     var iframe = $obj[0];
     this.player = $f(iframe);
 
-    log(this.player);
+    log(iframe,$obj,this.player);
 
     this.$btn = $btn;
 
@@ -1624,10 +1699,12 @@ window.cancelAnimationFrame = window.cancelAnimationFrame ||
 
       var self = this;
 
+      log(1);
+
       this.player.addEvent('ready', function() {          
-          self.player.addEvent('pause', onPause);
-          self.player.addEvent('finish', onFinish);
-          self.player.addEvent('playProgress', onPlayProgress);
+          self.player.addEvent('pause', self.onPause);
+          self.player.addEvent('finish', self.onFinish);
+          self.player.addEvent('playProgress', self.onPlayProgress);
       });
 
       this.$btn.on('click', function() {

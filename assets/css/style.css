@@ -449,24 +449,32 @@ a:active
 
 .scale
 {
-    transition: transform .35s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition: -webkit-transform .35s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .35s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .35s cubic-bezier(.25, .46, .45, .94) 0s, -webkit-transform .35s cubic-bezier(.25, .46, .45, .94) 0s;
 }
 
 .scale:hover
 {
     cursor: pointer;
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
 }
 
 .scale_img
 {
-    transition: transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition: -webkit-transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .3s cubic-bezier(.25, .46, .45, .94) 0s, -webkit-transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
 }
 
 .scale_img:hover
 {
     cursor: pointer;
-    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+            transform: scale(1.15);
 }
 
 /*
@@ -819,12 +827,16 @@ a:active
 
 .ui__menu .ui__menu_btn_c .bar:nth-child(1)
 {
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 .ui__menu .ui__menu_btn_c .bar:nth-child(2)
 {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 
 /* --------------------------------------------------------------------------------
@@ -980,19 +992,25 @@ a:active
     height: 2px;
 
     transition: all .3s;
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
 
     background: #fff;
 }
 
 .type-1 .top
 {
-    transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
+        -ms-transform: translateY(-3px);
+            transform: translateY(-3px);
 }
 
 .type-1 .bottom
 {
-    transform: translateY(3px);
+    -webkit-transform: translateY(3px);
+        -ms-transform: translateY(3px);
+            transform: translateY(3px);
 }
 
 .type-1.is-open .middle
@@ -1002,12 +1020,16 @@ a:active
 
 .type-1.is-open .top
 {
-    transform: rotate(-45deg) translateY(0);
+    -webkit-transform: rotate(-45deg) translateY(0);
+        -ms-transform: rotate(-45deg) translateY(0);
+            transform: rotate(-45deg) translateY(0);
 }
 
 .type-1.is-open .bottom
 {
-    transform: rotate(45deg) translate(-1px, -1px);
+    -webkit-transform: rotate(45deg) translate(-1px, -1px);
+        -ms-transform: rotate(45deg) translate(-1px, -1px);
+            transform: rotate(45deg) translate(-1px, -1px);
 }
 
 /* --------------------------------------------------------------------------------
@@ -1143,14 +1165,18 @@ a:active
 /* checked mark aspect changes */
 [type='checkbox']:not(:checked) + label:after
 {
-    transform: scale(0);
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
 
     opacity: 0;
 }
 
 [type='checkbox']:checked + label:after
 {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
 
     opacity: 1;
 }
@@ -2984,6 +3010,9 @@ img.flex
 
 #about #contents #access .map
 {
+    width: 295px;
+    height: 255px;
+    margin: 0 auto;
     margin-bottom: 30px;
 }
 
@@ -3299,12 +3328,16 @@ img.flex
 
 #technology .detail .ui__menu_btn_c .bar:nth-child(1)
 {
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 #technology .detail .ui__menu_btn_c .bar:nth-child(2)
 {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 
 #technology #contents
@@ -4050,12 +4083,16 @@ img.flex
 
 #detail #contents .content .ui__menu_btnC .bar:nth-child(1)
 {
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 #detail #contents .content .ui__menu_btnC .bar:nth-child(2)
 {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 
 #detail #contents .content .grayArea,

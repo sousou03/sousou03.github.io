@@ -16,24 +16,8 @@
     // setup 各デバイス別チェック
     gb.isIndividual();
 
-    // ui
-    // vimeo = new gb.Vimeo($('#player'),$('.playBox'));
-    var iframe = $('#player1')[0];
-    var player = $f(iframe);
 
-    // When the player is ready, add listeners for pause, finish, and playProgress
-    player.addEvent('ready', function() {
-
-      $('.playBox').bind('click', function() {
-          player.api('play');
-          log('fda');
-      });
-      
-    });
-
-    // Call the API when a button is pressed
-
-
+    vimeo = new gb.Vimeo($('#player1'),$('.playBox'));
     menu = new gb.Menu($('.ui__menu_btn'),$('.ui__menu .ui__menu_btn_c'));
     modal = new gb.Modal($('#casestudy .box'),$('.detail .ui__menu_btn_c'))
 

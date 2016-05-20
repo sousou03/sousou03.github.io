@@ -18,6 +18,7 @@
     
     // ui
     menu = new gb.Menu($('.ui__menu_btn'),$('.ui__menu_btn_c'));
+    new gb.GoogleMap('東京都港区南青山2-20-4',$('.map')[0]);
 
     // cv
 
@@ -55,6 +56,9 @@
       // header
       {obj:$('#header .barL'),list:[],win:win,notObj:'',inner:'',notList:['height','top']},
       {obj:$('#header .page'),list:['font-size','letter-spacing'],win:win,notObj:'',inner:'',notList:['top']},
+
+      // contents
+      {obj:$('.map'),list:[],win:win,notObj:'',inner:'',notList:['margin-left','margin-right']},
       
       // menu
       {obj:$('.ui__menu .item'),list:[],win:win,notObj:'',inner:'',notList:[]},  
@@ -89,6 +93,9 @@
       // header
       {obj:$('#header .barL'),list:[],win:win,notObj:'',inner:'',notList:['height','top']},
       {obj:$('#header .page'),list:['font-size','letter-spacing'],win:win,notObj:'',inner:'',notList:['top']},
+
+      // contents
+      {obj:$('.map'),list:[],win:win,notObj:'',inner:'',notList:['margin-left','margin-right']},
 
       // menu
       {obj:$('.ui__menu .item'),list:[],win:win,notObj:'',inner:'',notList:[]},  

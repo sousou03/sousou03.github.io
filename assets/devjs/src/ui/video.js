@@ -12,7 +12,7 @@
     var iframe = $obj[0];
     this.player = $f(iframe);
 
-    log(this.player);
+    log(iframe,$obj,this.player);
 
     this.$btn = $btn;
 
@@ -44,10 +44,12 @@
 
       var self = this;
 
+      log(1);
+
       this.player.addEvent('ready', function() {          
-          self.player.addEvent('pause', onPause);
-          self.player.addEvent('finish', onFinish);
-          self.player.addEvent('playProgress', onPlayProgress);
+          self.player.addEvent('pause', self.onPause);
+          self.player.addEvent('finish', self.onFinish);
+          self.player.addEvent('playProgress', self.onPlayProgress);
       });
 
       this.$btn.on('click', function() {
